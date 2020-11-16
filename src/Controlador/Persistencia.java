@@ -30,12 +30,7 @@ public Persistencia()throws NotificarError {
 
     }
 private void CrearConexion() throws NotificarError {
-
         try{
-
-
-
- 
           config = new Configuration();
           config.configure(this.configuracion);
           System.out.println("configuracion exitosa");
@@ -43,18 +38,13 @@ private void CrearConexion() throws NotificarError {
         }catch(HibernateException e) {
             System.out.println(e.getMessage());
             throw new NotificarError (e.getMessage());
-
         }
-
     }
 
 public void GuardarOActualizarInstancia(Object instancia) throws NotificarError{
-
         //se comprueba la sesion
         this.ComprobarSesion();
-
         Transaction tx= this.sesion.beginTransaction();
-
         try{
             this.sesion.saveOrUpdate(instancia);
             tx.commit();          // finaliza la transaccion guardando
@@ -65,9 +55,7 @@ public void GuardarOActualizarInstancia(Object instancia) throws NotificarError{
             System.out.println(e.getMessage());
             tx.rollback();
             throw new NotificarError(e.getMessage());
-
         }
-
     }
 
 public void comprobarSecion() throws NotificarError{
