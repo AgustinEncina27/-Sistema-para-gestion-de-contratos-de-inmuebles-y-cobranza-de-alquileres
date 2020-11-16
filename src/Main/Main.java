@@ -13,9 +13,6 @@ import VistaPrincipal.VistaPrincipal;
 public class Main {
     public static void main(String[] args) throws Exception {
         Persistencia per= new Persistencia();
-        Cliente cli= new Cliente();
-        cli.setNombre("Carlitos");
-        per.GuardarOActualizarInstancia(cli);
         Controlador control= new Controlador();
         VistaPrincipal v1= new VistaPrincipal();
         v1.setVisible(true);

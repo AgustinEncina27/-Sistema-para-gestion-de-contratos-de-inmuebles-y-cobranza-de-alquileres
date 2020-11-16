@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author Agustin
  */
 public abstract class Inmueble {
+    private long idInmueble;
     private String localidad;
     private String direccion;
     private String tamanio;
