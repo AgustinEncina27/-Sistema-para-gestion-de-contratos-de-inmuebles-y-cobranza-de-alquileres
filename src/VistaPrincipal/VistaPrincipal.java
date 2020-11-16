@@ -5,16 +5,35 @@
  */
 package VistaPrincipal;
 
+import Controlador.Controlador;
+import VistaGarante.BuscarGarante;
+import VistaGarante.CrearGarante;
+import VistaGarante.EditarGarante;
+import VistaGarante.EliminarGarante;
+import VistaInmueble.BuscarInmueble;
+import VistaInmueble.CrearInmueble;
+import VistaInmueble.EditarInmueble;
+import VistaInmueble.EliminarInmueble;
+import VistaLocador.BuscarLocador;
+import VistaLocador.CrearLocador;
+import VistaLocador.EditarLocador;
+import VistaLocador.EliminarLocador;
+import VistaLocatario.BuscarLocatario;
+import VistaLocatario.CrearLocatario;
+import VistaLocatario.EditarLocatario;
+import VistaLocatario.EliminarLocatario;
+
 /**
  *
  * @author Agustin
  */
 public class VistaPrincipal extends javax.swing.JFrame {
-
+    Controlador control;
     /**
      * Creates new form VistaPrincipal
      */
-    public VistaPrincipal() {
+    public VistaPrincipal(Controlador control2) {
+        control=control2;
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -78,9 +97,19 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenu1.setText("Locatario");
 
         jMenuCrearLocatario.setText("Crear");
+        jMenuCrearLocatario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuCrearLocatarioActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuCrearLocatario);
 
         jMenubuscarLocatario.setText("Buscar");
+        jMenubuscarLocatario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenubuscarLocatarioActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenubuscarLocatario);
 
         jMenuItem3.setText("Editar");
@@ -92,6 +121,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setText("Eliminar");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem4);
 
         jMenuBar1.add(jMenu1);
@@ -99,12 +133,27 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenu2.setText("Locador");
 
         jMenuItem5.setText("Crear");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem5);
 
         jMenuItem6.setText("Buscar");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem6);
 
         jMenuItem7.setText("Editar");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem7);
 
         jMenuItem8.setText("Eliminar");
@@ -120,6 +169,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenu3.setText("Garante");
 
         jMenuItem9.setText("Crear");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem9);
 
         jMenuItem10.setText("Buscar");
@@ -131,9 +185,19 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenu3.add(jMenuItem10);
 
         jMenuItem11.setText("Editar");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem11);
 
         jMenuItem12.setText("Eliminar");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem12);
 
         jMenuBar1.add(jMenu3);
@@ -141,9 +205,19 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenu4.setText("Inmueble");
 
         jMenuItem13.setText("Crear");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem13);
 
         jMenuItem14.setText("Buscar");
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem14ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem14);
 
         jMenuItem15.setText("Editar");
@@ -155,6 +229,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenu4.add(jMenuItem15);
 
         jMenuItem16.setText("Eliminar");
+        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem16ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem16);
 
         jMenuBar1.add(jMenu4);
@@ -202,19 +281,27 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+        EditarLocatario l= new EditarLocatario(control);
+        l.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        // TODO add your handling code here:
+        EliminarLocador l= new EliminarLocador(control);
+        l.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        // TODO add your handling code here:
+        BuscarGarante g= new BuscarGarante(control);
+        g.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
-        // TODO add your handling code here:
+        EditarInmueble g= new EditarInmueble(control);
+        g.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
     private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
@@ -225,40 +312,79 @@ public class VistaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem20ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jMenuCrearLocatarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCrearLocatarioActionPerformed
+        CrearLocatario l= new CrearLocatario(control);
+        l.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuCrearLocatarioActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VistaPrincipal().setVisible(true);
-            }
-        });
-    }
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        CrearGarante g= new CrearGarante(control);
+        g.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenubuscarLocatarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenubuscarLocatarioActionPerformed
+        BuscarLocatario l= new BuscarLocatario(control);
+        l.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenubuscarLocatarioActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        EliminarLocatario l= new EliminarLocatario(control);
+        l.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        EditarGarante g= new EditarGarante(control);
+        g.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        EliminarGarante g= new EliminarGarante(control);
+        g.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        CrearLocador g= new CrearLocador(control);
+        g.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        BuscarLocador g= new BuscarLocador(control);
+        g.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        EditarLocador g= new EditarLocador(control);
+        g.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+        BuscarInmueble g= new BuscarInmueble(control);
+        g.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+        CrearInmueble g= new CrearInmueble(control);
+        g.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
+
+    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+        EliminarInmueble g= new EliminarInmueble(control);
+        g.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem16ActionPerformed
+  
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

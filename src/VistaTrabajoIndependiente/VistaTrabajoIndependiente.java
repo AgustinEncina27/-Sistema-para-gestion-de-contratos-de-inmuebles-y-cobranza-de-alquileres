@@ -9,6 +9,7 @@ import Clases.Garante;
 import Clases.Locatario;
 import Clases.TrabajoIndependiente;
 import Controlador.Controlador;
+import VistaPrincipal.VistaPrincipal;
 import java.awt.Image;
 import java.io.File;
 import java.util.ArrayList;
@@ -41,7 +42,12 @@ public class VistaTrabajoIndependiente extends javax.swing.JFrame {
         objeto=objeto2;
         control=control2;
         initComponents();
+        this.setLocationRelativeTo(null);
         
+    }
+
+    public VistaTrabajoIndependiente() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -224,7 +230,9 @@ public class VistaTrabajoIndependiente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtoncompro3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        dispose();
+        VistaPrincipal l= new VistaPrincipal(control);
+        l.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -239,7 +247,9 @@ public class VistaTrabajoIndependiente extends javax.swing.JFrame {
 	}
 	JOptionPane.showMessageDialog(null,"SE GUARDARON LOS COMPROBANTES CON EXITO");
 	System.out.println(objeto);
-	dispose();
+	VistaPrincipal l= new VistaPrincipal(control);
+        l.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

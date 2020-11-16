@@ -20,18 +20,7 @@ public class Cuota {
     private Date fechaPago;
     private boolean pagado;
 
-    public Cuota(int numeroCuota, int montoDeRecargo, int montoTotalAPagar, Date primerFechaDePago, Date segundaFechaDePago, Date fechaPago, boolean pagado) {
-        this.numeroCuota = numeroCuota;
-        this.montoDeRecargo = montoDeRecargo;
-        this.montoTotalAPagar = montoTotalAPagar;
-        this.primerFechaDePago = primerFechaDePago;
-        this.segundaFechaDePago = segundaFechaDePago;
-        this.fechaPago = fechaPago;
-        this.pagado = pagado;
-    }
-
-    public Cuota() {
-    }
+    
 
     public int getNumeroCuota() {
         return numeroCuota;
@@ -89,5 +78,16 @@ public class Cuota {
         this.pagado = pagado;
     }
     
-    
+    public Cuota(int numeroCuota, int montoDeRecargo, int montoTotalAPagar, Date primerFechaDePago, Date segundaFechaDePago, Date fechaPago, boolean pagado) {
+        this.numeroCuota = numeroCuota;
+        this.montoDeRecargo = montoDeRecargo;
+        this.montoTotalAPagar = montoTotalAPagar;
+        this.primerFechaDePago = primerFechaDePago;
+        this.segundaFechaDePago = segundaFechaDePago;
+        this.fechaPago = fechaPago;
+        this.pagado = pagado;
+    }
+
+    public Cuota() {
+    }
 }
