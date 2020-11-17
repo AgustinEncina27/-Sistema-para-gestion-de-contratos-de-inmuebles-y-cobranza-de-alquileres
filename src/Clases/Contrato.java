@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Agustin
  */
-public class Contrato {
+public abstract class Contrato {
     private long idContrato;
     private Date fechaDeInicioDelContrato;
     private Date fechaDeFinalDelContrato;

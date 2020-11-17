@@ -7,7 +7,6 @@ package Main;
 
 import Controlador.Controlador;
 import Controlador.Persistencia;
-import Clases.Cliente;
 import VistaPrincipal.VistaPrincipal;
 
 public class Main {

@@ -14,8 +14,25 @@ import java.util.ArrayList;
 public class Garante extends Persona{
         private String actividadALaQueSeDedica;
 	private RelacionDeDependencia dependencia;
-	private ArrayList<TrabajoIndependiente> trabajoDependiente;
+	private ArrayList<TrabajoIndependiente> trabajoIndependiente;
 
+    public ArrayList<TrabajoIndependiente> getTrabajoIndependiente() {
+        return trabajoIndependiente;
+    }
+
+    public void setTrabajoIndependiente(ArrayList<TrabajoIndependiente> trabajoIndependiente) {
+        this.trabajoIndependiente = trabajoIndependiente;
+    }
+
+    public long getIdPersona() {
+        return idPersona;
+    }
+
+    public void setIdPersona(long idPersona) {
+        this.idPersona = idPersona;
+    }
+
+        
     public String getActividadALaQueSeDedica() {
         return actividadALaQueSeDedica;
     }
@@ -32,19 +49,11 @@ public class Garante extends Persona{
         this.dependencia = dependencia;
     }
 
-    public ArrayList<TrabajoIndependiente> getTrabajoDependiente() {
-        return trabajoDependiente;
-    }
-
-    public void setTrabajoDependiente(ArrayList<TrabajoIndependiente> trabajoDependiente) {
-        this.trabajoDependiente = trabajoDependiente;
-    }
-
     public Garante(String actividadALaQueSeDedica, RelacionDeDependencia dependencia, ArrayList<TrabajoIndependiente> trabajoDependiente, long idPersina, String nombre, String apellido, double dni, String estadoCivil, String domicilio, String telefono, String correoElectronico) {
         super(idPersina, nombre, apellido, dni, estadoCivil, domicilio, telefono, correoElectronico);
         this.actividadALaQueSeDedica = actividadALaQueSeDedica;
         this.dependencia = dependencia;
-        this.trabajoDependiente = trabajoDependiente;
+        this.trabajoIndependiente = trabajoDependiente;
     }
 
     public Garante() {

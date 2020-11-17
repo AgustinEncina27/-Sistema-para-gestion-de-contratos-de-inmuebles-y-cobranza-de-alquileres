@@ -5,7 +5,7 @@
  */
 package Controlador;
 
-import Clases.Cliente;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -19,14 +19,13 @@ public class Controlador {
 	FileOutputStream salida;
 	File archivo;
 	
-	public byte[]AbrirAImagen(File archivo ){
-		byte[] bytesImg= new byte[1024*1000];
-		try {
-			entrada = new FileInputStream(archivo);
-			entrada.read(bytesImg);
-		} catch (Exception e) {
-			
-		}
-		return bytesImg;
+    public byte[]AbrirAImagen(File archivo ){
+        byte[] bytesImg= new byte[1024*1000];
+	try {
+            entrada = new FileInputStream(archivo);
+            entrada.read(bytesImg);
+        } catch (Exception e) {	
+	}
+	return bytesImg;
 	}
 }

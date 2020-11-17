@@ -7,9 +7,12 @@ package VistaLocatario;
 
 import Clases.Locatario;
 import Controlador.Controlador;
+import Errores.NotificarError;
 import VistaPrincipal.VistaPrincipal;
 import VistaRelacionDeDependencia.VistaRelacionDeDependencia;
 import VistaTrabajoIndependiente.VistaTrabajoIndependiente;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -256,7 +259,12 @@ public class CrearLocatario extends javax.swing.JFrame {
 					loca.setUsuario(jTextField1.getText());
 					loca.setContrasenia(jTextField2.getText());
 					
-					VistaTrabajoIndependiente v2= new VistaTrabajoIndependiente(control,loca);
+					VistaTrabajoIndependiente v2 = null;
+                                        try {
+                                            v2 = new VistaTrabajoIndependiente(control,loca);
+                                        } catch (NotificarError ex) {
+                                            Logger.getLogger(CrearLocatario.class.getName()).log(Level.SEVERE, null, ex);
+                                        }
 					v2.setVisible(true);
                                         this.setVisible(false);
 				}else {

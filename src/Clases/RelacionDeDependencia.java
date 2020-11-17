@@ -10,7 +10,16 @@ package Clases;
  * @author Agustin
  */
 public class RelacionDeDependencia {
+    private long id;
     private byte[] reciboDeSueldo;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public byte[] getReciboDeSueldo() {
         return reciboDeSueldo;

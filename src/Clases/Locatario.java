@@ -18,7 +18,7 @@ public class Locatario extends Persona {
 	private String usuario;
 	private String contrasenia;
 	private RelacionDeDependencia dependencia;
-        private ArrayList<TrabajoIndependiente> trabajoDependiente;
+        private ArrayList<TrabajoIndependiente> trabajoIndependiente;
 
     public String getActividadALaQueSeDedica() {
         return actividadALaQueSeDedica;
@@ -59,14 +59,23 @@ public class Locatario extends Persona {
     public void setDependencia(RelacionDeDependencia dependencia) {
         this.dependencia = dependencia;
     }
-
-    public ArrayList<TrabajoIndependiente> getTrabajoDependiente() {
-        return trabajoDependiente;
+     
+    public ArrayList<TrabajoIndependiente> getTrabajoIndependiente() {
+        return trabajoIndependiente;
     }
 
-    public void setTrabajoDependiente(ArrayList<TrabajoIndependiente> trabajoDependiente) {
-        this.trabajoDependiente = trabajoDependiente;
+    public void setTrabajoIndependiente(ArrayList<TrabajoIndependiente> trabajoIndependiente) {
+        this.trabajoIndependiente = trabajoIndependiente;
     }
+
+    public long getIdPersona() {
+        return idPersona;
+    }
+
+    public void setIdPersona(long idPersona) {
+        this.idPersona = idPersona;
+    }
+    
 
     public Locatario(String actividadALaQueSeDedica, boolean estudiante, String usuario, String contrasenia, RelacionDeDependencia dependencia, ArrayList<TrabajoIndependiente> trabajoDependiente, long idPersina, String nombre, String apellido, double dni, String estadoCivil, String domicilio, String telefono, String correoElectronico) {
         super(idPersina, nombre, apellido, dni, estadoCivil, domicilio, telefono, correoElectronico);
@@ -75,14 +84,14 @@ public class Locatario extends Persona {
         this.usuario = usuario;
         this.contrasenia = contrasenia;
         this.dependencia = dependencia;
-        this.trabajoDependiente = trabajoDependiente;
+        this.trabajoIndependiente = trabajoDependiente;
     }
 
     public Locatario() {
     }
 
+   
+
     
-        
-        
-        
+             
 }

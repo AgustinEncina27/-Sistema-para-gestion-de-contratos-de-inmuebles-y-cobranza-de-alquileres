@@ -18,6 +18,14 @@ public abstract class Inmueble {
     private String tamanio;
     private ArrayList <Locador> locador;
 
+    public long getIdInmueble() {
+        return idInmueble;
+    }
+
+    public void setIdInmueble(long idInmueble) {
+        this.idInmueble = idInmueble;
+    }
+    
     public String getLocalidad() {
         return localidad;
     }

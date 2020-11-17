@@ -9,10 +9,14 @@ import Clases.Garante;
 import Clases.Locatario;
 import Clases.TrabajoIndependiente;
 import Controlador.Controlador;
+import Controlador.Persistencia;
+import Errores.NotificarError;
 import VistaPrincipal.VistaPrincipal;
 import java.awt.Image;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -38,16 +42,14 @@ public class VistaTrabajoIndependiente extends javax.swing.JFrame {
 	TrabajoIndependiente compro2;
 	TrabajoIndependiente compro3;
         Object objeto;
-    public VistaTrabajoIndependiente(Controlador control2,Object objeto2) {
+        Persistencia per;
+    public VistaTrabajoIndependiente(Controlador control2,Object objeto2) throws NotificarError {
+        this.per = new Persistencia();
         objeto=objeto2;
         control=control2;
         initComponents();
         this.setLocationRelativeTo(null);
         
-    }
-
-    public VistaTrabajoIndependiente() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -240,10 +242,15 @@ public class VistaTrabajoIndependiente extends javax.swing.JFrame {
         compro.add(compro2);
 	compro.add(compro3);
 	if(objeto instanceof Locatario) {
-            ((Locatario) objeto).setTrabajoDependiente(compro);
+            ((Locatario) objeto).setTrabajoIndependiente(compro);
+            try {
+                per.GuardarOActualizarInstancia(objeto);
+            } catch (NotificarError ex) {
+                Logger.getLogger(VistaTrabajoIndependiente.class.getName()).log(Level.SEVERE, null, ex);
+            }
 	}
 	if(objeto instanceof Garante) {
-            ((Garante) objeto).setTrabajoDependiente(compro);
+            ((Garante) objeto).setTrabajoIndependiente(compro);
 	}
 	JOptionPane.showMessageDialog(null,"SE GUARDARON LOS COMPROBANTES CON EXITO");
 	System.out.println(objeto);

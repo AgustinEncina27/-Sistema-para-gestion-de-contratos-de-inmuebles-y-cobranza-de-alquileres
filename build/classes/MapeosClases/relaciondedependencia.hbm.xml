@@ -40,13 +40,13 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-mapping>
-  <class name="Clases.Cliente" table="Cliente">
-    <id name="id" type="long">
-      <column name="idCliente"/>
-      <generator class="native"/>
-    </id>
-    <property name="nombre" type="java.lang.String">
-      <column name="nombre"/>
-    </property>
-  </class>
+  <class name="Clases.RelacionDeDependencia" table="RelacionDeDependencia">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="reciboDeSueldo" type="binary">
+            <column name="RECIBODESUELDO" />
+        </property>
+    </class>
 </hibernate-mapping>

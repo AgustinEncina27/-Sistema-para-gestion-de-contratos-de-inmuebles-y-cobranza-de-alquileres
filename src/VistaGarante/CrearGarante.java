@@ -9,9 +9,12 @@ import Clases.Garante;
 import VistaLocatario.*;
 import Clases.Locatario;
 import Controlador.Controlador;
+import Errores.NotificarError;
 import VistaPrincipal.VistaPrincipal;
 import VistaRelacionDeDependencia.VistaRelacionDeDependencia;
 import VistaTrabajoIndependiente.VistaTrabajoIndependiente;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -205,7 +208,12 @@ public class CrearGarante extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField7ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        VistaTrabajoIndependiente l= new VistaTrabajoIndependiente(control,garante);
+        VistaTrabajoIndependiente l = null;
+        try {
+            l = new VistaTrabajoIndependiente(control,garante);
+        } catch (NotificarError ex) {
+            Logger.getLogger(CrearGarante.class.getName()).log(Level.SEVERE, null, ex);
+        }
         l.setVisible(true);
         this.setVisible(false);  
     }//GEN-LAST:event_jButton2ActionPerformed

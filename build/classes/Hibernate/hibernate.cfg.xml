@@ -49,6 +49,18 @@ Contributor(s):
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.format_sql">true</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
-    <mapping resource="MapeosClases/Cliente.hbm.xml"/>
+    <mapping resource="MapeosClases/servicios.hbm.xml"/>
+    <mapping resource="MapeosClases/cuota.hbm.xml"/>
+    <mapping resource="MapeosClases/cronograma.hbm.xml"/>
+    <mapping resource="MapeosClases/persona.hbm.xml"/>
+    <mapping resource="MapeosClases/trabajoindependiente.hbm.xml"/>
+    <mapping resource="MapeosClases/relaciondedependencia.hbm.xml"/>
+    <mapping resource="MapeosClases/inmueble.hbm.xml"/>
+    <mapping resource="MapeosClases/localcomercial.hbm.xml"/>
+    <mapping resource="MapeosClases/terreno.hbm.xml"/>
+    <mapping resource="MapeosClases/vivienda.hbm.xml"/>
+    <mapping resource="MapeosClases/casa.hbm.xml"/>
+    <mapping resource="MapeosClases/departamento.hbm.xml"/>
+    <mapping resource="MapeosClases/contrato.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
