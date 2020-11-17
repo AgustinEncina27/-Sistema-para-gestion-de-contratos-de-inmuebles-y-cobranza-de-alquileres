@@ -12,7 +12,7 @@ import VistaPrincipal.VistaPrincipal;
 public class Main {
     public static void main(String[] args) throws Exception {
         Persistencia per= new Persistencia();
-        Controlador control= new Controlador();
+        Controlador control= new Controlador(per);
         VistaPrincipal v1= new VistaPrincipal(control);
         v1.setVisible(true);
     }

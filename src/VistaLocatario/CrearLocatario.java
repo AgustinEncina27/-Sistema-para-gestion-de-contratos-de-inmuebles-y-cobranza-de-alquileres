@@ -7,7 +7,7 @@ package VistaLocatario;
 
 import Clases.Locatario;
 import Controlador.Controlador;
-import Errores.NotificarError;
+import Errores.NotificacionError;
 import VistaPrincipal.VistaPrincipal;
 import VistaRelacionDeDependencia.VistaRelacionDeDependencia;
 import VistaTrabajoIndependiente.VistaTrabajoIndependiente;
@@ -262,7 +262,7 @@ public class CrearLocatario extends javax.swing.JFrame {
 					VistaTrabajoIndependiente v2 = null;
                                         try {
                                             v2 = new VistaTrabajoIndependiente(control,loca);
-                                        } catch (NotificarError ex) {
+                                        } catch (NotificacionError ex) {
                                             Logger.getLogger(CrearLocatario.class.getName()).log(Level.SEVERE, null, ex);
                                         }
 					v2.setVisible(true);

@@ -9,7 +9,7 @@ import Clases.Garante;
 import VistaLocatario.*;
 import Clases.Locatario;
 import Controlador.Controlador;
-import Errores.NotificarError;
+import Errores.NotificacionError;
 import VistaPrincipal.VistaPrincipal;
 import VistaRelacionDeDependencia.VistaRelacionDeDependencia;
 import VistaTrabajoIndependiente.VistaTrabajoIndependiente;
@@ -211,7 +211,7 @@ public class CrearGarante extends javax.swing.JFrame {
         VistaTrabajoIndependiente l = null;
         try {
             l = new VistaTrabajoIndependiente(control,garante);
-        } catch (NotificarError ex) {
+        } catch (NotificacionError ex) {
             Logger.getLogger(CrearGarante.class.getName()).log(Level.SEVERE, null, ex);
         }
         l.setVisible(true);

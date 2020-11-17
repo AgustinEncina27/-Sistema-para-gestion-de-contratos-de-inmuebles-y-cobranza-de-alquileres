@@ -9,8 +9,8 @@ package Errores;
  *
  * @author Agustin
  */
-public class NotificarError extends Exception {
-    public NotificarError(String mensaje){
+public class NotificacionError extends Exception {
+    public NotificacionError(String mensaje){
         super(mensaje);
     }
 }

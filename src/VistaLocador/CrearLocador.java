@@ -5,8 +5,14 @@
  */
 package VistaLocador;
 
+import Clases.Locador;
 import Controlador.Controlador;
+import Errores.NotificacionError;
 import VistaPrincipal.VistaPrincipal;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,12 +20,14 @@ import VistaPrincipal.VistaPrincipal;
  */
 public class CrearLocador extends javax.swing.JFrame {
     Controlador control;
+    private Locador  loca1;
     /**
      * Creates new form BuscarLocador
      */
     public CrearLocador(Controlador control2) {
         control=control2;
         initComponents();
+        loca1 = new Locador();
         this.setLocationRelativeTo(null);
     }
 
@@ -66,6 +74,12 @@ public class CrearLocador extends javax.swing.JFrame {
 
         jLabel2.setText("Nombre:");
         jPanel2.add(jLabel2);
+
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jTextField2);
 
         jLabel3.setText("Apellido:");
@@ -141,7 +155,26 @@ public class CrearLocador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+         if(!jTextField2.getText().equals("")&&!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")) {
+                loca1.setNombre(jTextField2.getText());
+		loca1.setApellido(jTextField3.getText());
+		double dnum = Double.parseDouble(jTextField4.getText());
+		loca1.setDni(dnum);
+		loca1.setEstadoCivil(jTextField5.getText());
+		loca1.setDomicilio(jTextField6.getText());
+		loca1.setTelefono(jTextField7.getText());
+		loca1.setCorreoElectronico(jTextField8.getText());
+                
+             try {
+                 control.crear(loca1);
+             } catch (NotificacionError ex) {
+                 Logger.getLogger(CrearLocador.class.getName()).log(Level.SEVERE, null, ex);
+             }
+	
+         }
+         else {
+		JOptionPane.showMessageDialog(null,"Por favor,Ingrese todos los campos");
+	}
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -149,6 +182,10 @@ public class CrearLocador extends javax.swing.JFrame {
         l.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
