@@ -51,7 +51,7 @@ Contributor(s):
     <property name="apellido" type="java.lang.String">
       <column name="APELLIDO"/>
     </property>
-    <property name="dni" type="double">
+    <property name="dni" type="long">
       <column name="DNI"/>
     </property>
     <property name="estadoCivil" type="java.lang.String">

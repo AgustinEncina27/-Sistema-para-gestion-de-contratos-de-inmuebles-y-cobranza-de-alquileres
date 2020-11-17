@@ -7,18 +7,27 @@ package Controlador;
 
 
 import Clases.Locador;
-import Errores.NotificacionError;
+import ClasesDAO.mysqllocadordao;
+import interDAO.locadordao;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import org.eclipse.persistence.sessions.factories.SessionFactory;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 
 public class Controlador {
-    private Persistencia persistencia;
-    FileInputStream entrada;
-    FileOutputStream salida;
-    File archivo;
-public byte[]AbrirAImagen(File archivo ){
-        byte[] bytesImg= new byte[10241000];
+   FileInputStream entrada;
+   FileOutputStream salida;
+   File archivo;
+   private final locadordao locadordao;
+
+    public Controlador(org.hibernate.SessionFactory sessionFactory) {
+        this.locadordao = new mysqllocadordao(sessionFactory);
+    }
+
+    public byte[]AbrirAImagen(File archivo ){
+    byte[] bytesImg= new byte[10241000];
     try {
             entrada = new FileInputStream(archivo);
             entrada.read(bytesImg);
@@ -26,23 +35,22 @@ public byte[]AbrirAImagen(File archivo ){
     }
     return bytesImg;
     }
-public Controlador(Persistencia per) {
-        this.persistencia = per;
+    public void InsertarLocador(Locador a) {
+		locadordao.insertar(a);
+	}
+    public Locador BuscarPorDni(double a){
+        Locador lectura = locadordao.obtenerpordni(a);
+        return lectura;
     }
-
-public void desconectarBaseDatos() throws NotificacionError {
-        this.persistencia.desconectar();
+    
+    public void ActualizarLocador(Locador a) {
+                locadordao.modificar(a);
+	}
+    public void EliminarLocador(Locador a) {
+                locadordao.eliminar(a);
+	}
+    public Locador ObtenerLocador(Long a){
+        Locador lectura = locadordao.obtener(a);
+        return lectura;
     }
-
-public Locador BuscarLocadorDNI(double dni) throws NotificacionError {
-    Locador lo;
-    lo=this.persistencia.buscarLocadorDNI(dni);
-    System.err.println(lo);
-    return lo;
-}
-
-public void crear(Object lol) throws NotificacionError {
-		this.persistencia.GuardarOActualizarInstancia(lol);
-}
-
 }

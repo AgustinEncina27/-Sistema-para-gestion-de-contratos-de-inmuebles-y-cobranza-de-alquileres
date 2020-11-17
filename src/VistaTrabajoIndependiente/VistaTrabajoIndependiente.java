@@ -9,7 +9,6 @@ import Clases.Garante;
 import Clases.Locatario;
 import Clases.TrabajoIndependiente;
 import Controlador.Controlador;
-import Controlador.Persistencia;
 import Errores.NotificacionError;
 import VistaPrincipal.VistaPrincipal;
 import java.awt.Image;
@@ -42,9 +41,8 @@ public class VistaTrabajoIndependiente extends javax.swing.JFrame {
 	TrabajoIndependiente compro2;
 	TrabajoIndependiente compro3;
         Object objeto;
-        Persistencia per;
+        
     public VistaTrabajoIndependiente(Controlador control2,Object objeto2) throws NotificacionError {
-        this.per = new Persistencia();
         objeto=objeto2;
         control=control2;
         initComponents();
@@ -243,11 +241,7 @@ public class VistaTrabajoIndependiente extends javax.swing.JFrame {
 	compro.add(compro3);
 	if(objeto instanceof Locatario) {
             ((Locatario) objeto).setTrabajoIndependiente(compro);
-            try {
-                per.GuardarOActualizarInstancia(objeto);
-            } catch (NotificacionError ex) {
-                Logger.getLogger(VistaTrabajoIndependiente.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
 	}
 	if(objeto instanceof Garante) {
             ((Garante) objeto).setTrabajoIndependiente(compro);

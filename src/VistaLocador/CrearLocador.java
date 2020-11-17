@@ -164,13 +164,8 @@ public class CrearLocador extends javax.swing.JFrame {
 		loca1.setDomicilio(jTextField6.getText());
 		loca1.setTelefono(jTextField7.getText());
 		loca1.setCorreoElectronico(jTextField8.getText());
-                
-             try {
-                 control.crear(loca1);
-             } catch (NotificacionError ex) {
-                 Logger.getLogger(CrearLocador.class.getName()).log(Level.SEVERE, null, ex);
-             }
-	
+                control.InsertarLocador(loca1);
+         
          }
          else {
 		JOptionPane.showMessageDialog(null,"Por favor,Ingrese todos los campos");
