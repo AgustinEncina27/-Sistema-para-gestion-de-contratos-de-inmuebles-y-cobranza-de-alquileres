@@ -29,10 +29,12 @@ public class TrabajoIndependiente {
         this.comprobante = comprobante;
     }
 
+    
+
     public TrabajoIndependiente(byte[] comprobante) {
         this.comprobante = comprobante;
     }
-
+    
     public TrabajoIndependiente() {
     }
 }

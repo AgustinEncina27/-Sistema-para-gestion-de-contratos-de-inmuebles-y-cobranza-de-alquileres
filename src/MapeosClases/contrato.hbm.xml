@@ -60,15 +60,19 @@ Contributor(s):
         <many-to-one name="locador" class="Clases.Locador" fetch="join">
             <column name="LOCADOR" />
         </many-to-one>
-         <many-to-one name="locatario" class="Clases.Locatario" fetch="join">
-            <column name="LOCATARIO" />
-        </many-to-one>
+        <list name="locatario" cascade="all-delete-orphan">   
+            <key column="IDCONTRATO" />
+            <index column="ORDEN" />
+          <one-to-many class="Clases.Locatario" />
+        </list >
         <many-to-one  name="inmueble" class="Clases.Inmueble" fetch="join">
             <column name="INMUEBLE" />
         </many-to-one >
-        <many-to-one name="servicio" class="Clases.Servicio" fetch="join">
-            <column name="SERVICIO" />
-        </many-to-one>
+        <list name="servicio" cascade="all-delete-orphan">   
+            <key column="IDCONTRATO" />
+            <index column="ORDEN" />
+          <one-to-many class="Clases.Servicio" />
+        </list >
         <many-to-one name="cronograma" class="Clases.Cronograma" fetch="join">
             <column name="CRONOGRAMA" />
         </many-to-one >

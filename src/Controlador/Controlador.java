@@ -6,9 +6,9 @@
 package Controlador;
 
 
-import Clases.Locador;
-import ClasesDAO.mysqllocadordao;
-import interDAO.locadordao;
+import Clases.*;
+import ClasesDAO.*;
+import interDAO.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -21,13 +21,17 @@ public class Controlador {
    FileOutputStream salida;
    File archivo;
    private final locadordao locadordao;
+   private final inmuebledao inmuebledao;
+   private final locatariodao locatariodao;
 
     public Controlador(org.hibernate.SessionFactory sessionFactory) {
         this.locadordao = new mysqllocadordao(sessionFactory);
+        this.inmuebledao = new mysqlinmuebledao(sessionFactory);
+        this.locatariodao= new mysqllocatariodao(sessionFactory);
     }
 
     public byte[]AbrirAImagen(File archivo ){
-    byte[] bytesImg= new byte[10241000];
+    byte[] bytesImg= new byte[1024*1000];
     try {
             entrada = new FileInputStream(archivo);
             entrada.read(bytesImg);
@@ -35,6 +39,8 @@ public class Controlador {
     }
     return bytesImg;
     }
+    
+    
     public void InsertarLocador(Locador a) {
 		locadordao.insertar(a);
 	}
@@ -42,7 +48,6 @@ public class Controlador {
         Locador lectura = locadordao.obtenerpordni(a);
         return lectura;
     }
-    
     public void ActualizarLocador(Locador a) {
                 locadordao.modificar(a);
 	}
@@ -53,4 +58,28 @@ public class Controlador {
         Locador lectura = locadordao.obtener(a);
         return lectura;
     }
+    
+    
+
+    public void Insertarinmueble(Inmueble g) {
+		inmuebledao.insertar(g);
+    }
+    public void Actualizarinmueble(Inmueble g) {
+                inmuebledao.modificar(g);
+	}
+    public void Eliminarinmueble(Inmueble g) {
+                inmuebledao.eliminar(g);
+	}
+    
+    
+    
+    public void InsertarLocatoria(Locatario g) {
+		locatariodao.insertar(g);
+    }
+    public void ActualizarLocatoria(Locatario g) {
+                locatariodao.modificar(g);
+	}
+    public void EliminarLocatoria(Locatario g) {
+                locatariodao.eliminar(g);
+	}
 }

@@ -20,6 +20,10 @@ public class Locador extends Persona {
         this.dni = dni;
     }
 
+    public long getDni() {
+        return dni;
+    }
+
  
     public Locador() {
     }

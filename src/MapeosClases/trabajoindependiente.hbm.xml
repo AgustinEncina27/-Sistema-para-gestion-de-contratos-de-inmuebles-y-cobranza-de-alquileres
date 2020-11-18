@@ -42,7 +42,7 @@ Contributor(s):
 <hibernate-mapping>
   <class name="Clases.TrabajoIndependiente" table="TrabajoIndependiente">
           <id name="idTrabajoIndependiente" type="long">
-            <column name="ID" />
+            <column name="IDTRABAJOINDEPENDIENTE" />
             <generator class="native" />
         </id>
         <property name="comprobante" type="binary">

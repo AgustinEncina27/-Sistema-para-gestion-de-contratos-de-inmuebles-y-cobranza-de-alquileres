@@ -42,8 +42,8 @@ Contributor(s):
 <hibernate-mapping>
   <class name="Clases.RelacionDeDependencia" table="RelacionDeDependencia">
         <id name="id" type="long">
-            <column name="ID" />
-            <generator class="assigned" />
+            <column name="IDRELACIONDEDEPENDENCIA" />
+            <generator class="native" />
         </id>
         <property name="reciboDeSueldo" type="binary">
             <column name="RECIBODESUELDO" />

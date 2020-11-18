@@ -20,4 +20,5 @@ public class Terreno extends Inmueble {
     public Terreno() {
     }
     
+    
 }

@@ -165,6 +165,18 @@ public class CrearLocador extends javax.swing.JFrame {
 		loca1.setTelefono(jTextField7.getText());
 		loca1.setCorreoElectronico(jTextField8.getText());
                 control.InsertarLocador(loca1);
+                
+                jTextField2.setText("");
+                jTextField3.setText("");
+                jTextField4.setText("");
+                jTextField5.setText("");
+                jTextField6.setText("");
+                jTextField7.setText("");
+                jTextField8.setText("");
+                
+                
+		JOptionPane.showMessageDialog(null,"Se creo correctamente un nuevo locador");
+	
          
          }
          else {

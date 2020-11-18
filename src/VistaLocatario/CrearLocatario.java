@@ -166,6 +166,11 @@ public class CrearLocatario extends javax.swing.JFrame {
         });
 
         jButton4.setText("AGREGAR");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPanelLayout = new javax.swing.GroupLayout(JPanel);
         JPanel.setLayout(JPanelLayout);
@@ -242,34 +247,34 @@ public class CrearLocatario extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        if(!jTextField1.getText().equals("")&&!jTextField2.getText().equals("")&&!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")&&!jTextField9.getText().equals("")&&!jTextField10.getText().equals("")) {
-					loca.setNombre(jTextField3.getText());
-					loca.setApellido(jTextField4.getText());
-					long dnum = Long.parseLong(jTextField5.getText());
-					loca.setDni(dnum);
-					loca.setEstadoCivil(jTextField6.getText());
-					loca.setDomicilio(jTextField7.getText());
-					loca.setTelefono(jTextField8.getText());
-					loca.setCorreoElectronico(jTextField9.getText());
-					loca.setActividadALaQueSeDedica(jTextField10.getText());
-					if("Falso".equals(comboBox.getSelectedItem())) {
-						loca.setEstudiante(false);
-					}else {
-						loca.setEstudiante(true);
-					}
-					loca.setUsuario(jTextField1.getText());
-					loca.setContrasenia(jTextField2.getText());
-					
-					VistaTrabajoIndependiente v2 = null;
-                                        try {
-                                            v2 = new VistaTrabajoIndependiente(control,loca);
-                                        } catch (NotificacionError ex) {
-                                            Logger.getLogger(CrearLocatario.class.getName()).log(Level.SEVERE, null, ex);
-                                        }
-					v2.setVisible(true);
-                                        this.setVisible(false);
-				}else {
-					JOptionPane.showMessageDialog(null,"Por favor,Ingrese todos los campos");
-				}
+            loca.setNombre(jTextField3.getText());
+            loca.setApellido(jTextField4.getText());
+            long dnum = Long.parseLong(jTextField5.getText());
+            loca.setDni(dnum);
+            loca.setEstadoCivil(jTextField6.getText());
+            loca.setDomicilio(jTextField7.getText());
+            loca.setTelefono(jTextField8.getText());
+            loca.setCorreoElectronico(jTextField9.getText());
+            loca.setActividadALaQueSeDedica(jTextField10.getText());
+            if("Falso".equals(comboBox.getSelectedItem())) {
+            loca.setEstudiante(false);
+            }else {
+            loca.setEstudiante(true);
+            }
+            loca.setUsuario(jTextField1.getText());
+            loca.setContrasenia(jTextField2.getText());
+
+            VistaTrabajoIndependiente v2 = null;                          
+            try {
+                v2 = new VistaTrabajoIndependiente(control,loca);
+            } catch (NotificacionError ex) {
+                Logger.getLogger(CrearLocatario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            v2.setVisible(true);
+            this.setVisible(false);
+        }else {
+            JOptionPane.showMessageDialog(null,"Por favor,Ingrese todos los campos");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void comboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxActionPerformed
@@ -291,10 +296,54 @@ public class CrearLocatario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        VistaRelacionDeDependencia c= new VistaRelacionDeDependencia(control,loca);
-        c.setVisible(true);
-        this.setVisible(false);
+        if(!jTextField1.getText().equals("")&&!jTextField2.getText().equals("")&&!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")&&!jTextField9.getText().equals("")&&!jTextField10.getText().equals("")) {
+            loca.setNombre(jTextField3.getText());
+            loca.setApellido(jTextField4.getText());
+            long dnum = Long.parseLong(jTextField5.getText());
+            loca.setDni(dnum);
+            loca.setEstadoCivil(jTextField6.getText());
+            loca.setDomicilio(jTextField7.getText());
+            loca.setTelefono(jTextField8.getText());
+            loca.setCorreoElectronico(jTextField9.getText());
+            loca.setActividadALaQueSeDedica(jTextField10.getText());
+            if("Falso".equals(comboBox.getSelectedItem())) {
+                loca.setEstudiante(false);
+            }else {
+		loca.setEstudiante(true);
+            }
+            loca.setUsuario(jTextField1.getText());
+            loca.setContrasenia(jTextField2.getText());
+            VistaRelacionDeDependencia c= new VistaRelacionDeDependencia(control,loca);
+            c.setVisible(true);
+            this.setVisible(false);
+        }else {
+            JOptionPane.showMessageDialog(null,"Por favor,Ingrese todos los campos");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       if(!jTextField1.getText().equals("")&&!jTextField2.getText().equals("")&&!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")&&!jTextField9.getText().equals("")&&!jTextField10.getText().equals("")) {
+            loca.setNombre(jTextField3.getText());
+            loca.setApellido(jTextField4.getText());
+            long dnum = Long.parseLong(jTextField5.getText());
+            loca.setDni(dnum);
+            loca.setEstadoCivil(jTextField6.getText());
+            loca.setDomicilio(jTextField7.getText());
+            loca.setTelefono(jTextField8.getText());
+            loca.setCorreoElectronico(jTextField9.getText());
+            loca.setActividadALaQueSeDedica(jTextField10.getText());
+            if("Falso".equals(comboBox.getSelectedItem())) {
+                loca.setEstudiante(false);
+            }else {
+		loca.setEstudiante(true);
+            }
+            loca.setUsuario(jTextField1.getText());
+            loca.setContrasenia(jTextField2.getText());
+            control.InsertarLocatoria(loca);
+        }else {
+            JOptionPane.showMessageDialog(null,"Por favor,Ingrese todos los campos");
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
    
     

@@ -367,13 +367,14 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        BuscarInmueble g= new BuscarInmueble(control);
+        
+        CrearInmueble g= new CrearInmueble(control);
         g.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
     private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
-        CrearInmueble g= new CrearInmueble(control);
+        BuscarInmueble g= new BuscarInmueble(control);
         g.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem14ActionPerformed

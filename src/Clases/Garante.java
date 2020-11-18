@@ -6,6 +6,7 @@
 package Clases;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,13 +15,13 @@ import java.util.ArrayList;
 public class Garante extends Persona{
         private String actividadALaQueSeDedica;
 	private RelacionDeDependencia dependencia;
-	private ArrayList<TrabajoIndependiente> trabajoIndependiente;
+	private List<TrabajoIndependiente> trabajoIndependiente;
 
-    public ArrayList<TrabajoIndependiente> getTrabajoIndependiente() {
+    public List<TrabajoIndependiente> getTrabajoIndependiente() {
         return trabajoIndependiente;
     }
 
-    public void setTrabajoIndependiente(ArrayList<TrabajoIndependiente> trabajoIndependiente) {
+    public void setTrabajoIndependiente(List<TrabajoIndependiente> trabajoIndependiente) {
         this.trabajoIndependiente = trabajoIndependiente;
     }
 
@@ -49,7 +50,7 @@ public class Garante extends Persona{
         this.dependencia = dependencia;
     }
 
-    public Garante(String actividadALaQueSeDedica, RelacionDeDependencia dependencia, ArrayList<TrabajoIndependiente> trabajoIndependiente, long dni, String nombre, String apellido, String estadoCivil, String domicilio, String telefono, String correoElectronico) {
+    public Garante(String actividadALaQueSeDedica, RelacionDeDependencia dependencia, List<TrabajoIndependiente> trabajoIndependiente, long dni, String nombre, String apellido, String estadoCivil, String domicilio, String telefono, String correoElectronico) {
         super(dni, nombre, apellido, estadoCivil, domicilio, telefono, correoElectronico);
         this.actividadALaQueSeDedica = actividadALaQueSeDedica;
         this.dependencia = dependencia;

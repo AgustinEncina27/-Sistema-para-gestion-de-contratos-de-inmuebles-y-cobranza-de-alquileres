@@ -7,6 +7,7 @@ package Clases;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -19,12 +20,12 @@ public abstract class Contrato {
     private int valorBaseDelRecargoProporcional;
     private int recargoFijo;
     private Locador locador;
-    private ArrayList <Locatario> locatario;
+    private List <Locatario> locatario;
     private Inmueble inmueble;
-    private ArrayList <Servicio> servicio;
+    private List <Servicio> servicio;
     private Cronograma cronograma;
 
-    public Contrato(long idContrato, Date fechaDeInicioDelContrato, Date fechaDeFinalDelContrato, int valorBaseDelRecargoProporcional, int recargoFijo, Locador locador, ArrayList<Locatario> locatario, Inmueble inmueble, ArrayList<Servicio> servicio, Cronograma cronograma) {
+    public Contrato(long idContrato, Date fechaDeInicioDelContrato, Date fechaDeFinalDelContrato, int valorBaseDelRecargoProporcional, int recargoFijo, Locador locador, List<Locatario> locatario, Inmueble inmueble, List<Servicio> servicio, Cronograma cronograma) {
         this.idContrato = idContrato;
         this.fechaDeInicioDelContrato = fechaDeInicioDelContrato;
         this.fechaDeFinalDelContrato = fechaDeFinalDelContrato;
@@ -85,11 +86,11 @@ public abstract class Contrato {
         this.locador = locador;
     }
 
-    public ArrayList<Locatario> getLocatario() {
+    public List<Locatario> getLocatario() {
         return locatario;
     }
 
-    public void setLocatario(ArrayList<Locatario> locatario) {
+    public void setLocatario(List<Locatario> locatario) {
         this.locatario = locatario;
     }
 
@@ -101,11 +102,11 @@ public abstract class Contrato {
         this.inmueble = inmueble;
     }
 
-    public ArrayList<Servicio> getServicio() {
+    public List<Servicio> getServicio() {
         return servicio;
     }
 
-    public void setServicio(ArrayList<Servicio> servicio) {
+    public void setServicio(List<Servicio> servicio) {
         this.servicio = servicio;
     }
 

@@ -14,6 +14,7 @@ import VistaPrincipal.VistaPrincipal;
 import java.awt.Image;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
@@ -36,7 +37,7 @@ public class VistaTrabajoIndependiente extends javax.swing.JFrame {
 	File archivo3;
 	byte[] bytesImg;
 	Controlador control;
-	ArrayList <TrabajoIndependiente> compro= new  ArrayList <TrabajoIndependiente>();
+	List <TrabajoIndependiente> compro= new  ArrayList <TrabajoIndependiente>();
 	TrabajoIndependiente compro1;
 	TrabajoIndependiente compro2;
 	TrabajoIndependiente compro3;
@@ -241,21 +242,17 @@ public class VistaTrabajoIndependiente extends javax.swing.JFrame {
 	compro.add(compro3);
 	if(objeto instanceof Locatario) {
             ((Locatario) objeto).setTrabajoIndependiente(compro);
-            
+            control.InsertarLocatoria(((Locatario) objeto));
 	}
 	if(objeto instanceof Garante) {
             ((Garante) objeto).setTrabajoIndependiente(compro);
 	}
 	JOptionPane.showMessageDialog(null,"SE GUARDARON LOS COMPROBANTES CON EXITO");
-	System.out.println(objeto);
 	VistaPrincipal l= new VistaPrincipal(control);
         l.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

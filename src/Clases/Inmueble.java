@@ -6,6 +6,7 @@
 package Clases;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,8 +17,9 @@ public abstract class Inmueble {
     private String localidad;
     private String direccion;
     private String tamanio;
-    private ArrayList <Locador> locador;
+    private List <Locador> locador;
 
+    
     public long getIdInmueble() {
         return idInmueble;
     }
@@ -50,15 +52,15 @@ public abstract class Inmueble {
         this.tamanio = tamanio;
     }
 
-    public ArrayList<Locador> getLocador() {
+    public List<Locador> getLocador() {
         return locador;
     }
 
-    public void setLocador(ArrayList<Locador> locador) {
+    public void setLocador(List<Locador> locador) {
         this.locador = locador;
     }
 
-    public Inmueble(String localidad, String direccion, String tamanio, ArrayList<Locador> locador) {
+    public Inmueble(String localidad, String direccion, String tamanio, List<Locador> locador) {
         this.localidad = localidad;
         this.direccion = direccion;
         this.tamanio = tamanio;
@@ -68,5 +70,9 @@ public abstract class Inmueble {
     public Inmueble() {
     }
     
+    public void agregar (Locador e){
+        locador= new ArrayList<Locador>();
+        this.locador.add(e);
+    }
     
 }

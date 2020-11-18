@@ -11,6 +11,7 @@ import Errores.NotificacionError;
 import VistaPrincipal.VistaPrincipal;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -191,7 +192,10 @@ public class BuscarLocador extends javax.swing.JFrame {
                 jTextField6.setText(locador.getDomicilio());
                 jTextField7.setText(locador.getTelefono());
                 jTextField8.setText(locador.getCorreoElectronico());
-            
+                
+               
+                jTextField1.setText("");
+                JOptionPane.showMessageDialog(null, "Se encontro correctamente");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

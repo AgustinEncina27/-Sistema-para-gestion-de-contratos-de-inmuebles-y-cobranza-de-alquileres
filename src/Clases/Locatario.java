@@ -7,6 +7,7 @@ package Clases;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -18,8 +19,13 @@ public class Locatario extends Persona {
 	private String usuario;
 	private String contrasenia;
 	private RelacionDeDependencia dependencia;
-        private ArrayList<TrabajoIndependiente> trabajoIndependiente;
+        private List<TrabajoIndependiente> trabajoIndependiente;
 
+    public long getDni() {
+        return dni;
+    }
+
+        
     public String getActividadALaQueSeDedica() {
         return actividadALaQueSeDedica;
     }
@@ -60,21 +66,19 @@ public class Locatario extends Persona {
         this.dependencia = dependencia;
     }
      
-    public ArrayList<TrabajoIndependiente> getTrabajoIndependiente() {
+    public List<TrabajoIndependiente> getTrabajoIndependiente() {
         return trabajoIndependiente;
     }
 
-    public void setTrabajoIndependiente(ArrayList<TrabajoIndependiente> trabajoIndependiente) {
+    public void setTrabajoIndependiente(List<TrabajoIndependiente> trabajoIndependiente) {
         this.trabajoIndependiente = trabajoIndependiente;
     }
-
-  
 
     public void setDni(long dni) {
         this.dni = dni;
     }
 
-    public Locatario(String actividadALaQueSeDedica, boolean estudiante, String usuario, String contrasenia, RelacionDeDependencia dependencia, ArrayList<TrabajoIndependiente> trabajoIndependiente, long dni, String nombre, String apellido, String estadoCivil, String domicilio, String telefono, String correoElectronico) {
+    public Locatario(String actividadALaQueSeDedica, boolean estudiante, String usuario, String contrasenia, RelacionDeDependencia dependencia, List<TrabajoIndependiente> trabajoIndependiente, long dni, String nombre, String apellido, String estadoCivil, String domicilio, String telefono, String correoElectronico) {
         super(dni, nombre, apellido, estadoCivil, domicilio, telefono, correoElectronico);
         this.actividadALaQueSeDedica = actividadALaQueSeDedica;
         this.estudiante = estudiante;
@@ -84,16 +88,12 @@ public class Locatario extends Persona {
         this.trabajoIndependiente = trabajoIndependiente;
     }
 
-    
-    
-
-    
+    @Override
+    public String toString() {
+        return "Locatario{" + "actividadALaQueSeDedica=" + actividadALaQueSeDedica + ", estudiante=" + estudiante + ", usuario=" + usuario + ", contrasenia=" + contrasenia + ", dependencia=" + dependencia + ", trabajoIndependiente=" + trabajoIndependiente + '}';
+    }
 
     public Locatario() {
     }
-
-   
-
-    
-             
+         
 }
