@@ -24,13 +24,13 @@ public class Garante extends Persona{
         this.trabajoIndependiente = trabajoIndependiente;
     }
 
-    public long getIdPersona() {
-        return idPersona;
+   
+
+    public void setDni(long dni) {
+        this.dni = dni;
     }
 
-    public void setIdPersona(long idPersona) {
-        this.idPersona = idPersona;
-    }
+    
 
         
     public String getActividadALaQueSeDedica() {
@@ -49,13 +49,14 @@ public class Garante extends Persona{
         this.dependencia = dependencia;
     }
 
-    public Garante(String actividadALaQueSeDedica, RelacionDeDependencia dependencia, ArrayList<TrabajoIndependiente> trabajoDependiente, long idPersina, String nombre, String apellido, double dni, String estadoCivil, String domicilio, String telefono, String correoElectronico) {
-        super(idPersina, nombre, apellido, dni, estadoCivil, domicilio, telefono, correoElectronico);
+    public Garante(String actividadALaQueSeDedica, RelacionDeDependencia dependencia, ArrayList<TrabajoIndependiente> trabajoIndependiente, long dni, String nombre, String apellido, String estadoCivil, String domicilio, String telefono, String correoElectronico) {
+        super(dni, nombre, apellido, estadoCivil, domicilio, telefono, correoElectronico);
         this.actividadALaQueSeDedica = actividadALaQueSeDedica;
         this.dependencia = dependencia;
-        this.trabajoIndependiente = trabajoDependiente;
+        this.trabajoIndependiente = trabajoIndependiente;
     }
 
+   
     public Garante() {
     }
            

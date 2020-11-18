@@ -158,7 +158,7 @@ public class CrearLocador extends javax.swing.JFrame {
          if(!jTextField2.getText().equals("")&&!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")) {
                 loca1.setNombre(jTextField2.getText());
 		loca1.setApellido(jTextField3.getText());
-		double dnum = Double.parseDouble(jTextField4.getText());
+                long dnum = Long.parseLong(jTextField4.getText());
 		loca1.setDni(dnum);
 		loca1.setEstadoCivil(jTextField5.getText());
 		loca1.setDomicilio(jTextField6.getText());

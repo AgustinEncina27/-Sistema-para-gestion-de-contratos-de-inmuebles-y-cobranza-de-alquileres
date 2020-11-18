@@ -84,11 +84,11 @@ public class mysqllocadordao implements locadordao{
   
     public Locador obtenerpordni(double dni) {
         Locador retorno = null;
-        String consulta="From locatorio L where L.dni=:dni";
+        String consulta="SELECT * From locatorio L where L.dni=:dni";
             try {
                 Session session = sessionFactory.openSession();
                 System.out.println("Exito");
-                retorno = (Locador) session.get(Locador.class, dni);
+                retorno = (Locador) session.get(Locador.class, consulta);
             } catch (HibernateException hibernateException) {
                 System.out.println(hibernateException);
                 System.out.println("Fallo");

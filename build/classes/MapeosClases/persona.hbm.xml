@@ -41,18 +41,15 @@ Contributor(s):
 -->
 <hibernate-mapping>
   <class name="Clases.Persona" table="Persona">
-    <id name="idPersona" type="java.lang.Long">
-      <column name="IDPERSONA"/>
-      <generator class="native"/>
+    <id name="dni" type="java.lang.Long">
+      <column name="DNI"/>
+      <generator class="assigned"/>
     </id>
     <property name="nombre" type="java.lang.String">
       <column name="NOMBRE"/>
     </property>
     <property name="apellido" type="java.lang.String">
       <column name="APELLIDO"/>
-    </property>
-    <property name="dni" type="double">
-      <column name="DNI"/>
     </property>
     <property name="estadoCivil" type="java.lang.String">
       <column name="ESTADOCIVIL"/>
@@ -69,12 +66,12 @@ Contributor(s):
     
     
     <joined-subclass name="Clases.Locador" table="Locador">
-      <key column="ID_PERSONA"/>
+      <key column="DNI"/>
     </joined-subclass>
     
     
     <joined-subclass name="Clases.Garante" table="Garante">
-      <key column="ID_PERSONA"/>
+      <key column="DNI"/>
       <property name="actividadALaQueSeDedica" type="java.lang.String">
         <column name="ACTIVIDADALAQUESEDEDICA"/>
       </property>
@@ -88,7 +85,7 @@ Contributor(s):
     
     
     <joined-subclass name="Clases.Locatario" table="Locatario">
-      <key column="ID_PERSONA"/>
+      <key column="DNI"/>
       <property name="actividadALaQueSeDedica" type="java.lang.String">
         <column name="ACTIVIDADALAQUESEDEDICA"/>
       </property>

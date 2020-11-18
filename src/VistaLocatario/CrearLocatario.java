@@ -244,7 +244,7 @@ public class CrearLocatario extends javax.swing.JFrame {
        if(!jTextField1.getText().equals("")&&!jTextField2.getText().equals("")&&!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")&&!jTextField9.getText().equals("")&&!jTextField10.getText().equals("")) {
 					loca.setNombre(jTextField3.getText());
 					loca.setApellido(jTextField4.getText());
-					double dnum = Double.parseDouble(jTextField5.getText());
+					long dnum = Long.parseLong(jTextField5.getText());
 					loca.setDni(dnum);
 					loca.setEstadoCivil(jTextField6.getText());
 					loca.setDomicilio(jTextField7.getText());

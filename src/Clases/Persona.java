@@ -10,24 +10,17 @@ package Clases;
  * @author Agustin
  */
 public abstract class Persona {
-        long idPersona;
+        long dni;
         private String nombre;
 	private String apellido;
-	private double dni;
 	private String estadoCivil;
 	private String domicilio;
 	private String telefono;
 	private String correoElectronico;
 
-    public long getIdPersona() {
-        return idPersona;
-    }
+    
 
-    public void setIdPersona(long idPersona) {
-        this.idPersona = idPersona;
-    }
-
-        
+     
     public String getNombre() {
         return nombre;
     }
@@ -44,13 +37,15 @@ public abstract class Persona {
         this.apellido = apellido;
     }
 
-    public double getDni() {
+    public long getDni() {
         return dni;
     }
 
-    public void setDni(double dni) {
+    public void setDni(long dni) {
         this.dni = dni;
     }
+
+    
 
     public String getEstadoCivil() {
         return estadoCivil;
@@ -84,16 +79,8 @@ public abstract class Persona {
         this.correoElectronico = correoElectronico;
     }
 
-    public long getIdPersina() {
-        return idPersona;
-    }
-
-    public void setIdPersina(long idPersina) {
-        this.idPersona = idPersina;
-    }
-
-    public Persona(long idPersina, String nombre, String apellido, double dni, String estadoCivil, String domicilio, String telefono, String correoElectronico) {
-        this.idPersona = idPersina;
+   
+    public Persona(long dni, String nombre, String apellido, String estadoCivil, String domicilio, String telefono, String correoElectronico) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;

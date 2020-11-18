@@ -68,24 +68,26 @@ public class Locatario extends Persona {
         this.trabajoIndependiente = trabajoIndependiente;
     }
 
-    public long getIdPersona() {
-        return idPersona;
+  
+
+    public void setDni(long dni) {
+        this.dni = dni;
     }
 
-    public void setIdPersona(long idPersona) {
-        this.idPersona = idPersona;
-    }
-    
-
-    public Locatario(String actividadALaQueSeDedica, boolean estudiante, String usuario, String contrasenia, RelacionDeDependencia dependencia, ArrayList<TrabajoIndependiente> trabajoDependiente, long idPersina, String nombre, String apellido, double dni, String estadoCivil, String domicilio, String telefono, String correoElectronico) {
-        super(idPersina, nombre, apellido, dni, estadoCivil, domicilio, telefono, correoElectronico);
+    public Locatario(String actividadALaQueSeDedica, boolean estudiante, String usuario, String contrasenia, RelacionDeDependencia dependencia, ArrayList<TrabajoIndependiente> trabajoIndependiente, long dni, String nombre, String apellido, String estadoCivil, String domicilio, String telefono, String correoElectronico) {
+        super(dni, nombre, apellido, estadoCivil, domicilio, telefono, correoElectronico);
         this.actividadALaQueSeDedica = actividadALaQueSeDedica;
         this.estudiante = estudiante;
         this.usuario = usuario;
         this.contrasenia = contrasenia;
         this.dependencia = dependencia;
-        this.trabajoIndependiente = trabajoDependiente;
+        this.trabajoIndependiente = trabajoIndependiente;
     }
+
+    
+    
+
+    
 
     public Locatario() {
     }

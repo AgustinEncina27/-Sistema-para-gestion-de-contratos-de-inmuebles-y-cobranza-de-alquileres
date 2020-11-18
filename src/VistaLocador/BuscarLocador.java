@@ -179,8 +179,10 @@ public class BuscarLocador extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(!jTextField1.getText().equals("")){
             Locador locador = null;
-            double dni= Double.parseDouble(jTextField1.getText());
-                locador=control.BuscarPorDni(dni);
+            long dni = Long.parseLong(jTextField1.getText());
+            
+                locador=control.ObtenerLocador(dni);
+                System.out.println(locador);
                 jTextField2.setText(locador.getNombre());
                 jTextField3.setText(locador.getApellido());
                 String DNI= String.valueOf(locador.getDni());

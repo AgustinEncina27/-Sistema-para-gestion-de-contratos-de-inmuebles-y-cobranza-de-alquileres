@@ -11,11 +11,18 @@ package Clases;
  */
 public class Locador extends Persona {
 
-    public Locador(long idPersina, String nombre, String apellido, double dni, String estadoCivil, String domicilio, String telefono, String correoElectronico) {
-        super(idPersina, nombre, apellido, dni, estadoCivil, domicilio, telefono, correoElectronico);
+    public Locador(long dni, String nombre, String apellido, String estadoCivil, String domicilio, String telefono, String correoElectronico) {
+        super(dni, nombre, apellido, estadoCivil, domicilio, telefono, correoElectronico);
     }
 
+    
+    public void setDni(long dni) {
+        this.dni = dni;
+    }
+
+ 
     public Locador() {
     }
+    
     
 }
