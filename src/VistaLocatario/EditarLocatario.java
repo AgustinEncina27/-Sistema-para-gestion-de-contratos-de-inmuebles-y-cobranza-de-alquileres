@@ -5,8 +5,15 @@
  */
 package VistaLocatario;
 
+import Clases.Locatario;
 import Controlador.Controlador;
+import Errores.NotificacionError;
 import VistaPrincipal.VistaPrincipal;
+import VistaRelacionDeDependencia.EditarRecibo;
+import VistaTrabajoIndependiente.EditarComprobante;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,6 +21,7 @@ import VistaPrincipal.VistaPrincipal;
  */
 public class EditarLocatario extends javax.swing.JFrame {
     Controlador control;
+    Locatario l= new Locatario();
     /**
      * Creates new form BuscarLocatario
      */
@@ -21,6 +29,8 @@ public class EditarLocatario extends javax.swing.JFrame {
         control= control2;
         initComponents();
         this.setLocationRelativeTo(null);
+        jButton6.setVisible(false);
+        jButton5.setVisible(false);
     }
 
     /**
@@ -54,18 +64,19 @@ public class EditarLocatario extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jTextField10 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jTextField12 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setLayout(new java.awt.GridLayout(11, 2));
+        jPanel2.setLayout(new java.awt.GridLayout(10, 2));
 
         jLabel1.setText("Nombre de Usuario:");
         jPanel2.add(jLabel1);
@@ -142,17 +153,6 @@ public class EditarLocatario extends javax.swing.JFrame {
         jTextField10.setEnabled(false);
         jPanel2.add(jTextField10);
 
-        jLabel11.setText("Estudiante:");
-        jPanel2.add(jLabel11);
-
-        jTextField11.setEnabled(false);
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jTextField11);
-
         jButton1.setText("EDITAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,14 +162,40 @@ public class EditarLocatario extends javax.swing.JFrame {
 
         jLabel12.setText("Buscar por:");
 
-        jButton2.setText("Buscar por nombre de Usuario");
-
-        jButton3.setText("Buscar por nombre de Usuario");
+        jButton3.setText("BUSCAR POR DNI");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("VOLVER");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("EDITAR COMPROBANTES");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("EDITAR RECIBO DE SUELDO");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Es estudiante:");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Verdadero", "Falso" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
             }
         });
 
@@ -179,36 +205,46 @@ public class EditarLocatario extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(75, 75, 75)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField12))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel13)
+                        .addGap(187, 187, 187)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel12)
+                            .addGap(18, 18, 18)
+                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(27, 27, 27)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(115, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(60, 60, 60)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -241,14 +277,38 @@ public class EditarLocatario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField9ActionPerformed
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        VistaPrincipal l= new VistaPrincipal(control);
-        l.setVisible(true);
-        this.setVisible(false);
+        
+        l.setNombre(jTextField3.getText());
+        l.setApellido(jTextField4.getText());
+        l.setEstadoCivil(jTextField6.getText());
+        l.setDomicilio(jTextField7.getText());
+        l.setTelefono(jTextField8.getText());
+        l.setCorreoElectronico(jTextField9.getText());
+        l.setActividadALaQueSeDedica(jTextField10.getText());
+        l.setUsuario(jTextField1.getText());
+        l.setContrasenia(jTextField2.getText());
+        
+        if(jComboBox1.getSelectedItem()=="Verdadero"){
+            l.setDependencia(null);
+            l.setTrabajoIndependiente(null);
+            l.setEstudiante(true);
+            control.ActualizarLocatoria(l);
+            VistaPrincipal l= new VistaPrincipal(control);
+            l.setVisible(true);
+            this.setVisible(false);
+        }else{
+            l.setEstudiante(false);
+            if(l.getDependencia()==null && l.getTrabajoIndependiente()==null){
+                JOptionPane.showMessageDialog(null,"INGRESE UN RECIBO DE SUELDO O LOS COMPROBANTES PARA PODER CONTINUAR");
+            }else{
+                control.desconectarBaseDatosLocatario();
+                control.ActualizarLocatoria(l);
+            }
+        }
+             
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -257,17 +317,89 @@ public class EditarLocatario extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if(!jTextField12.getText().equals("")){
+            jTextField1.setEnabled(true);
+            jTextField2.setEnabled(true);
+            jTextField3.setEnabled(true);
+            jTextField4.setEnabled(true);
+            jTextField5.setEnabled(true);
+            jTextField6.setEnabled(true);
+            jTextField7.setEnabled(true);
+            jTextField8.setEnabled(true);
+            jTextField9.setEnabled(true);
+            jTextField10.setEnabled(true);
+            
+            long dnum = Long.parseLong(jTextField12.getText());
+            l=control.ObtenerLocatario(dnum);
+            jTextField1.setText(l.getUsuario());
+            jTextField2.setText(l.getContrasenia());
+            jTextField3.setText(l.getNombre());
+            jTextField4.setText(l.getApellido());
+            String s=String.valueOf(l.getDni());
+            jTextField5.setText(s);
+            jTextField6.setText(l.getEstadoCivil());
+            jTextField7.setText(l.getDomicilio());
+            jTextField8.setText(l.getTelefono());
+            jTextField9.setText(l.getCorreoElectronico());
+            jTextField10.setText(l.getActividadALaQueSeDedica());
+            if(l.isEstudiante()){
+                jComboBox1.setSelectedItem("Verdadero");
+                jButton6.setVisible(false);
+                jButton5.setVisible(false);
+            }else{
+               jComboBox1.setSelectedItem("Falso");
+               if(l.getDependencia()==null){
+                   jButton5.setVisible(true);
+               }else{
+                   jButton4.setVisible(true);
+               }
+            }
+        }else {
+            JOptionPane.showMessageDialog(null,"Por favor Ingrese un DNI");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        l.setEstudiante(false);
+        l.setDependencia(null);
+        System.out.println("hola");
+        EditarComprobante r = new EditarComprobante(control,l);
+        r.setVisible(true);
+        this.setVisible(false);    
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        l.setEstudiante(false);
+        l.setTrabajoIndependiente(null);
+        EditarRecibo r= new EditarRecibo(control,l );
+        r.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        if(jComboBox1.getSelectedItem()=="Verdadero"){
+            jButton6.setVisible(false);
+            jButton5.setVisible(false);
+        }else{
+            jButton6.setVisible(true);
+            jButton5.setVisible(true);
+        }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -280,7 +412,6 @@ public class EditarLocatario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

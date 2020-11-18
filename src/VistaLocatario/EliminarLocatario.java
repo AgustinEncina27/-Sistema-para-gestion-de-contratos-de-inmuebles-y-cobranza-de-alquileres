@@ -5,8 +5,15 @@
  */
 package VistaLocatario;
 
+import Clases.Locatario;
 import Controlador.Controlador;
+import Errores.NotificacionError;
 import VistaPrincipal.VistaPrincipal;
+import VistaRelacionDeDependencia.VistaPreviaRecibo;
+import VistaTrabajoIndependiente.VistaPreviaComprobantes;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,6 +21,7 @@ import VistaPrincipal.VistaPrincipal;
  */
 public class EliminarLocatario extends javax.swing.JFrame {
     Controlador control;
+    Locatario l= new Locatario();
     /**
      * Creates new form BuscarLocatario
      */
@@ -21,6 +29,8 @@ public class EliminarLocatario extends javax.swing.JFrame {
         control= control2;
         initComponents();
         this.setLocationRelativeTo(null);
+        jButton4.setVisible(false);
+        jButton5.setVisible(false);
     }
 
     /**
@@ -58,10 +68,11 @@ public class EliminarLocatario extends javax.swing.JFrame {
         jTextField11 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jTextField12 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -153,7 +164,7 @@ public class EliminarLocatario extends javax.swing.JFrame {
         });
         jPanel2.add(jTextField11);
 
-        jButton1.setText("ELIMINAR");
+        jButton1.setText("VOLVER");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -162,14 +173,31 @@ public class EliminarLocatario extends javax.swing.JFrame {
 
         jLabel12.setText("Buscar por:");
 
-        jButton2.setText("Buscar por nombre de Usuario");
+        jButton3.setText("BUSCAR POR DNI");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Buscar por nombre de Usuario");
-
-        jButton4.setText("VOLVER");
+        jButton4.setText("VISTA PREVIA DEL RECIBO");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("VISTA PREVIA DE COMPROBANTES");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("ELIMINAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -181,41 +209,41 @@ public class EliminarLocatario extends javax.swing.JFrame {
                 .addGap(75, 75, 75)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField12))
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(115, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(105, 105, 105))))
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(55, 55, 55)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44))
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -254,11 +282,77 @@ public class EliminarLocatario extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if(!jTextField12.getText().equals("")){
+            
+            long dnum = Long.parseLong(jTextField12.getText());
+            l=control.ObtenerLocatario(dnum);
+            jTextField1.setText(l.getUsuario());
+            jTextField2.setText(l.getContrasenia());
+            jTextField3.setText(l.getNombre());
+            jTextField4.setText(l.getApellido());
+            String s=String.valueOf(l.getDni());
+            jTextField5.setText(s);
+            jTextField6.setText(l.getEstadoCivil());
+            jTextField7.setText(l.getDomicilio());
+            jTextField8.setText(l.getTelefono());
+            jTextField9.setText(l.getCorreoElectronico());
+            jTextField10.setText(l.getActividadALaQueSeDedica());
+            if(l.isEstudiante()){
+                jTextField11.setText("SI");
+                jButton4.setVisible(false);
+                jButton5.setVisible(false);
+            }else{
+               jTextField11.setText("NO");
+               if(l.getDependencia()==null){
+                   jButton5.setVisible(true);
+               }else{
+                   jButton4.setVisible(true);
+               }
+            }
+        
+        }else {
+            JOptionPane.showMessageDialog(null,"Por favor Ingrese un DNI");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        VistaPrincipal l= new VistaPrincipal(control);
-        l.setVisible(true);
+        VistaPreviaRecibo c= new VistaPreviaRecibo(control,l.getDependencia());
+        c.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        try {
+            VistaPreviaComprobantes c= new VistaPreviaComprobantes(control,l.getTrabajoIndependiente());
+            c.setVisible(true);
+            this.setVisible(false);
+        } catch (NotificacionError ex) {
+            Logger.getLogger(EliminarLocatario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(!jTextField12.getText().equals("")){
+            control.desconectarBaseDatosLocatario();
+            control.EliminarLocatoria(l);
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
+            jTextField5.setText("");
+            jTextField6.setText("");
+            jTextField7.setText("");
+            jTextField8.setText("");
+            jTextField9.setText("");
+            jTextField10.setText("");
+            jTextField11.setText("");
+            jTextField12.setText("");
+            jButton5.setVisible(false);
+            jButton4.setVisible(false);
+            
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
    
 
@@ -267,6 +361,7 @@ public class EliminarLocatario extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -74,6 +74,7 @@ public class mysqllocadordao implements locadordao{
                 Session session = sessionFactory.openSession();
                 System.out.println("Exito");
                 retorno = (Locador) session.get(Locador.class, id);
+                session.close();
             } catch (HibernateException hibernateException) {
                 System.out.println(hibernateException);
                 System.out.println("Fallo");
@@ -89,6 +90,7 @@ public class mysqllocadordao implements locadordao{
                 Session session = sessionFactory.openSession();
                 System.out.println("Exito");
                 retorno = (Locador) session.get(Locador.class, consulta);
+                
             } catch (HibernateException hibernateException) {
                 System.out.println(hibernateException);
                 System.out.println("Fallo");

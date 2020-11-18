@@ -70,7 +70,10 @@ public class Controlador {
     public void Eliminarinmueble(Inmueble g) {
                 inmuebledao.eliminar(g);
 	}
-    
+    public Inmueble Obtenerinmueble(Long a){
+        Inmueble lectura = inmuebledao.obtener(a);
+        return lectura;
+    }
     
     
     public void InsertarLocatoria(Locatario g) {
@@ -81,5 +84,13 @@ public class Controlador {
 	}
     public void EliminarLocatoria(Locatario g) {
                 locatariodao.eliminar(g);
+	}
+    public Locatario ObtenerLocatario(Long a){
+        Locatario lectura = locatariodao.obtener(a);
+        return lectura;
+    }
+    
+    public void desconectarBaseDatosLocatario(){
+		this.locatariodao.desconectar();
 	}
 }

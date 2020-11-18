@@ -273,7 +273,7 @@ public class CrearLocatario extends javax.swing.JFrame {
             v2.setVisible(true);
             this.setVisible(false);
         }else {
-            JOptionPane.showMessageDialog(null,"Por favor,Ingrese todos los campos");
+            JOptionPane.showMessageDialog(null,"Por favor Ingrese todos los campos");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -340,6 +340,18 @@ public class CrearLocatario extends javax.swing.JFrame {
             loca.setUsuario(jTextField1.getText());
             loca.setContrasenia(jTextField2.getText());
             control.InsertarLocatoria(loca);
+            
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
+            jTextField5.setText("");
+            jTextField6.setText("");
+            jTextField7.setText("");
+            jTextField8.setText("");
+            jTextField9.setText("");
+            jTextField10.setText("");
+            
         }else {
             JOptionPane.showMessageDialog(null,"Por favor,Ingrese todos los campos");
         }

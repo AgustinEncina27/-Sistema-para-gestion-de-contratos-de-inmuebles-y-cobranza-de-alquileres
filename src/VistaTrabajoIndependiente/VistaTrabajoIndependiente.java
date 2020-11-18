@@ -24,10 +24,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
-/**
- *
- * @author Agustin
- */
 public class VistaTrabajoIndependiente extends javax.swing.JFrame {
        JFileChooser seleccionado = new JFileChooser();
 	JFileChooser seleccionado2 = new JFileChooser();
@@ -247,7 +243,6 @@ public class VistaTrabajoIndependiente extends javax.swing.JFrame {
 	if(objeto instanceof Garante) {
             ((Garante) objeto).setTrabajoIndependiente(compro);
 	}
-	JOptionPane.showMessageDialog(null,"SE GUARDARON LOS COMPROBANTES CON EXITO");
 	VistaPrincipal l= new VistaPrincipal(control);
         l.setVisible(true);
         this.setVisible(false);
