@@ -43,8 +43,7 @@ public class VistaTrabajoIndependiente extends javax.swing.JFrame {
         objeto=objeto2;
         control=control2;
         initComponents();
-        this.setLocationRelativeTo(null);
-        
+        this.setLocationRelativeTo(null);   
     }
 
     /**
@@ -242,6 +241,7 @@ public class VistaTrabajoIndependiente extends javax.swing.JFrame {
 	}
 	if(objeto instanceof Garante) {
             ((Garante) objeto).setTrabajoIndependiente(compro);
+            control.InsertarGarante(((Garante) objeto));
 	}
 	VistaPrincipal l= new VistaPrincipal(control);
         l.setVisible(true);

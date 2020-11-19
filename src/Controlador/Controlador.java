@@ -23,10 +23,12 @@ public class Controlador {
    private final locadordao locadordao;
    private final inmuebledao inmuebledao;
    private final locatariodao locatariodao;
+   private final garantedao garantedao;
 
     public Controlador(org.hibernate.SessionFactory sessionFactory) {
         this.locadordao = new mysqllocadordao(sessionFactory);
         this.inmuebledao = new mysqlinmuebledao(sessionFactory);
+        this.garantedao= new mysqlgarantedao(sessionFactory);
         this.locatariodao= new mysqllocatariodao(sessionFactory);
     }
 
@@ -89,8 +91,25 @@ public class Controlador {
         Locatario lectura = locatariodao.obtener(a);
         return lectura;
     }
-    
     public void desconectarBaseDatosLocatario(){
 		this.locatariodao.desconectar();
 	}
+    
+    
+    public void InsertarGarante(Garante g) {
+		garantedao.insertar(g);
+    }
+    public void ActualizarGarante(Garante g) {
+                garantedao.modificar(g);
+    }
+    public void EliminarGarante(Garante g) {
+                garantedao.eliminar(g);
+	}
+    public Garante ObtenerGarante(Long a){
+        Garante lectura = garantedao.obtener(a);
+        return lectura;
+    }
+    public void desconectarBaseDatosGarante(){
+		this.garantedao.desconectar();
+	}  
 }

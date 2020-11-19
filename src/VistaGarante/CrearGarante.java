@@ -24,13 +24,13 @@ import javax.swing.JPanel;
  */
 public class CrearGarante extends javax.swing.JFrame {
     Controlador control;
-    private Garante garante;
+    private Garante gara;
     /**
      * Creates new form CrearLocatario
      */
     public CrearGarante(Controlador control2) {
         control=control2;
-        garante= new Garante();
+        gara= new Garante();
         initComponents();
         this.setLocationRelativeTo(null);
         jButton4.setVisible(false);
@@ -144,11 +144,22 @@ public class CrearGarante extends javax.swing.JFrame {
         });
 
         jButton4.setText("AGREGAR");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPanelLayout = new javax.swing.GroupLayout(JPanel);
         JPanel.setLayout(JPanelLayout);
         JPanelLayout.setHorizontalGroup(
             JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanelLayout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,11 +168,7 @@ public class CrearGarante extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(JPanelLayout.createSequentialGroup()
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -170,11 +177,11 @@ public class CrearGarante extends javax.swing.JFrame {
             .addGroup(JPanelLayout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(69, 69, 69)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(10, 10, 10)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -208,14 +215,29 @@ public class CrearGarante extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField7ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        VistaTrabajoIndependiente l = null;
-        try {
-            l = new VistaTrabajoIndependiente(control,garante);
-        } catch (NotificacionError ex) {
-            Logger.getLogger(CrearGarante.class.getName()).log(Level.SEVERE, null, ex);
+       if(!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")&&!jTextField9.getText().equals("")&&!jTextField10.getText().equals("")) {
+            gara.setNombre(jTextField3.getText());
+            gara.setApellido(jTextField4.getText());
+            long dnum = Long.parseLong(jTextField5.getText());
+            gara.setDni(dnum);
+            gara.setEstadoCivil(jTextField6.getText());
+            gara.setDomicilio(jTextField7.getText());
+            gara.setTelefono(jTextField8.getText());
+            gara.setCorreoElectronico(jTextField9.getText());
+            gara.setActividadALaQueSeDedica(jTextField10.getText());
+            
+
+            VistaTrabajoIndependiente v2 = null;                          
+            try {
+                v2 = new VistaTrabajoIndependiente(control,gara);
+            } catch (NotificacionError ex) {
+                Logger.getLogger(CrearGarante.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            v2.setVisible(true);
+            this.setVisible(false);
+        }else {
+            JOptionPane.showMessageDialog(null,"Por favor Ingrese todos los campos");
         }
-        l.setVisible(true);
-        this.setVisible(false);  
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -225,10 +247,49 @@ public class CrearGarante extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        VistaRelacionDeDependencia c= new VistaRelacionDeDependencia(control,garante);
-        c.setVisible(true);
-        this.setVisible(false);        // TODO add your handling code here:
+        if(!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")&&!jTextField9.getText().equals("")&&!jTextField10.getText().equals("")) {
+            gara.setNombre(jTextField3.getText());
+            gara.setApellido(jTextField4.getText());
+            long dnum = Long.parseLong(jTextField5.getText());
+            gara.setDni(dnum);
+            gara.setEstadoCivil(jTextField6.getText());
+            gara.setDomicilio(jTextField7.getText());
+            gara.setTelefono(jTextField8.getText());
+            gara.setCorreoElectronico(jTextField9.getText());
+            gara.setActividadALaQueSeDedica(jTextField10.getText());
+            VistaRelacionDeDependencia c= new VistaRelacionDeDependencia(control,gara);
+            c.setVisible(true);
+            this.setVisible(false);
+        }else {
+            JOptionPane.showMessageDialog(null,"Por favor,Ingrese todos los campos");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       if(!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")&&!jTextField9.getText().equals("")&&!jTextField10.getText().equals("")) {
+            gara.setNombre(jTextField3.getText());
+            gara.setApellido(jTextField4.getText());
+            long dnum = Long.parseLong(jTextField5.getText());
+            gara.setDni(dnum);
+            gara.setEstadoCivil(jTextField6.getText());
+            gara.setDomicilio(jTextField7.getText());
+            gara.setTelefono(jTextField8.getText());
+            gara.setCorreoElectronico(jTextField9.getText());
+            gara.setActividadALaQueSeDedica(jTextField10.getText());
+            control.InsertarGarante(gara);
+            
+            jTextField3.setText("");
+            jTextField4.setText("");
+            jTextField5.setText("");
+            jTextField6.setText("");
+            jTextField7.setText("");
+            jTextField8.setText("");
+            jTextField9.setText("");
+            jTextField10.setText(""); 
+        }else {
+            JOptionPane.showMessageDialog(null,"Por favor,Ingrese todos los campos");
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
    
     

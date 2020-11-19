@@ -151,9 +151,11 @@ public class EditarRecibo extends javax.swing.JFrame {
             control.desconectarBaseDatosLocatario();
             control.ActualizarLocatoria(((Locatario) objeto));
 	}
-	/*if(objeto instanceof Garante) {
+	if(objeto instanceof Garante) {
             ((Garante) objeto).setDependencia(compro1);
-	}*/
+            control.desconectarBaseDatosGarante();
+            control.ActualizarGarante(((Garante) objeto));
+	}
 	
 	VistaPrincipal l= new VistaPrincipal(control);
         l.setVisible(true);

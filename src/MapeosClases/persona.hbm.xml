@@ -75,7 +75,7 @@ Contributor(s):
       <property name="actividadALaQueSeDedica" type="java.lang.String">
         <column name="ACTIVIDADALAQUESEDEDICA"/>
       </property>
-      <many-to-one name="dependencia" class="Clases.RelacionDeDependencia">
+      <many-to-one name="dependencia"  cascade="all"  class="Clases.RelacionDeDependencia">
           <column name="RELACIONDEDEPENDENCIA"/>
        </many-to-one>
          <list name="trabajoIndependiente" cascade="all-delete-orphan">   

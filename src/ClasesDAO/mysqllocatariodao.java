@@ -19,7 +19,6 @@ public class mysqllocatariodao implements locatariodao {
 	
 	public void insertar(Locatario g) {
         try {
-            
             session = sessionFactory.openSession();
             session.beginTransaction();
             session.save(g);
@@ -30,8 +29,7 @@ public class mysqllocatariodao implements locatariodao {
         } catch (HibernateException hibernateException) {
             System.out.println(hibernateException);
             System.out.println("Fallo");
-        }
-		
+        }	
 	}
 
 	
@@ -47,15 +45,13 @@ public class mysqllocatariodao implements locatariodao {
         } catch (HibernateException hibernateException) {
             System.out.println(hibernateException);
             System.out.println("Fallo");
-        }
-		
+        }	
 	}
 
 	
 	public void eliminar(Locatario g) {
 	try {
             Session session = sessionFactory.openSession();
-            
             session.beginTransaction();
             session.delete(g);
             session.getTransaction().commit();
@@ -65,8 +61,7 @@ public class mysqllocatariodao implements locatariodao {
         } catch (HibernateException hibernateException) {
             System.out.println(hibernateException);
             System.out.println("Fallo");
-        }
-		
+        }	
 	}
 
 
@@ -85,7 +80,6 @@ public class mysqllocatariodao implements locatariodao {
             } catch (HibernateException hibernateException) {
                 System.out.println(hibernateException);
                 System.out.println("Fallo");
-                
             }
             return retorno;
 	}

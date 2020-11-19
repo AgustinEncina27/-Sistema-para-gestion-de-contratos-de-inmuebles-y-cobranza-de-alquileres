@@ -284,6 +284,8 @@ public class EditarComprobante extends javax.swing.JFrame {
 	}
 	if(objeto instanceof Garante) {
             ((Garante) objeto).setTrabajoIndependiente(compro);
+            control.desconectarBaseDatosGarante();
+            control.ActualizarGarante(((Garante) objeto));
 	}
 	VistaPrincipal l= new VistaPrincipal(control);
         l.setVisible(true);

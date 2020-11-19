@@ -138,9 +138,8 @@ public class VistaRelacionDeDependencia extends javax.swing.JFrame {
 	}
 	if(objeto instanceof Garante) {
             ((Garante) objeto).setDependencia(compro1);
-	}
-	JOptionPane.showMessageDialog(null,"SE GUARDO EL RECIBO CON EXITO");
-	System.out.println(objeto);
+            control.InsertarGarante(((Garante) objeto));
+        }
 	VistaPrincipal l= new VistaPrincipal(control);
         l.setVisible(true);
         this.setVisible(false);
