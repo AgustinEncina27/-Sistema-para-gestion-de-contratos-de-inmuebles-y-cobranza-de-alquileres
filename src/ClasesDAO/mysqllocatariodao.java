@@ -18,18 +18,18 @@ public class mysqllocatariodao implements locatariodao {
     }
 	
 	public void insertar(Locatario g) {
-        try {
-            session = sessionFactory.openSession();
-            session.beginTransaction();
-            session.save(g);
-            session.getTransaction().commit();
-            session.close();
-            System.out.println("Exito");
-            JOptionPane.showMessageDialog(null,"SE AGREDO CON EXITO");
-        } catch (HibernateException hibernateException) {
-            System.out.println(hibernateException);
-            System.out.println("Fallo");
-        }	
+            try {
+                session = sessionFactory.openSession();
+                session.beginTransaction();
+                session.save(g);
+                session.getTransaction().commit();
+                session.close();
+                System.out.println("Exito");
+                JOptionPane.showMessageDialog(null,"SE AGREDO CON EXITO");
+            } catch (HibernateException hibernateException) {
+                System.out.println(hibernateException);
+                System.out.println("Fallo");
+            }	
 	}
 
 	
@@ -50,18 +50,18 @@ public class mysqllocatariodao implements locatariodao {
 
 	
 	public void eliminar(Locatario g) {
-	try {
-            Session session = sessionFactory.openSession();
-            session.beginTransaction();
-            session.delete(g);
-            session.getTransaction().commit();
-            session.close();
-            System.out.println("Exito");
-            JOptionPane.showMessageDialog(null,"SE ELIMINO CON EXITO");
-        } catch (HibernateException hibernateException) {
-            System.out.println(hibernateException);
-            System.out.println("Fallo");
-        }	
+            try {
+                Session session = sessionFactory.openSession();
+                session.beginTransaction();
+                session.delete(g);
+                session.getTransaction().commit();
+                session.close();
+                System.out.println("Exito");
+                JOptionPane.showMessageDialog(null,"SE ELIMINO CON EXITO");
+            } catch (HibernateException hibernateException) {
+                System.out.println(hibernateException);
+                System.out.println("Fallo");
+            }	
 	}
 
 

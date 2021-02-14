@@ -5,15 +5,34 @@
  */
 package VistaInmueble;
 
+import Clases.Casa;
+import Clases.Departamento;
 import Controlador.Controlador;
 import VistaPrincipal.VistaPrincipal;
+import Clases.Inmueble;
+import Clases.Locador;
+import Clases.LocalComercial;
+import Clases.Terreno;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.xml.bind.JAXB;
 
 /**
  *
  * @author Carlo
  */
 public class BuscarInmueble extends javax.swing.JFrame {
+    List <Inmueble> inmue= null;
     Controlador control;
+    String expensas;
+    String banio;
+    String habitaciones;
+    String cocina;
+    String living;
+    String garage;
     /**
      * Creates new form BuscarInmueble
      */
@@ -32,8 +51,9 @@ public class BuscarInmueble extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -59,15 +79,49 @@ public class BuscarInmueble extends javax.swing.JFrame {
         jTextField10 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jTextField11 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField12 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField13 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField14 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jTextField15 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jTextField16 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jTextField17 = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jTextField18 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Escriba Localidad:");
 
         jButton1.setText("BUSCAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jPanel2.setLayout(new java.awt.GridLayout(7, 2));
 
@@ -113,7 +167,7 @@ public class BuscarInmueble extends javax.swing.JFrame {
         jTextField8.setEnabled(false);
         jPanel2.add(jTextField8);
 
-        jPanel3.setLayout(new java.awt.GridLayout(3, 2));
+        jPanel3.setLayout(new java.awt.GridLayout(10, 2));
 
         jLabel9.setText("Localidad:");
         jPanel3.add(jLabel9);
@@ -133,6 +187,53 @@ public class BuscarInmueble extends javax.swing.JFrame {
         jTextField11.setEnabled(false);
         jPanel3.add(jTextField11);
 
+        jLabel14.setText("Expensas:");
+        jPanel3.add(jLabel14);
+
+        jTextField12.setEnabled(false);
+        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField12ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jTextField12);
+
+        jLabel15.setText("Costos Expensas:");
+        jPanel3.add(jLabel15);
+
+        jTextField13.setEnabled(false);
+        jPanel3.add(jTextField13);
+
+        jLabel16.setText("Baño:");
+        jPanel3.add(jLabel16);
+
+        jTextField14.setEnabled(false);
+        jPanel3.add(jTextField14);
+
+        jLabel17.setText("Habitaciones:");
+        jPanel3.add(jLabel17);
+
+        jTextField15.setEnabled(false);
+        jPanel3.add(jTextField15);
+
+        jLabel18.setText("Cocina:");
+        jPanel3.add(jLabel18);
+
+        jTextField16.setEnabled(false);
+        jPanel3.add(jTextField16);
+
+        jLabel19.setText("Living:");
+        jPanel3.add(jLabel19);
+
+        jTextField17.setEnabled(false);
+        jPanel3.add(jTextField17);
+
+        jLabel20.setText("Garage:");
+        jPanel3.add(jLabel20);
+
+        jTextField18.setEnabled(false);
+        jPanel3.add(jTextField18);
+
         jButton2.setText("VOLVER");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,17 +245,30 @@ public class BuscarInmueble extends javax.swing.JFrame {
 
         jLabel13.setText("DATOS INMUEBLE");
 
+        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList1MouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jList1);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addGap(119, 119, 119))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -162,15 +276,12 @@ public class BuscarInmueble extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(jTextField1)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButton1))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jButton1))))
                 .addContainerGap(38, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel13)
-                .addGap(119, 119, 119))
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,20 +291,22 @@ public class BuscarInmueble extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        jPanel2.getAccessibleContext().setAccessibleParent(jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -212,10 +325,170 @@ public class BuscarInmueble extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        control.desconectarBaseDatosInmueble();
         VistaPrincipal l= new VistaPrincipal(control);
         l.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        DefaultListModel<Inmueble> lista= new DefaultListModel<Inmueble>();
+        inmue= control.ObtenerInmueble(jTextField1.getText());
+        Iterator <Inmueble> iterador = this.inmue.iterator();
+        while(iterador.hasNext()) {
+            lista.addElement(iterador.next());
+	}
+       jList1.setModel(lista);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+        Inmueble i = jList1.getSelectedValue();
+        jTextField2.setVisible(true);
+        jTextField3.setVisible(true);
+        jTextField4.setVisible(true);
+        jTextField5.setVisible(true);
+        jTextField6.setVisible(true);
+        jTextField7.setVisible(true);
+        jTextField8.setVisible(true);
+        jTextField9.setVisible(true);
+        jTextField10.setVisible(true);
+        jTextField11.setVisible(true);
+        
+        jTextField2.setText(i.getLocador().get(0).getNombre());
+        jTextField3.setText(i.getLocador().get(0).getApellido());
+        String dni=String.valueOf(i.getLocador().get(0).getDni());
+        jTextField4.setText(dni);
+        jTextField5.setText(i.getLocador().get(0).getEstadoCivil());
+        jTextField6.setText(i.getLocador().get(0).getDomicilio());
+        jTextField7.setText(i.getLocador().get(0).getTelefono());
+        jTextField8.setText(i.getLocador().get(0).getCorreoElectronico());
+        jTextField9.setText(i.getLocalidad());
+        jTextField10.setText(i.getDireccion());
+        jTextField11.setText(i.getTamanio());
+        if(i  instanceof Terreno ){
+            jLabel14.setVisible(false);
+            jLabel15.setVisible(false);
+            jLabel16.setVisible(false);
+            jLabel17.setVisible(false);
+            jLabel18.setVisible(false);
+            jLabel19.setVisible(false);
+            jLabel20.setVisible(false);
+                
+            jTextField12.setVisible(false);
+            jTextField13.setVisible(false);
+            jTextField14.setVisible(false);
+            jTextField15.setVisible(false);
+            jTextField16.setVisible(false);
+            jTextField17.setVisible(false);
+            jTextField18.setVisible(false);
+            
+            jTextField12.setText("");   
+            jTextField13.setText("");   
+            jTextField14.setText("");  
+            jTextField15.setText("");  
+            jTextField16.setText(""); 
+            jTextField17.setText("");  
+            jTextField18.setText("");
+            
+        }else{
+            if(i instanceof Departamento){
+                jLabel14.setVisible(true);
+                jLabel15.setVisible(true);
+                jLabel16.setVisible(true);
+                jLabel17.setVisible(true);
+                jLabel18.setVisible(true);
+                jLabel19.setVisible(true);
+                jLabel20.setVisible(true);
+                
+                
+                jTextField12.setVisible(true);
+                jTextField13.setVisible(true);
+                jTextField14.setVisible(true);
+                jTextField15.setVisible(true);
+                jTextField16.setVisible(true);
+                jTextField17.setVisible(true);
+                jTextField18.setVisible(true);
+                
+                jTextField12.setText(((Departamento) i).getExpensas());
+                expensas= String.valueOf(((Departamento) i).getCostoExpensas());
+                jTextField13.setText(expensas);
+                banio= String.valueOf(((Departamento) i).getBanio());
+                jTextField14.setText(banio);
+                habitaciones= String.valueOf(((Departamento) i).getHabitaciones());
+                jTextField15.setText(habitaciones);
+                cocina= String.valueOf(((Departamento) i).getCocina());
+                jTextField16.setText(cocina);
+                living= String.valueOf(((Departamento) i).getLiving());
+                jTextField17.setText(living);
+                garage= String.valueOf(((Departamento) i).getGarage());
+                jTextField18.setText(garage);
+                
+            }else{
+                if(i instanceof Casa){
+                    jLabel14.setVisible(true);
+                    jLabel15.setVisible(true);
+                    jLabel16.setVisible(true);
+                    jLabel17.setVisible(true);
+                    jLabel18.setVisible(true);
+                    jLabel19.setVisible(true);
+                    jLabel20.setVisible(true);
+                    
+                    jTextField12.setVisible(true);
+                    jTextField13.setVisible(true);
+                    jTextField14.setVisible(true);
+                    jTextField15.setVisible(true);
+                    jTextField16.setVisible(true);
+                    jTextField17.setVisible(true);
+                    jTextField18.setVisible(true);
+                    
+                    jTextField12.setText(((Casa) i).getExpensas());
+                    expensas= String.valueOf(((Casa) i).getCostoExpensas());
+                    jTextField13.setText(expensas);
+                    banio= String.valueOf(((Casa) i).getBanio());
+                    jTextField14.setText(banio);
+                    habitaciones= String.valueOf(((Casa) i).getHabitaciones());
+                    jTextField15.setText(habitaciones);
+                    cocina= String.valueOf(((Casa) i).getCocina());
+                    jTextField16.setText(cocina);
+                    living= String.valueOf(((Casa) i).getLiving());
+                    jTextField17.setText(living);
+                    garage= String.valueOf(((Casa) i).getGarage());
+                    jTextField18.setText(garage);
+                }else{
+                    if(i instanceof LocalComercial){
+                        jLabel14.setVisible(true);
+                        jLabel15.setVisible(true);
+                        jLabel16.setVisible(false);
+                        jLabel17.setVisible(false);
+                        jLabel18.setVisible(false);
+                        jLabel19.setVisible(false);
+                        jLabel20.setVisible(false);
+                        
+                        jTextField12.setVisible(true);
+                        jTextField13.setVisible(true);
+                        jTextField14.setVisible(false);
+                        jTextField15.setVisible(false);
+                        jTextField16.setVisible(false);
+                        jTextField17.setVisible(false);
+                        jTextField18.setVisible(false);
+                        
+                        jTextField14.setText("");  
+                        jTextField15.setText("");  
+                        jTextField16.setText(""); 
+                        jTextField17.setText("");  
+                        jTextField18.setText("");
+                        jTextField12.setText(((LocalComercial) i).getExpensas());
+                        expensas= String.valueOf(((LocalComercial) i).getCostoExpensas());
+                        jTextField13.setText(expensas);     
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_jList1MouseClicked
+
+    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField12ActionPerformed
 
    
 
@@ -227,7 +500,14 @@ public class BuscarInmueble extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -235,13 +515,23 @@ public class BuscarInmueble extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<Inmueble> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;

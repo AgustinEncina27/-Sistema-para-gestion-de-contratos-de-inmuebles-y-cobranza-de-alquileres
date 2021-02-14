@@ -86,20 +86,20 @@ public class mysqlgarantedao implements garantedao {
 	}
         
         public void desconectar() {
-        try {
-			if (this.session != null) {
-				if (this.session.isConnected()) {
-					this.session.disconnect();
-				}
+            try {
+                            if (this.session != null) {
+                                    if (this.session.isConnected()) {
+                                            this.session.disconnect();
+                                    }
 
-				if (this.session.isOpen()) {
-					this.session.close();
-				}
-			}
-		} catch (HibernateException e) {
-			System.out.println(e);
-                         System.out.println("Fallo");
-		}
-    }
+                                    if (this.session.isOpen()) {
+                                            this.session.close();
+                                    }
+                            }
+                    } catch (HibernateException e) {
+                            System.out.println(e);
+                             System.out.println("Fallo");
+                    }
+        }
 
 }

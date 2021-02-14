@@ -6,6 +6,7 @@
 package Clases;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,10 +14,22 @@ import java.util.ArrayList;
  */
 public class Terreno extends Inmueble {
 
-    public Terreno(String localidad, String direccion, String tamanio, ArrayList<Locador> locador) {
+
+    public Terreno(String localidad, String direccion, String tamanio, List<Locador> locador) {
         super(localidad, direccion, tamanio, locador);
     }
 
+    
+
+    
+    
+
+    @Override
+    public String toString() {
+        return "Terreno";
+    }
+
+    
     public Terreno() {
     }
     

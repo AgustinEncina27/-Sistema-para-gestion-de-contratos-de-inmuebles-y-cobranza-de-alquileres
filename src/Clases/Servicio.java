@@ -14,11 +14,17 @@ public class Servicio {
     private String nombre;
     private double costo;
 
-    public Servicio(long idServicio, String nombre, double costo) {
-        this.idServicio = idServicio;
+    public Servicio(String nombre, double costo) {  
         this.nombre = nombre;
         this.costo = costo;
     }
+    
+    public Servicio(long id,String nombre, double costo) {  
+        this.idServicio=id;
+        this.nombre = nombre;
+        this.costo = costo;
+    }
+    
 
     public long getIdServicio() {
         return idServicio;
@@ -46,6 +52,11 @@ public class Servicio {
 
     public Servicio() {
     }
-    
+
+    @Override
+    public String toString() {
+        return "idServicio=" + idServicio + ", nombre=" + nombre + ", costo=" + costo;
+    }
+
     
 }

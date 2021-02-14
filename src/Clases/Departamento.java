@@ -19,5 +19,10 @@ public class Departamento extends Vivienda {
 
     public Departamento() {
     }
+
+    @Override
+    public String toString() {
+        return "Departamento";
+    }
     
 }

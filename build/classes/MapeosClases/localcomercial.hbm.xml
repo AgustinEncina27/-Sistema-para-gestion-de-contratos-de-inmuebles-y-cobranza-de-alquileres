@@ -42,5 +42,12 @@ Contributor(s):
 <hibernate-mapping>
     <joined-subclass name="Clases.LocalComercial" extends="Clases.Inmueble"  lazy="false" >
         <key column="ID_INMUEBLE"/>
+        <property name="expensas" type="java.lang.String">
+             <column name="EXPENSAS"/>
+        </property>
+        <property name="costoExpensas" type="double">
+                <column name="COSTOEXPENSAS" />
+        </property>
     </joined-subclass >
+    
 </hibernate-mapping>

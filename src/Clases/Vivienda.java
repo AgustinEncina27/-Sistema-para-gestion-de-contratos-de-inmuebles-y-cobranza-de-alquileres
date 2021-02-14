@@ -89,6 +89,8 @@ public class Vivienda extends Inmueble {
 
     public Vivienda() {
     }
+
+    
     
     
     

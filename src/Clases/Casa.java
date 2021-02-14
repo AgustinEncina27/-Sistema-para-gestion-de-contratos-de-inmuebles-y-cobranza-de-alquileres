@@ -19,5 +19,12 @@ public class Casa extends Vivienda {
 
     public Casa() {
     }
+
+    @Override
+    public String toString() {
+        return "Casa";
+    }
+    
+    
     
 }

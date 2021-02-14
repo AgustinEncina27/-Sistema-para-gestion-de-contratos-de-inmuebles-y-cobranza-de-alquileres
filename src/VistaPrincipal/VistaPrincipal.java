@@ -6,6 +6,7 @@
 package VistaPrincipal;
 
 import Controlador.Controlador;
+import VistaContrato.CrearContrato;
 import VistaGarante.BuscarGarante;
 import VistaGarante.CrearGarante;
 import VistaGarante.EditarGarante;
@@ -22,6 +23,7 @@ import VistaLocatario.BuscarLocatario;
 import VistaLocatario.CrearLocatario;
 import VistaLocatario.EditarLocatario;
 import VistaLocatario.EliminarLocatario;
+import VistaServicio.AdministrarServicios;
 
 /**
  *
@@ -78,6 +80,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenuItem18 = new javax.swing.JMenuItem();
         jMenuItem19 = new javax.swing.JMenuItem();
         jMenuItem20 = new javax.swing.JMenuItem();
+        jMenu8 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -241,6 +245,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenu7.setText("Contrato");
 
         jMenuItem17.setText("Crear");
+        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem17ActionPerformed(evt);
+            }
+        });
         jMenu7.add(jMenuItem17);
 
         jMenuItem18.setText("Buscar");
@@ -263,6 +272,18 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenu7.add(jMenuItem20);
 
         jMenuBar1.add(jMenu7);
+
+        jMenu8.setText("Servicio");
+
+        jMenuItem2.setText("Administrar servicios");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu8);
 
         setJMenuBar(jMenuBar1);
 
@@ -384,6 +405,18 @@ public class VistaPrincipal extends javax.swing.JFrame {
         g.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem16ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        AdministrarServicios g= new AdministrarServicios(control);
+        g.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
+        CrearContrato g= new CrearContrato(control);
+        g.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem17ActionPerformed
   
    
 
@@ -396,6 +429,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuCrearLocatario;
@@ -410,6 +444,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem18;
     private javax.swing.JMenuItem jMenuItem19;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem20;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

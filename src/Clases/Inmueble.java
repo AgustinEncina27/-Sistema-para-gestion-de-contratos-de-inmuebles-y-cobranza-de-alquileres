@@ -66,7 +66,11 @@ public abstract class Inmueble {
         this.tamanio = tamanio;
         this.locador = locador;
     }
-
+    public Inmueble(String localidad, String direccion, String tamanio) {
+        this.localidad = localidad;
+        this.direccion = direccion;
+        this.tamanio = tamanio;
+    }
     public Inmueble() {
     }
     
@@ -74,5 +78,8 @@ public abstract class Inmueble {
         locador= new ArrayList<Locador>();
         this.locador.add(e);
     }
+
+    
+    
     
 }

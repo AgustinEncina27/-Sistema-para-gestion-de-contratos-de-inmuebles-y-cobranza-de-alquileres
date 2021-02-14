@@ -54,10 +54,10 @@ Contributor(s):
         <property name="tamanio" type="java.lang.String">
             <column name="TAMANIO"/>
         </property>
-        <list name="locador" cascade="all-delete-orphan">   
+        <list name="locador" table="inmueble_locador" cascade="none" >
             <key column="IDINMUEBLE" />
             <index column="ORDEN" />
-          <one-to-many class="Clases.Locador" />
+          <many-to-many  class="Clases.Locador" />
         </list >
   </class>
 </hibernate-mapping>

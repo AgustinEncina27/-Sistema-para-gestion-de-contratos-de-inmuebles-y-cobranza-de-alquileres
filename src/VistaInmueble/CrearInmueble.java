@@ -5,11 +5,16 @@
  */
 package VistaInmueble;
 
+import Clases.Casa;
+import Clases.Departamento;
 import Clases.Inmueble;
 import Clases.Locador;
+import Clases.LocalComercial;
 import Clases.Terreno;
 import Controlador.Controlador;
 import VistaPrincipal.VistaPrincipal;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ButtonGroup;
@@ -22,6 +27,9 @@ import javax.swing.JOptionPane;
 public class CrearInmueble extends javax.swing.JFrame {
     Controlador control;
     private Terreno  in;
+    private LocalComercial co;
+    private Departamento dep;
+    private Casa ca;
     private Locador  loca2;
     /**
      * Creates new form BuscarInmueble
@@ -32,7 +40,7 @@ public class CrearInmueble extends javax.swing.JFrame {
        
         this.setLocationRelativeTo(null);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,6 +74,20 @@ public class CrearInmueble extends javax.swing.JFrame {
         jTextField10 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jTextField11 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField12 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField13 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField14 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jTextField15 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jTextField16 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jTextField17 = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jTextField18 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
@@ -124,25 +146,79 @@ public class CrearInmueble extends javax.swing.JFrame {
         jTextField8.setEnabled(false);
         jPanel2.add(jTextField8);
 
-        jPanel3.setLayout(new java.awt.GridLayout(3, 2));
+        jPanel3.setLayout(new java.awt.GridLayout(10, 10));
 
         jLabel9.setText("Localidad:");
         jPanel3.add(jLabel9);
-
-        jTextField9.setEnabled(false);
         jPanel3.add(jTextField9);
 
         jLabel10.setText("Direccion:");
         jPanel3.add(jLabel10);
-
-        jTextField10.setEnabled(false);
         jPanel3.add(jTextField10);
 
         jLabel11.setText("Tamanio:");
         jPanel3.add(jLabel11);
 
-        jTextField11.setEnabled(false);
+        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField11ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jTextField11);
+
+        jLabel14.setText("Expensas:");
+        jLabel14.setVisible(false);
+        jPanel3.add(jLabel14);
+
+        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField12ActionPerformed(evt);
+            }
+        });
+        jTextField12.setVisible(false);
+        jPanel3.add(jTextField12);
+
+        jLabel15.setText("CostoExpensas:");
+        jLabel15.setVisible(false);
+        jPanel3.add(jLabel15);
+
+        jTextField13.setVisible(false);
+        jPanel3.add(jTextField13);
+
+        jLabel16.setText("Baño");
+        jLabel16.setVisible(false);
+        jPanel3.add(jLabel16);
+
+        jTextField14.setVisible(false);
+        jPanel3.add(jTextField14);
+
+        jLabel17.setText("Habitaciones");
+        jLabel17.setVisible(false);
+        jPanel3.add(jLabel17);
+
+        jTextField15.setVisible(false);
+        jPanel3.add(jTextField15);
+
+        jLabel18.setText("Cocina ");
+        jLabel18.setVisible(false);
+        jPanel3.add(jLabel18);
+
+        jTextField16.setVisible(false);
+        jPanel3.add(jTextField16);
+
+        jLabel19.setText("Living");
+        jLabel19.setVisible(false);
+        jPanel3.add(jLabel19);
+
+        jTextField17.setVisible(false);
+        jPanel3.add(jTextField17);
+
+        jLabel20.setText("Garage");
+        jLabel20.setVisible(false);
+        jPanel3.add(jLabel20);
+
+        jTextField18.setVisible(false);
+        jPanel3.add(jTextField18);
 
         jLabel12.setText("DATOS LOCADOR");
 
@@ -150,6 +226,26 @@ public class CrearInmueble extends javax.swing.JFrame {
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("Terreno");
+        jRadioButton1.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent arg0) {
+                jLabel14.setVisible(false);
+                jLabel15.setVisible(false);
+                jLabel16.setVisible(false);
+                jLabel17.setVisible(false);
+                jLabel18.setVisible(false);
+                jLabel19.setVisible(false);
+                jLabel20.setVisible(false);
+
+                jTextField12.setVisible(false);
+                jTextField13.setVisible(false);
+                jTextField14.setVisible(false);
+                jTextField15.setVisible(false);
+                jTextField16.setVisible(false);
+                jTextField17.setVisible(false);
+                jTextField18.setVisible(false);
+            }
+
+        });
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton1ActionPerformed(evt);
@@ -158,12 +254,74 @@ public class CrearInmueble extends javax.swing.JFrame {
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("Local Comercial");
+        jRadioButton2.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent arg0) {
+                jLabel14.setVisible(true);
+                jLabel15.setVisible(true);
+                jLabel16.setVisible(false);
+                jLabel17.setVisible(false);
+                jLabel18.setVisible(false);
+                jLabel19.setVisible(false);
+                jLabel20.setVisible(false);
+
+                jTextField12.setVisible(true);
+                jTextField13.setVisible(true);
+                jTextField14.setVisible(false);
+                jTextField15.setVisible(false);
+                jTextField16.setVisible(false);
+                jTextField17.setVisible(false);
+                jTextField18.setVisible(false);
+            }
+
+        });
 
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.setText("Departamento");
+        jRadioButton3.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent arg0) {
+                jLabel14.setVisible(true);
+                jLabel15.setVisible(true);
+                jLabel16.setVisible(true);
+                jLabel17.setVisible(true);
+                jLabel18.setVisible(true);
+                jLabel19.setVisible(true);
+                jLabel20.setVisible(true);
+
+                jTextField12.setVisible(true);
+                jTextField13.setVisible(true);
+                jTextField14.setVisible(true);
+                jTextField15.setVisible(true);
+                jTextField16.setVisible(true);
+                jTextField17.setVisible(true);
+                jTextField18.setVisible(true);
+
+            }
+
+        });
 
         buttonGroup1.add(jRadioButton4);
         jRadioButton4.setText("Casa");
+        jRadioButton4.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent arg0) {
+                jLabel14.setVisible(true);
+                jLabel15.setVisible(true);
+                jLabel16.setVisible(true);
+                jLabel17.setVisible(true);
+                jLabel18.setVisible(true);
+                jLabel19.setVisible(true);
+                jLabel20.setVisible(true);
+
+                jTextField12.setVisible(true);
+                jTextField13.setVisible(true);
+                jTextField14.setVisible(true);
+                jTextField15.setVisible(true);
+                jTextField16.setVisible(true);
+                jTextField17.setVisible(true);
+                jTextField18.setVisible(true);
+
+            }
+
+        });
 
         jLabel1.setText("BUSCAR LOCADOR");
 
@@ -179,59 +337,63 @@ public class CrearInmueble extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(181, 181, 181))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
-                        .addGap(37, 37, 37)
-                        .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(123, 123, 123)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                        .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addGap(20, 20, 20)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
-                                    .addComponent(jTextField1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1)))
-                        .addGap(21, 21, 21))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(209, 209, 209)
-                .addComponent(jLabel13)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(42, 42, 42)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(47, 47, 47)
+                                .addComponent(jButton1)
+                                .addGap(0, 59, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
+                .addContainerGap(28, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jButton1)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel13)
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton1)
                     .addComponent(jRadioButton2)
                     .addComponent(jRadioButton3)
                     .addComponent(jRadioButton4))
-                .addGap(35, 35, 35)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jPanel3.getAccessibleContext().setAccessibleParent(jPanel3);
 
         jButton2.setText("VOLVER");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -252,29 +414,29 @@ public class CrearInmueble extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(22, 22, 22))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
@@ -306,14 +468,17 @@ public class CrearInmueble extends javax.swing.JFrame {
                 jTextField10.setEnabled(true);
                 jTextField11.setEnabled(true);
                 
+                
+                
                 jTextField1.setText("");
                 JOptionPane.showMessageDialog(null, "Se encontro correctamente");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+ 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if(!jTextField9.getText().equals("")&&!jTextField10.getText().equals("")&&!jTextField11.getText().equals("")) {
-            if(jRadioButton1.isSelected()== true){
+            
+            if( jRadioButton1.isSelected()== true){
                 in= new Terreno();
                 loca2 = new Locador();
                 
@@ -336,11 +501,196 @@ public class CrearInmueble extends javax.swing.JFrame {
                 System.out.println(in);
                
                 System.out.println(in);
-                control.Insertarinmueble(in);
-               
+                control.InsertarInmueble(in);
+                
+                jTextField2.setText("");
+                jTextField3.setText("");
+                jTextField4.setText("");
+                jTextField5.setText("");
+                jTextField6.setText("");
+                jTextField7.setText("");
+                jTextField8.setText("");
+                jTextField9.setText("");
+                jTextField10.setText("");
+                jTextField11.setText("");
+                
+                JOptionPane.showMessageDialog(null,"Se creo correctamente");
             }
+
+            if(jRadioButton2.isSelected()== true){
+                   
+
+                    
+
+                    co= new LocalComercial();
+                    loca2 = new Locador();
+
+                    loca2.setNombre(jTextField2.getText());
+                    loca2.setApellido(jTextField3.getText());
+                    long dnum = Long.parseLong(jTextField4.getText());
+                    loca2.setDni(dnum);
+                    loca2.setEstadoCivil(jTextField5.getText());
+                    loca2.setDomicilio(jTextField6.getText());
+                    loca2.setTelefono(jTextField7.getText());
+                    loca2.setCorreoElectronico(jTextField8.getText());
+
+                    co.setLocalidad(jTextField9.getText());
+                    co.setDireccion(jTextField10.getText());
+                    co.setTamanio(jTextField11.getText());
+                    co.setExpensas(jTextField12.getText());
+                    Double cexp = Double.parseDouble(jTextField13.getText());
+                    co.setCostoExpensas(cexp);
+
+                   
+                    co.agregar(loca2);
+                    control.InsertarInmueble(co);
+                   
+                    jTextField2.setText("");
+                    jTextField3.setText("");
+                    jTextField4.setText("");
+                    jTextField5.setText("");
+                    jTextField6.setText("");
+                    jTextField7.setText("");
+                    jTextField8.setText("");
+                    jTextField9.setText("");
+                    jTextField10.setText("");
+                    jTextField11.setText("");
+                    jTextField12.setText("");
+                    jTextField13.setText("");
+                
+                    JOptionPane.showMessageDialog(null,"Se creo correctamente");
+            }
+            if(jRadioButton3.isSelected()== true){
+                    
+
+                    
+
+                    dep= new Departamento();
+                    loca2 = new Locador();
+
+                    loca2.setNombre(jTextField2.getText());
+                    loca2.setApellido(jTextField3.getText());
+                    long dnum = Long.parseLong(jTextField4.getText());
+                    loca2.setDni(dnum);
+                    loca2.setEstadoCivil(jTextField5.getText());
+                    loca2.setDomicilio(jTextField6.getText());
+                    loca2.setTelefono(jTextField7.getText());
+                    loca2.setCorreoElectronico(jTextField8.getText());
+
+                    dep.setLocalidad(jTextField9.getText());
+                    dep.setDireccion(jTextField10.getText());
+                    dep.setTamanio(jTextField11.getText());
+                    dep.setExpensas(jTextField12.getText());
+                    Double cexp = Double.parseDouble(jTextField13.getText());
+                    dep.setCostoExpensas(cexp);
+                    int ban = Integer.parseInt(jTextField14.getText());
+                    dep.setBanio(ban);
+                    int hab= Integer.parseInt(jTextField15.getText());
+                    dep.setHabitaciones(hab); 
+                    int coc= Integer.parseInt(jTextField16.getText());
+                    dep.setCocina(coc); 
+                    int liv= Integer.parseInt(jTextField17.getText());
+                    dep.setLiving(liv);                   
+                    int gar= Integer.parseInt(jTextField18.getText());
+                    dep.setGarage(gar);
+                    
+                    dep.agregar(loca2);
+
+                    System.out.println(dep);
+
+                    System.out.println(dep);
+                    control.InsertarInmueble(dep);
+                   
+                    jTextField2.setText("");
+                    jTextField3.setText("");
+                    jTextField4.setText("");
+                    jTextField5.setText("");
+                    jTextField6.setText("");
+                    jTextField7.setText("");
+                    jTextField8.setText("");
+                    jTextField9.setText("");
+                    jTextField10.setText("");
+                    jTextField11.setText("");
+                    jTextField12.setText("");
+                    jTextField13.setText("");
+                    jTextField14.setText("");
+                    jTextField15.setText("");
+                    jTextField16.setText("");
+                    jTextField17.setText("");
+                    jTextField18.setText("");
+                
+                    JOptionPane.showMessageDialog(null,"Se creo correctamente");
+            } 
+            if(jRadioButton4.isSelected()== true){
+                    
+
+                    ca= new Casa();
+                    loca2 = new Locador();
+
+                    loca2.setNombre(jTextField2.getText());
+                    loca2.setApellido(jTextField3.getText());
+                    long dnum = Long.parseLong(jTextField4.getText());
+                    loca2.setDni(dnum);
+                    loca2.setEstadoCivil(jTextField5.getText());
+                    loca2.setDomicilio(jTextField6.getText());
+                    loca2.setTelefono(jTextField7.getText());
+                    loca2.setCorreoElectronico(jTextField8.getText());
+
+                    ca.setLocalidad(jTextField9.getText());
+                    ca.setDireccion(jTextField10.getText());
+                    ca.setTamanio(jTextField11.getText());
+                    ca.setExpensas(jTextField12.getText());
+                    Double cexp = Double.parseDouble(jTextField13.getText());
+                    ca.setCostoExpensas(cexp);
+                    int ban = Integer.parseInt(jTextField14.getText());
+                    ca.setBanio(ban);
+                    int hab= Integer.parseInt(jTextField15.getText());
+                    ca.setHabitaciones(hab); 
+                    int coc= Integer.parseInt(jTextField16.getText());
+                    ca.setCocina(coc); 
+                    int liv= Integer.parseInt(jTextField17.getText());
+                    ca.setLiving(liv);                   
+                    int gar= Integer.parseInt(jTextField18.getText());
+                    ca.setGarage(gar);
+                    
+                    ca.agregar(loca2);
+
+                    System.out.println(ca);
+
+                    System.out.println(ca);
+                    control.InsertarInmueble(ca);
+                   
+                    jTextField2.setText("");
+                    jTextField3.setText("");
+                    jTextField4.setText("");
+                    jTextField5.setText("");
+                    jTextField6.setText("");
+                    jTextField7.setText("");
+                    jTextField8.setText("");
+                    jTextField9.setText("");
+                    jTextField10.setText("");
+                    jTextField11.setText("");
+                    jTextField12.setText("");
+                    jTextField13.setText("");
+                    jTextField14.setText("");
+                    jTextField15.setText("");
+                    jTextField16.setText("");
+                    jTextField17.setText("");
+                    jTextField18.setText("");
+                
+                    JOptionPane.showMessageDialog(null,"Se creo correctamente");
+            } 
+           
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField11ActionPerformed
+
+    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField12ActionPerformed
    
    
 
@@ -354,7 +704,14 @@ public class CrearInmueble extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -372,6 +729,13 @@ public class CrearInmueble extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;

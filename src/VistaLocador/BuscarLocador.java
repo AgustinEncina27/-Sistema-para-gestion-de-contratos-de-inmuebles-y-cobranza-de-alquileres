@@ -183,7 +183,6 @@ public class BuscarLocador extends javax.swing.JFrame {
             long dni = Long.parseLong(jTextField1.getText());
             
                 locador=control.ObtenerLocador(dni);
-                System.out.println(locador);
                 jTextField2.setText(locador.getNombre());
                 jTextField3.setText(locador.getApellido());
                 String DNI= String.valueOf(locador.getDni());

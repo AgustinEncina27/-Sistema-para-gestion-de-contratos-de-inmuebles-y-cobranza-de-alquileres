@@ -67,6 +67,7 @@ Contributor(s):
     
     <joined-subclass name="Clases.Locador" table="Locador">
       <key column="DNI"/>
+      
     </joined-subclass>
     
     

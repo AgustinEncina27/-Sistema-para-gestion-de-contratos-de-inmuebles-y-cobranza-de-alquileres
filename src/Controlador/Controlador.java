@@ -12,9 +12,8 @@ import interDAO.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import org.eclipse.persistence.sessions.factories.SessionFactory;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
+import java.util.List;
+
 
 public class Controlador {
    FileInputStream entrada;
@@ -24,12 +23,15 @@ public class Controlador {
    private final inmuebledao inmuebledao;
    private final locatariodao locatariodao;
    private final garantedao garantedao;
+   private final serviciodao serviciodao;
 
     public Controlador(org.hibernate.SessionFactory sessionFactory) {
         this.locadordao = new mysqllocadordao(sessionFactory);
         this.inmuebledao = new mysqlinmuebledao(sessionFactory);
         this.garantedao= new mysqlgarantedao(sessionFactory);
         this.locatariodao= new mysqllocatariodao(sessionFactory);
+        this.serviciodao= new mysqlserviciodao(sessionFactory);
+        
     }
 
     public byte[]AbrirAImagen(File archivo ){
@@ -61,22 +63,7 @@ public class Controlador {
         return lectura;
     }
     
-    
-
-    public void Insertarinmueble(Inmueble g) {
-		inmuebledao.insertar(g);
-    }
-    public void Actualizarinmueble(Inmueble g) {
-                inmuebledao.modificar(g);
-	}
-    public void Eliminarinmueble(Inmueble g) {
-                inmuebledao.eliminar(g);
-	}
-    public Inmueble Obtenerinmueble(Long a){
-        Inmueble lectura = inmuebledao.obtener(a);
-        return lectura;
-    }
-    
+ 
     
     public void InsertarLocatoria(Locatario g) {
 		locatariodao.insertar(g);
@@ -112,4 +99,47 @@ public class Controlador {
     public void desconectarBaseDatosGarante(){
 		this.garantedao.desconectar();
 	}  
+    
+    public void InsertarInmueble(Inmueble g) {
+		inmuebledao.insertar(g);
+    }
+    public void ActualizarInmueble(Inmueble g) {
+                inmuebledao.modificar(g);
+    }
+    public void EliminarInmueble(Inmueble g) {
+                inmuebledao.eliminar(g);
+	}
+    public List<Inmueble> ObtenerInmueble(String a){
+        List <Inmueble> inmuebles =inmuebledao.obtener(a);
+        return inmuebles;
+    }
+    public void desconectarBaseDatosInmueble(){
+		this.inmuebledao.desconectar();
+	} 
+    public Inmueble ObtenerInmuebleID(Long a){
+        Inmueble lectura = inmuebledao.obtener(a);
+        return lectura;
+    }
+
+    public void InsertarServicio(Servicio g) {
+		serviciodao.insertar(g);
+    }
+    public void ActualizarServicio(Servicio g) {
+                serviciodao.modificar(g);
+	}
+    public void EliminarServicio(Servicio g) {
+                serviciodao.eliminar(g);
+	}
+    public Servicio ObtenerServicio(Long a){
+        Servicio lectura = serviciodao.obtener(a);
+        return lectura;
+    }
+    public void desconectarBaseDatosServicio(){
+		this.serviciodao.desconectar();
+	}
+    public List <Servicio> obtenerTodosLosServicios(){
+        List <Servicio> servicios =serviciodao.obtenerTodos();
+        return servicios;
+    }
+
 }

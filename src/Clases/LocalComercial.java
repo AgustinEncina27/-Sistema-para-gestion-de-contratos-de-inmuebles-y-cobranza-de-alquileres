@@ -39,6 +39,11 @@ public class LocalComercial extends Inmueble {
     public void setCostoExpensas(double costoExpensas) {
         this.costoExpensas = costoExpensas;
     }
+
+    @Override
+    public String toString() {
+        return "Local Comercial";
+    }
     
     
 }
