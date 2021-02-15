@@ -62,5 +62,6 @@ Contributor(s):
     <mapping resource="MapeosClases/casa.hbm.xml"/>
     <mapping resource="MapeosClases/departamento.hbm.xml"/>
     <mapping resource="MapeosClases/contrato.hbm.xml"/>
+    <mapping resource="MapeosClases/factura.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
