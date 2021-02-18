@@ -453,7 +453,6 @@ public class CrearInmueble extends javax.swing.JFrame {
             long dni = Long.parseLong(jTextField1.getText());
             
                 locador=control.ObtenerLocador(dni);
-                System.out.println(locador);
                 jTextField2.setText(locador.getNombre());
                 jTextField3.setText(locador.getApellido());
                 String DNI= String.valueOf(locador.getDni());
@@ -467,9 +466,6 @@ public class CrearInmueble extends javax.swing.JFrame {
                 jTextField9.setEnabled(true);
                 jTextField10.setEnabled(true);
                 jTextField11.setEnabled(true);
-                
-                
-                
                 jTextField1.setText("");
                 JOptionPane.showMessageDialog(null, "Se encontro correctamente");
         }
@@ -494,15 +490,9 @@ public class CrearInmueble extends javax.swing.JFrame {
                 in.setLocalidad(jTextField9.getText());
                 in.setDireccion(jTextField10.getText());
                 in.setTamanio(jTextField11.getText());
-                
-                
                 in.agregar(loca2);
                 
-                System.out.println(in);
-               
-                System.out.println(in);
                 control.InsertarInmueble(in);
-                
                 jTextField2.setText("");
                 jTextField3.setText("");
                 jTextField4.setText("");
@@ -518,10 +508,6 @@ public class CrearInmueble extends javax.swing.JFrame {
             }
 
             if(jRadioButton2.isSelected()== true){
-                   
-
-                    
-
                     co= new LocalComercial();
                     loca2 = new Locador();
 
@@ -561,10 +547,6 @@ public class CrearInmueble extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,"Se creo correctamente");
             }
             if(jRadioButton3.isSelected()== true){
-                    
-
-                    
-
                     dep= new Departamento();
                     loca2 = new Locador();
 
@@ -596,9 +578,7 @@ public class CrearInmueble extends javax.swing.JFrame {
                     
                     dep.agregar(loca2);
 
-                    System.out.println(dep);
-
-                    System.out.println(dep);
+                    
                     control.InsertarInmueble(dep);
                    
                     jTextField2.setText("");
@@ -655,9 +635,7 @@ public class CrearInmueble extends javax.swing.JFrame {
                     
                     ca.agregar(loca2);
 
-                    System.out.println(ca);
-
-                    System.out.println(ca);
+                   
                     control.InsertarInmueble(ca);
                    
                     jTextField2.setText("");

@@ -45,8 +45,10 @@ Contributor(s):
                       <column name="IDCRONOGRAMA" />
                       <generator class="native" />
             </id>
-            <many-to-one name="cuota" class="Clases.Cuota" fetch="join">
-                      <column name="CUOTA" />
-           </many-to-one >
+            <list name="cuota" table="factura" cascade="all-delete-orphan" >
+                 <key column="IDCRONOGRAMA" />
+                 <index column="ORDEN" />
+                 <one-to-many class="Clases.Cuota" />
+            </list >
       </class>
 </hibernate-mapping>

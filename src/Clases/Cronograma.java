@@ -6,18 +6,23 @@
 package Clases;
 
 import java.util.ArrayList;
-
+import java.sql.Date;
+import java.util.List;
 /**
  *
  * @author Agustin
  */
 public class Cronograma {
     private long idCronograma;
-    private ArrayList<Cuota> cuota;
+    private List<Cuota> cuota;
 
     public Cronograma(long idCronograma, ArrayList<Cuota> cuota) {
         this.idCronograma = idCronograma;
         this.cuota = cuota;
+    }
+
+    public Cronograma() {
+       cuota= new ArrayList<Cuota>();
     }
 
     public long getIdCronograma() {
@@ -28,13 +33,15 @@ public class Cronograma {
         this.idCronograma = idCronograma;
     }
 
-    public ArrayList<Cuota> getCuota() {
+    public List<Cuota> getCuota() {
         return cuota;
     }
 
-    public void setCuota(ArrayList<Cuota> cuota) {
+    public void setCuota(List<Cuota> cuota) {
         this.cuota = cuota;
     }
     
-    
+    public void cargarlista(int recargo,int montototal,Date fechaini, Date fechafin, Date fechapago,boolean pagado ){
+        cuota.add(new Cuota(recargo, montototal, fechaini, fechafin, fechapago, pagado));
+    }
 }

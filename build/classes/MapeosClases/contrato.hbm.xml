@@ -57,23 +57,20 @@ Contributor(s):
         <property name="recargoFijo" type="int">
              <column name="RECARGOFIJO"/>
         </property>
-        <many-to-one name="locador" class="Clases.Locador" fetch="join">
-            <column name="LOCADOR" />
-        </many-to-one>
-        <list name="locatario" cascade="all-delete-orphan">   
+        <list name="locatario" cascade="none">   
             <key column="IDCONTRATO" />
             <index column="ORDEN" />
           <one-to-many class="Clases.Locatario" />
         </list >
-        <many-to-one  name="inmueble" class="Clases.Inmueble" fetch="join">
+        <many-to-one  name="inmueble" class="Clases.Inmueble" fetch="join" cascade="none">
             <column name="INMUEBLE" />
         </many-to-one >
-        <list name="servicio" cascade="all-delete-orphan">   
+        <list name="servicio" cascade="none">   
             <key column="IDCONTRATO" />
             <index column="ORDEN" />
           <one-to-many class="Clases.Servicio" />
         </list >
-        <many-to-one name="cronograma" class="Clases.Cronograma" fetch="join">
+        <many-to-one name="cronograma" class="Clases.Cronograma" fetch="join" cascade="all-delete-orphan" unique="true">
             <column name="CRONOGRAMA" />
         </many-to-one >
         

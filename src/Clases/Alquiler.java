@@ -16,8 +16,8 @@ import java.util.List;
 public class Alquiler extends Contrato{
     private Garante garante;
 
-    public Alquiler(Garante garante, long idContrato, Date fechaDeInicioDelContrato, Date fechaDeFinalDelContrato, int valorBaseDelRecargoProporcional, int recargoFijo, Locador locador, List<Locatario> locatario, Inmueble inmueble, List<Servicio> servicio, Cronograma cronograma) {
-        super(idContrato, fechaDeInicioDelContrato, fechaDeFinalDelContrato, valorBaseDelRecargoProporcional, recargoFijo, locador, locatario, inmueble, servicio, cronograma);
+    public Alquiler(Garante garante, Date fechaDeInicioDelContrato, Date fechaDeFinalDelContrato, int valorBaseDelRecargoProporcional, int recargoFijo, List<Locatario> locatario, Inmueble inmueble, List<Servicio> servicio, Cronograma cronograma) {
+        super(fechaDeInicioDelContrato, fechaDeFinalDelContrato, valorBaseDelRecargoProporcional, recargoFijo, locatario, inmueble, servicio, cronograma);
         this.garante = garante;
     }
 

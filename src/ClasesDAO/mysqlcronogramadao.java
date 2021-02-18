@@ -4,12 +4,32 @@ import java.util.List;
 
 import Clases.Cronograma;
 import interDAO.cronogramadao;
+import javax.swing.JOptionPane;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 public class mysqlcronogramadao implements cronogramadao {
-
+    private final SessionFactory sessionFactory;
+    private Session session;
+    
+    public mysqlcronogramadao(SessionFactory sessionFactory) {
+        this.sessionFactory = (SessionFactory) sessionFactory;
+    }
+    
 	@Override
 	public void insertar(Cronograma g) {
-		// TODO Auto-generated method stub
+		try {
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            session.save(g);
+            session.getTransaction().commit();
+            session.close();
+            System.out.println("Exito");
+        } catch (HibernateException hibernateException) {
+            System.out.println(hibernateException);
+            System.out.println("Fallo");
+        }
 		
 	}
 

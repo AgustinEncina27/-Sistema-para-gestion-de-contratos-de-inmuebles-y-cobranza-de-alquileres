@@ -24,6 +24,8 @@ public class Controlador {
    private final locatariodao locatariodao;
    private final garantedao garantedao;
    private final serviciodao serviciodao;
+   private final contratodao contratodao;
+   private final cronogramadao cronogramadao;
 
     public Controlador(org.hibernate.SessionFactory sessionFactory) {
         this.locadordao = new mysqllocadordao(sessionFactory);
@@ -31,7 +33,8 @@ public class Controlador {
         this.garantedao= new mysqlgarantedao(sessionFactory);
         this.locatariodao= new mysqllocatariodao(sessionFactory);
         this.serviciodao= new mysqlserviciodao(sessionFactory);
-        
+        this.contratodao= new mysqlcontratodao(sessionFactory);
+        this.cronogramadao= new mysqlcronogramadao(sessionFactory);
     }
 
     public byte[]AbrirAImagen(File archivo ){
@@ -141,5 +144,26 @@ public class Controlador {
         List <Servicio> servicios =serviciodao.obtenerTodos();
         return servicios;
     }
+    
+    
+    public void InsertarContrato(Contrato g) {
+		contratodao.insertar(g);
+    }
+    public void ActualizarServicio(Contrato g) {
+                contratodao.modificar(g);
+	}
+    public void EliminarContrato(Contrato g) {
+                contratodao.eliminar(g);
+	}
+    public Contrato ObtenerContrato(Long a){
+        Contrato lectura = contratodao.obtener(a);
+        return lectura;
+    }
+    public void desconectarBaseDatosContrato(){
+		this.contratodao.desconectar();
+	}
 
+    public void InsertarCronograma(Cronograma a) {
+		cronogramadao.insertar(a);
+	}
 }

@@ -43,7 +43,7 @@ Contributor(s):
   <class name="Clases.Cuota" table="Cuota">
             <id name="numeroCuota" type="int">
             <column name="NUMEROCUOTA" />
-            <generator class="assigned" />
+            <generator class="native" />
         </id>
         <property name="montoDeRecargo" type="int">
             <column name="MONTODERECARGO" />

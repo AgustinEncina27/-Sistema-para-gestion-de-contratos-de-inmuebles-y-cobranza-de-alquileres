@@ -4,4 +4,6 @@ import Clases.Contrato;
 
 public interface contratodao extends DAO<Contrato, Long>{
 
+    public void desconectar();
+
 }

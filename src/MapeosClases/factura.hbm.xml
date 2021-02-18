@@ -54,8 +54,8 @@ Contributor(s):
             <property name="recargoFijo" type="int">
                 <column name="RECARGOFIJO"/>
             </property>
-            <list name="cuotas" cascade="all-delete-orphan">   
-                <key column="NUMEROCUOTA" />
+            <list name="cuotas" table="cronograma" cascade="all-delete-orphan">   
+                <key column="IDFACTURA" />
                 <index column="ORDEN" />
                 <one-to-many class="Clases.Cuota" />
             </list >

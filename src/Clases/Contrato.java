@@ -19,19 +19,16 @@ public abstract class Contrato {
     private Date fechaDeFinalDelContrato;
     private int valorBaseDelRecargoProporcional;
     private int recargoFijo;
-    private Locador locador;
     private List <Locatario> locatario;
     private Inmueble inmueble;
     private List <Servicio> servicio;
     private Cronograma cronograma;
 
-    public Contrato(long idContrato, Date fechaDeInicioDelContrato, Date fechaDeFinalDelContrato, int valorBaseDelRecargoProporcional, int recargoFijo, Locador locador, List<Locatario> locatario, Inmueble inmueble, List<Servicio> servicio, Cronograma cronograma) {
-        this.idContrato = idContrato;
+    public Contrato(Date fechaDeInicioDelContrato, Date fechaDeFinalDelContrato, int valorBaseDelRecargoProporcional, int recargoFijo, List<Locatario> locatario, Inmueble inmueble, List<Servicio> servicio, Cronograma cronograma) {
         this.fechaDeInicioDelContrato = fechaDeInicioDelContrato;
         this.fechaDeFinalDelContrato = fechaDeFinalDelContrato;
         this.valorBaseDelRecargoProporcional = valorBaseDelRecargoProporcional;
         this.recargoFijo = recargoFijo;
-        this.locador = locador;
         this.locatario = locatario;
         this.inmueble = inmueble;
         this.servicio = servicio;
@@ -78,13 +75,6 @@ public abstract class Contrato {
         this.recargoFijo = recargoFijo;
     }
 
-    public Locador getLocador() {
-        return locador;
-    }
-
-    public void setLocador(Locador locador) {
-        this.locador = locador;
-    }
 
     public List<Locatario> getLocatario() {
         return locatario;

@@ -6,7 +6,9 @@
 package VistaPrincipal;
 
 import Controlador.Controlador;
+import VistaContrato.BuscarContrato;
 import VistaContrato.CrearContrato;
+import VistaContrato.EliminarContrato;
 import VistaGarante.BuscarGarante;
 import VistaGarante.CrearGarante;
 import VistaGarante.EditarGarante;
@@ -253,6 +255,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenu7.add(jMenuItem17);
 
         jMenuItem18.setText("Buscar");
+        jMenuItem18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem18ActionPerformed(evt);
+            }
+        });
         jMenu7.add(jMenuItem18);
 
         jMenuItem19.setText("Editar");
@@ -330,7 +337,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem19ActionPerformed
 
     private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
-        // TODO add your handling code here:
+        EliminarContrato l= new EliminarContrato(control);
+        l.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jMenuItem20ActionPerformed
 
     private void jMenuCrearLocatarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCrearLocatarioActionPerformed
@@ -417,6 +426,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
         g.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem17ActionPerformed
+
+    private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem18ActionPerformed
+        BuscarContrato g= new BuscarContrato(control);
+        g.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem18ActionPerformed
   
    
 

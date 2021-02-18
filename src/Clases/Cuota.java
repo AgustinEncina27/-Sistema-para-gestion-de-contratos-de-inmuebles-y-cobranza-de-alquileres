@@ -78,7 +78,7 @@ public class Cuota {
         this.pagado = pagado;
     }
     
-    public Cuota(int numeroCuota, int montoDeRecargo, int montoTotalAPagar, Date primerFechaDePago, Date segundaFechaDePago, Date fechaPago, boolean pagado) {
+    public Cuota(int montoDeRecargo, int montoTotalAPagar, Date primerFechaDePago, Date segundaFechaDePago, Date fechaPago, boolean pagado) {
         this.numeroCuota = numeroCuota;
         this.montoDeRecargo = montoDeRecargo;
         this.montoTotalAPagar = montoTotalAPagar;
@@ -90,4 +90,11 @@ public class Cuota {
 
     public Cuota() {
     }
+
+    @Override
+    public String toString() {
+        return "Cuota{" + "numeroCuota=" + numeroCuota + ", montoDeRecargo=" + montoDeRecargo + ", montoTotalAPagar=" + montoTotalAPagar + ", primerFechaDePago=" + primerFechaDePago + ", segundaFechaDePago=" + segundaFechaDePago + ", fechaPago=" + fechaPago + ", pagado=" + pagado + '}';
+    }
+    
+    
 }
