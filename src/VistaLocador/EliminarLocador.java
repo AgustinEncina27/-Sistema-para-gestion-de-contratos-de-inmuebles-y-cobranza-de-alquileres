@@ -180,9 +180,9 @@ public class EliminarLocador extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(!jTextField1.getText().equals("")){
-            Locador locador = null;
-            long dni = Long.parseLong(jTextField1.getText());
-            
+            try{
+                Locador locador = null;
+                long dni = Long.parseLong(jTextField1.getText());
                 locador=control.ObtenerLocador(dni);
                 System.out.println(locador);
                 jTextField2.setText(locador.getNombre());
@@ -193,10 +193,13 @@ public class EliminarLocador extends javax.swing.JFrame {
                 jTextField6.setText(locador.getDomicilio());
                 jTextField7.setText(locador.getTelefono());
                 jTextField8.setText(locador.getCorreoElectronico());
-                
-               
                 jTextField1.setText("");
                 JOptionPane.showMessageDialog(null, "Se encontro correctamente");
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
+            }
+        }else {
+            JOptionPane.showMessageDialog(null,"Por favor Ingrese un DNI");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

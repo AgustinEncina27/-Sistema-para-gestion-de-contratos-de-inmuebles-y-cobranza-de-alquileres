@@ -93,6 +93,7 @@ public class BuscarGarante extends javax.swing.JFrame {
         jLabel5.setText("DNI:");
         jPanel2.add(jLabel5);
 
+        jTextField5.setEditable(false);
         jTextField5.setEnabled(false);
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,6 +241,7 @@ public class BuscarGarante extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if(!jTextField12.getText().equals("")){   
+            try{
             long dnum = Long.parseLong(jTextField12.getText());
             g=control.ObtenerGarante(dnum);
             jTextField3.setText(g.getNombre());
@@ -255,6 +257,9 @@ public class BuscarGarante extends javax.swing.JFrame {
                    jButton5.setVisible(true);
             }else{
                 jButton4.setVisible(true);
+            }
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
             }
         }else {
             JOptionPane.showMessageDialog(null,"Por favor Ingrese un DNI");

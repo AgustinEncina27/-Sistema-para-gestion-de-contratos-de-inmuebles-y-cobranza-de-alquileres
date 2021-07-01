@@ -5,6 +5,8 @@ import java.util.List;
 import Clases.Locador;
 import Controlador.HibernateSession;
 import interDAO.locadordao;
+import javax.persistence.PersistenceException;
+import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.engine.jdbc.spi.SqlExceptionHelper;
@@ -21,14 +23,16 @@ public class mysqllocadordao implements locadordao{
             session = null;
             session= HibernateSession.getSession();
             session.beginTransaction();
-            
             session.save(a);
             session.getTransaction().commit();
             session.close();
+            JOptionPane.showMessageDialog(null,"Se creo correctamente un nuevo locador");
             System.out.println("Exito");
-        } catch (HibernateException hibernateException) {
+        }catch (HibernateException hibernateException) {
             System.out.println(hibernateException);
             System.out.println("Fallo");
+        }catch (PersistenceException e) {
+                JOptionPane.showMessageDialog(null,"EL DNI INGRESADO YA EXISTE");
         }
 	}
 

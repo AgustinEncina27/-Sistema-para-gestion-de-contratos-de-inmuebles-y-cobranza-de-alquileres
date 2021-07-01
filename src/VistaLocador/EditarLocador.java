@@ -91,6 +91,7 @@ public class EditarLocador extends javax.swing.JFrame {
         jLabel4.setText("DNI:");
         jPanel2.add(jLabel4);
 
+        jTextField4.setEditable(false);
         jTextField4.setEnabled(false);
         jPanel2.add(jTextField4);
 
@@ -189,8 +190,8 @@ public class EditarLocador extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(!jTextField1.getText().equals("")){
              Locador locador = null;
-             long dni = Long.parseLong(jTextField1.getText());
-            
+             try{
+                long dni = Long.parseLong(jTextField1.getText());
                 locador=control.ObtenerLocador(dni);
                 System.out.println(locador);
                 jTextField2.setText(locador.getNombre());
@@ -211,8 +212,12 @@ public class EditarLocador extends javax.swing.JFrame {
                 jTextField6.setEnabled(true);
                 jTextField7.setEnabled(true);
                 jTextField8.setEnabled(true);
-            
-                JOptionPane.showMessageDialog(null, "Se encontro correctamente");
+            } catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
+            }
+                
+        }else {
+            JOptionPane.showMessageDialog(null,"Por favor Ingrese un DNI");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -227,13 +232,9 @@ public class EditarLocador extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-     
-            
             long dni = Long.parseLong(jTextField4.getText());
-            
             Locador locador = new Locador(dni,jTextField2.getText(),jTextField3.getText(),jTextField5.getText(),jTextField6.getText(),jTextField7.getText(),jTextField8.getText());
             control.ActualizarLocador(locador);
-           
             jTextField2.setText("");
             jTextField3.setText("");
             jTextField4.setText("");
@@ -241,7 +242,6 @@ public class EditarLocador extends javax.swing.JFrame {
             jTextField6.setText("");
             jTextField7.setText("");
             jTextField8.setText("");
-            
             JOptionPane.showMessageDialog(null, "Se EDITO correctamente");
     }//GEN-LAST:event_jButton4ActionPerformed
 

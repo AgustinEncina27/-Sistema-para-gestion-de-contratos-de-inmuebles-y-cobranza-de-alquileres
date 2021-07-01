@@ -179,9 +179,9 @@ public class BuscarLocador extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(!jTextField1.getText().equals("")){
-            Locador locador = null;
-            long dni = Long.parseLong(jTextField1.getText());
-            
+            try{
+                Locador locador = null;
+                long dni = Long.parseLong(jTextField1.getText());
                 locador=control.ObtenerLocador(dni);
                 jTextField2.setText(locador.getNombre());
                 jTextField3.setText(locador.getApellido());
@@ -191,10 +191,11 @@ public class BuscarLocador extends javax.swing.JFrame {
                 jTextField6.setText(locador.getDomicilio());
                 jTextField7.setText(locador.getTelefono());
                 jTextField8.setText(locador.getCorreoElectronico());
-                
-               
                 jTextField1.setText("");
                 JOptionPane.showMessageDialog(null, "Se encontro correctamente");
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

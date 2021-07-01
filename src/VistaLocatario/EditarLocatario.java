@@ -279,7 +279,6 @@ public class EditarLocatario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField9ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
         l.setNombre(jTextField3.getText());
         l.setApellido(jTextField4.getText());
         l.setEstadoCivil(jTextField6.getText());
@@ -306,10 +305,7 @@ public class EditarLocatario extends javax.swing.JFrame {
                 control.desconectarBaseDatosLocatario();
                 control.ActualizarLocatoria(l);
             }
-        }
-             
-        
-        
+        }        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -358,8 +354,7 @@ public class EditarLocatario extends javax.swing.JFrame {
             }
             } catch(NumberFormatException e){
                 JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
-            }
-            
+            }            
         }else {
             JOptionPane.showMessageDialog(null,"Por favor Ingrese un DNI");
         }

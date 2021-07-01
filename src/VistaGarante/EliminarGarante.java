@@ -250,21 +250,25 @@ public class EliminarGarante extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if(!jTextField12.getText().equals("")){ 
-            long dnum = Long.parseLong(jTextField12.getText());
-            g=control.ObtenerGarante(dnum);
-            jTextField3.setText(g.getNombre());
-            jTextField4.setText(g.getApellido());
-            String s=String.valueOf(g.getDni());
-            jTextField5.setText(s);
-            jTextField6.setText(g.getEstadoCivil());
-            jTextField7.setText(g.getDomicilio());
-            jTextField8.setText(g.getTelefono());
-            jTextField9.setText(g.getCorreoElectronico());
-            jTextField10.setText(g.getActividadALaQueSeDedica());
-            if(g.getTrabajoIndependiente()==null){
-                jButton4.setVisible(true);
-            }else{
-                jButton5.setVisible(true);
+            try{
+                long dnum = Long.parseLong(jTextField12.getText());
+                g=control.ObtenerGarante(dnum);
+                jTextField3.setText(g.getNombre());
+                jTextField4.setText(g.getApellido());
+                String s=String.valueOf(g.getDni());
+                jTextField5.setText(s);
+                jTextField6.setText(g.getEstadoCivil());
+                jTextField7.setText(g.getDomicilio());
+                jTextField8.setText(g.getTelefono());
+                jTextField9.setText(g.getCorreoElectronico());
+                jTextField10.setText(g.getActividadALaQueSeDedica());
+                if(g.getTrabajoIndependiente()==null){
+                    jButton4.setVisible(true);
+                }else{
+                    jButton5.setVisible(true);
+                }
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
             }
         }else {
             JOptionPane.showMessageDialog(null,"Por favor Ingrese un DNI");

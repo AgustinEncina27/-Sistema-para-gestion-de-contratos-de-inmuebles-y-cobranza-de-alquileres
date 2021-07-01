@@ -216,25 +216,29 @@ public class CrearGarante extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        if(!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")&&!jTextField9.getText().equals("")&&!jTextField10.getText().equals("")) {
-            gara.setNombre(jTextField3.getText());
-            gara.setApellido(jTextField4.getText());
-            long dnum = Long.parseLong(jTextField5.getText());
-            gara.setDni(dnum);
-            gara.setEstadoCivil(jTextField6.getText());
-            gara.setDomicilio(jTextField7.getText());
-            gara.setTelefono(jTextField8.getText());
-            gara.setCorreoElectronico(jTextField9.getText());
-            gara.setActividadALaQueSeDedica(jTextField10.getText());
-            
+            try{ 
+                gara.setNombre(jTextField3.getText());
+                 gara.setApellido(jTextField4.getText());
+                 long dnum = Long.parseLong(jTextField5.getText());
+                 gara.setDni(dnum);
+                 gara.setEstadoCivil(jTextField6.getText());
+                 gara.setDomicilio(jTextField7.getText());
+                 gara.setTelefono(jTextField8.getText());
+                 gara.setCorreoElectronico(jTextField9.getText());
+                 gara.setActividadALaQueSeDedica(jTextField10.getText());
 
-            VistaTrabajoIndependiente v2 = null;                          
-            try {
-                v2 = new VistaTrabajoIndependiente(control,gara);
-            } catch (NotificacionError ex) {
-                Logger.getLogger(CrearGarante.class.getName()).log(Level.SEVERE, null, ex);
+
+                 VistaTrabajoIndependiente v2 = null;                          
+                 try {
+                     v2 = new VistaTrabajoIndependiente(control,gara);
+                 } catch (NotificacionError ex) {
+                     Logger.getLogger(CrearGarante.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+                 v2.setVisible(true);
+                 this.setVisible(false);
+            } catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
             }
-            v2.setVisible(true);
-            this.setVisible(false);
         }else {
             JOptionPane.showMessageDialog(null,"Por favor Ingrese todos los campos");
         }
@@ -248,18 +252,22 @@ public class CrearGarante extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")&&!jTextField9.getText().equals("")&&!jTextField10.getText().equals("")) {
-            gara.setNombre(jTextField3.getText());
-            gara.setApellido(jTextField4.getText());
-            long dnum = Long.parseLong(jTextField5.getText());
-            gara.setDni(dnum);
-            gara.setEstadoCivil(jTextField6.getText());
-            gara.setDomicilio(jTextField7.getText());
-            gara.setTelefono(jTextField8.getText());
-            gara.setCorreoElectronico(jTextField9.getText());
-            gara.setActividadALaQueSeDedica(jTextField10.getText());
-            VistaRelacionDeDependencia c= new VistaRelacionDeDependencia(control,gara);
-            c.setVisible(true);
-            this.setVisible(false);
+            try{
+                gara.setNombre(jTextField3.getText());
+                gara.setApellido(jTextField4.getText());
+                long dnum = Long.parseLong(jTextField5.getText());
+                gara.setDni(dnum);
+                gara.setEstadoCivil(jTextField6.getText());
+                gara.setDomicilio(jTextField7.getText());
+                gara.setTelefono(jTextField8.getText());
+                gara.setCorreoElectronico(jTextField9.getText());
+                gara.setActividadALaQueSeDedica(jTextField10.getText());
+                VistaRelacionDeDependencia c= new VistaRelacionDeDependencia(control,gara);
+                c.setVisible(true);
+                this.setVisible(false);
+            } catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
+            }
         }else {
             JOptionPane.showMessageDialog(null,"Por favor,Ingrese todos los campos");
         }
@@ -267,25 +275,28 @@ public class CrearGarante extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
        if(!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")&&!jTextField9.getText().equals("")&&!jTextField10.getText().equals("")) {
-            gara.setNombre(jTextField3.getText());
-            gara.setApellido(jTextField4.getText());
-            long dnum = Long.parseLong(jTextField5.getText());
-            gara.setDni(dnum);
-            gara.setEstadoCivil(jTextField6.getText());
-            gara.setDomicilio(jTextField7.getText());
-            gara.setTelefono(jTextField8.getText());
-            gara.setCorreoElectronico(jTextField9.getText());
-            gara.setActividadALaQueSeDedica(jTextField10.getText());
-            control.InsertarGarante(gara);
-            
-            jTextField3.setText("");
-            jTextField4.setText("");
-            jTextField5.setText("");
-            jTextField6.setText("");
-            jTextField7.setText("");
-            jTextField8.setText("");
-            jTextField9.setText("");
-            jTextField10.setText(""); 
+            try{ 
+                gara.setNombre(jTextField3.getText());
+                gara.setApellido(jTextField4.getText());
+                long dnum = Long.parseLong(jTextField5.getText());
+                gara.setDni(dnum);
+                gara.setEstadoCivil(jTextField6.getText());
+                gara.setDomicilio(jTextField7.getText());
+                gara.setTelefono(jTextField8.getText());
+                gara.setCorreoElectronico(jTextField9.getText());
+                gara.setActividadALaQueSeDedica(jTextField10.getText());
+                control.InsertarGarante(gara);
+                jTextField3.setText("");
+                jTextField4.setText("");
+                jTextField5.setText("");
+                jTextField6.setText("");
+                jTextField7.setText("");
+                jTextField8.setText("");
+                jTextField9.setText("");
+                jTextField10.setText(""); 
+            } catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
+            }
         }else {
             JOptionPane.showMessageDialog(null,"Por favor,Ingrese todos los campos");
         }

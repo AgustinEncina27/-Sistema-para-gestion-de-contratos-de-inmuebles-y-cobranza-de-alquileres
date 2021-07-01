@@ -5,6 +5,7 @@ import java.util.List;
 import Clases.Garante;
 import Controlador.HibernateSession;
 import interDAO.garantedao;
+import javax.persistence.PersistenceException;
 import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -30,6 +31,8 @@ public class mysqlgarantedao implements garantedao {
         } catch (HibernateException hibernateException) {
             System.out.println(hibernateException);
             System.out.println("Fallo");
+        }catch (PersistenceException e) {
+                JOptionPane.showMessageDialog(null,"EL DNI INGRESADO YA EXISTE");
         }	
 	}
 

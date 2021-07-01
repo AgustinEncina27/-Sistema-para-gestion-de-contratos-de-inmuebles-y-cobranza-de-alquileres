@@ -156,6 +156,7 @@ public class CrearLocador extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
          if(!jTextField2.getText().equals("")&&!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")) {
+             try{   
                 loca1.setNombre(jTextField2.getText());
 		loca1.setApellido(jTextField3.getText());
                 long dnum = Long.parseLong(jTextField4.getText());
@@ -174,9 +175,9 @@ public class CrearLocador extends javax.swing.JFrame {
                 jTextField7.setText("");
                 jTextField8.setText("");
                 
-                
-		JOptionPane.showMessageDialog(null,"Se creo correctamente un nuevo locador");
-	
+                } catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
+            }
          
          }
          else {
