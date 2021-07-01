@@ -7,6 +7,7 @@ package VistaLocatario;
 
 import Clases.Locatario;
 import Controlador.Controlador;
+import Controlador.HibernateSession;
 import Errores.NotificacionError;
 import VistaPrincipal.VistaPrincipal;
 import VistaRelacionDeDependencia.EditarRecibo;
@@ -302,7 +303,7 @@ public class EditarLocatario extends javax.swing.JFrame {
             if(l.getDependencia()==null && l.getTrabajoIndependiente()==null){
                 JOptionPane.showMessageDialog(null,"INGRESE UN RECIBO DE SUELDO O LOS COMPROBANTES PARA PODER CONTINUAR");
             }else{
-                control.desconectarBaseDatosLocatario();
+                HibernateSession.desconectar();
                 control.ActualizarLocatoria(l);
             }
         }        

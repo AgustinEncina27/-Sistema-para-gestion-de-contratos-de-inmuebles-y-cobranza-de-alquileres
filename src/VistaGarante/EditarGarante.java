@@ -9,6 +9,7 @@ import Clases.Garante;
 import VistaLocatario.*;
 import Clases.Locatario;
 import Controlador.Controlador;
+import Controlador.HibernateSession;
 import Errores.NotificacionError;
 import VistaPrincipal.VistaPrincipal;
 import VistaRelacionDeDependencia.EditarRecibo;
@@ -253,7 +254,7 @@ public class EditarGarante extends javax.swing.JFrame {
         g.setTelefono(jTextField8.getText());
         g.setCorreoElectronico(jTextField9.getText());
         g.setActividadALaQueSeDedica(jTextField10.getText());
-        control.desconectarBaseDatosGarante();
+        HibernateSession.desconectar();
         control.ActualizarGarante(g);
         jTextField3.setText("");
         jTextField4.setText("");

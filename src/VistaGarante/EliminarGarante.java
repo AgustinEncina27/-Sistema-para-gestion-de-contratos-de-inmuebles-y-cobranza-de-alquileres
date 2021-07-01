@@ -9,6 +9,7 @@ import Clases.Garante;
 import VistaLocatario.*;
 import Clases.Locatario;
 import Controlador.Controlador;
+import Controlador.HibernateSession;
 import Errores.NotificacionError;
 import VistaPrincipal.VistaPrincipal;
 import VistaRelacionDeDependencia.VistaPreviaRecibo;
@@ -293,7 +294,7 @@ public class EliminarGarante extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(!jTextField12.getText().equals("")){
-            control.desconectarBaseDatosGarante();
+            HibernateSession.desconectar();
             control.EliminarGarante(g);
             jTextField3.setText("");
             jTextField4.setText("");

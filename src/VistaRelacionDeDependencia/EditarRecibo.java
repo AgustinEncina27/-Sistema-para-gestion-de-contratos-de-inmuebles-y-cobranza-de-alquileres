@@ -10,6 +10,7 @@ import Clases.Locatario;
 import Clases.RelacionDeDependencia;
 import Clases.TrabajoIndependiente;
 import Controlador.Controlador;
+import Controlador.HibernateSession;
 import VistaPrincipal.VistaPrincipal;
 import java.awt.Image;
 import java.io.File;
@@ -148,12 +149,12 @@ public class EditarRecibo extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(objeto instanceof Locatario) {
             ((Locatario) objeto).setDependencia(compro1);
-            control.desconectarBaseDatosLocatario();
+            HibernateSession.desconectar();
             control.ActualizarLocatoria(((Locatario) objeto));
 	}
 	if(objeto instanceof Garante) {
             ((Garante) objeto).setDependencia(compro1);
-            control.desconectarBaseDatosGarante();
+            HibernateSession.desconectar();
             control.ActualizarGarante(((Garante) objeto));
 	}
 	

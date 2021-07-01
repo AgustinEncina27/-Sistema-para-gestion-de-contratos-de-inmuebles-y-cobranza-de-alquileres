@@ -16,6 +16,7 @@ import Clases.Locatario;
 import Clases.Servicio;
 import Clases.Venta;
 import Controlador.Controlador;
+import Controlador.HibernateSession;
 import VistaPrincipal.VistaPrincipal;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -731,7 +732,7 @@ public class CrearContrato extends javax.swing.JFrame {
                 jTextField22.setText("NO");
 
             }
-            control.desconectarBaseDatosLocatario();
+            HibernateSession.desconectar();
         }else {
             JOptionPane.showMessageDialog(null,"Por favor Ingrese un DNI");
         }

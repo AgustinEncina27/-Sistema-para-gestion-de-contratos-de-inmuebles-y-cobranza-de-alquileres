@@ -8,9 +8,11 @@ package VistaServicio;
 import Clases.Inmueble;
 import Clases.Servicio;
 import Controlador.Controlador;
+import Controlador.HibernateSession;
 import VistaPrincipal.VistaPrincipal;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 
 
@@ -212,27 +214,42 @@ public class AdministrarServicios extends javax.swing.JFrame {
     }//GEN-LAST:event_txtcostoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Servicio ser= new Servicio(Long.parseLong(txtid.getText()),txtnombre.getText(),Double.parseDouble(txtcosto.getText()));
-        control.ActualizarServicio(ser);
-        Limpiar();
-        Agregar();
+        try{
+            Servicio ser= new Servicio(Long.parseLong(txtid.getText()),txtnombre.getText(),Double.parseDouble(txtcosto.getText()));
+            HibernateSession.desconectar();
+            control.ActualizarServicio(ser);
+            Limpiar();
+            Agregar();
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"EL COSTO DEL SERVICIO TIENE QUE SER NUMÉRICO");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Servicio ser= new Servicio(Long.parseLong(txtid.getText()),txtnombre.getText(),Double.parseDouble(txtcosto.getText()));
-        control.EliminarServicio(ser);
-        Limpiar();
-        Agregar();
+        try{    
+            Servicio ser= new Servicio(Long.parseLong(txtid.getText()),txtnombre.getText(),Double.parseDouble(txtcosto.getText()));
+            HibernateSession.desconectar();
+            control.EliminarServicio(ser);
+            Limpiar();
+            Agregar();
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"EL COSTO DEL SERVICIO TIENE QUE SER NUMÉRICO");
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        String nombre;
-        nombre= txtnombre.getText();
-        double costo= Double.parseDouble(txtcosto.getText());
-        Servicio ser= new Servicio(nombre,costo);
-        control.InsertarServicio(ser);
-        Limpiar();
-        Agregar();
+        try{
+            String nombre;
+            nombre= txtnombre.getText();
+            double costo= Double.parseDouble(txtcosto.getText());
+            Servicio ser= new Servicio(nombre,costo);
+            HibernateSession.desconectar();
+            control.InsertarServicio(ser);
+            Limpiar();
+            Agregar();
+        }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"EL COSTO DEL SERVICIO TIENE QUE SER NUMÉRICO");
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

@@ -12,6 +12,7 @@ import Clases.Locador;
 import Clases.LocalComercial;
 import Clases.Terreno;
 import Controlador.Controlador;
+import Controlador.HibernateSession;
 import VistaPrincipal.VistaPrincipal;
 import java.util.Iterator;
 import java.util.List;
@@ -357,7 +358,7 @@ public class EliminarInmueble extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        control.desconectarBaseDatosInmueble();
+        HibernateSession.desconectar();
         VistaPrincipal l= new VistaPrincipal(control);
         l.setVisible(true);
         this.setVisible(false);
@@ -536,7 +537,7 @@ public class EliminarInmueble extends javax.swing.JFrame {
             long id = Long.parseLong(jTextField13.getText());
             t.setIdInmueble(id);
             
-            control.desconectarBaseDatosInmueble();
+            HibernateSession.desconectar();
             control.EliminarInmueble(t);    
         }else{
             if(jTextField12.getText().equals("Departamento")){
@@ -551,7 +552,7 @@ public class EliminarInmueble extends javax.swing.JFrame {
                 long id = Long.parseLong(jTextField13.getText());
                 d.setIdInmueble(id);
 
-                control.desconectarBaseDatosInmueble();
+                HibernateSession.desconectar();
                 control.EliminarInmueble(d);
             }else{
                 if(jTextField12.getText().equals("Casa")){
@@ -566,7 +567,7 @@ public class EliminarInmueble extends javax.swing.JFrame {
                     long id = Long.parseLong(jTextField13.getText());
                     c.setIdInmueble(id);
 
-                    control.desconectarBaseDatosInmueble();
+                    HibernateSession.desconectar();
                     control.EliminarInmueble(c);
                 }else{
                     if(i instanceof LocalComercial){
@@ -576,7 +577,7 @@ public class EliminarInmueble extends javax.swing.JFrame {
                         long id = Long.parseLong(jTextField13.getText());
                         l.setIdInmueble(id);
 
-                        control.desconectarBaseDatosInmueble();
+                        HibernateSession.desconectar();
                         control.EliminarInmueble(l);
                     }
                 }

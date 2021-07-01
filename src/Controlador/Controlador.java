@@ -74,9 +74,7 @@ public class Controlador {
         Locatario lectura = locatariodao.obtener(a);
         return lectura;
     }
-    public void desconectarBaseDatosLocatario(){
-		this.locatariodao.desconectar();
-	}
+   
     
     
     public void InsertarGarante(Garante g) {
@@ -92,9 +90,7 @@ public class Controlador {
         Garante lectura = garantedao.obtener(a);
         return lectura;
     }
-    public void desconectarBaseDatosGarante(){
-		this.garantedao.desconectar();
-	}  
+    
     
     public void InsertarInmueble(Inmueble g) {
 		inmuebledao.insertar(g);
@@ -109,9 +105,7 @@ public class Controlador {
         List <Inmueble> inmuebles =inmuebledao.obtener(a);
         return inmuebles;
     }
-    public void desconectarBaseDatosInmueble(){
-		this.inmuebledao.desconectar();
-	} 
+    
     public Inmueble ObtenerInmuebleID(Long a){
         Inmueble lectura = inmuebledao.obtener(a);
         return lectura;
@@ -130,9 +124,7 @@ public class Controlador {
         Servicio lectura = serviciodao.obtener(a);
         return lectura;
     }
-    public void desconectarBaseDatosServicio(){
-		this.serviciodao.desconectar();
-	}
+    
     public List <Servicio> obtenerTodosLosServicios(){
         List <Servicio> servicios =serviciodao.obtenerTodos();
         return servicios;
@@ -152,9 +144,7 @@ public class Controlador {
         Contrato lectura = contratodao.obtener(a);
         return lectura;
     }
-    public void desconectarBaseDatosContrato(){
-		this.contratodao.desconectar();
-	}
+    
 
     public void InsertarCronograma(Cronograma a) {
 		cronogramadao.insertar(a);

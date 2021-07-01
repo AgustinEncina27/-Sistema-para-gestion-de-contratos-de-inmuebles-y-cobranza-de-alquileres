@@ -9,6 +9,7 @@ import Clases.Garante;
 import Clases.Locatario;
 import Clases.TrabajoIndependiente;
 import Controlador.Controlador;
+import Controlador.HibernateSession;
 import Errores.NotificacionError;
 import VistaPrincipal.VistaPrincipal;
 import java.awt.Image;
@@ -279,12 +280,12 @@ public class EditarComprobante extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 	if(objeto instanceof Locatario) {
             ((Locatario) objeto).setTrabajoIndependiente(compro);
-            control.desconectarBaseDatosLocatario();
+            HibernateSession.desconectar();
             control.ActualizarLocatoria(((Locatario) objeto));
 	}
 	if(objeto instanceof Garante) {
             ((Garante) objeto).setTrabajoIndependiente(compro);
-            control.desconectarBaseDatosGarante();
+            HibernateSession.desconectar();
             control.ActualizarGarante(((Garante) objeto));
 	}
 	VistaPrincipal l= new VistaPrincipal(control);

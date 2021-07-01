@@ -6,8 +6,6 @@
 package VistaGarante;
 
 import Clases.Garante;
-import VistaLocatario.*;
-import Clases.Locatario;
 import Controlador.Controlador;
 import Errores.NotificacionError;
 import VistaPrincipal.VistaPrincipal;

@@ -11,6 +11,7 @@ import Clases.Locador;
 import Clases.Locatario;
 import Clases.Servicio;
 import Controlador.Controlador;
+import Controlador.HibernateSession;
 import VistaPrincipal.VistaPrincipal;
 import java.text.SimpleDateFormat;
 import java.util.Iterator;
@@ -464,7 +465,7 @@ public class EliminarContrato extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        control.desconectarBaseDatosContrato();
+        HibernateSession.desconectar();
         control.EliminarContrato(contra);
     }//GEN-LAST:event_jButton2ActionPerformed
 

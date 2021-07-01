@@ -13,6 +13,7 @@ import Clases.Inmueble;
 import Clases.Locador;
 import Clases.LocalComercial;
 import Clases.Terreno;
+import Controlador.HibernateSession;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -325,7 +326,7 @@ public class BuscarInmueble extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        control.desconectarBaseDatosInmueble();
+        HibernateSession.desconectar();
         VistaPrincipal l= new VistaPrincipal(control);
         l.setVisible(true);
         this.setVisible(false);

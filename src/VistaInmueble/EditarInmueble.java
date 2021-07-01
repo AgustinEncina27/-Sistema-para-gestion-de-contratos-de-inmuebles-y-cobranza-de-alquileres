@@ -13,6 +13,7 @@ import Clases.LocalComercial;
 import Clases.Terreno;
 import Clases.Vivienda;
 import Controlador.Controlador;
+import Controlador.HibernateSession;
 import VistaPrincipal.VistaPrincipal;
 import java.util.Iterator;
 import java.util.List;
@@ -319,7 +320,7 @@ public class EditarInmueble extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        control.desconectarBaseDatosInmueble();
+        HibernateSession.desconectar();
         VistaPrincipal l= new VistaPrincipal(control);
         l.setVisible(true);
         this.setVisible(false);
@@ -502,7 +503,7 @@ public class EditarInmueble extends javax.swing.JFrame {
             long id = Long.parseLong(jTextField13.getText());
             t.setIdInmueble(id);
             
-            control.desconectarBaseDatosInmueble();
+            HibernateSession.desconectar();
             control.ActualizarInmueble(t);    
         }else{
             if(jTextField12.getText().equals("Departamento")){
@@ -517,7 +518,7 @@ public class EditarInmueble extends javax.swing.JFrame {
                 long id = Long.parseLong(jTextField13.getText());
                 d.setIdInmueble(id);
 
-                control.desconectarBaseDatosInmueble();
+                HibernateSession.desconectar();
                 control.ActualizarInmueble(d);
             }else{
                 if(jTextField12.getText().equals("Casa")){
@@ -532,7 +533,7 @@ public class EditarInmueble extends javax.swing.JFrame {
                     long id = Long.parseLong(jTextField13.getText());
                     c.setIdInmueble(id);
 
-                    control.desconectarBaseDatosInmueble();
+                    HibernateSession.desconectar();
                     control.ActualizarInmueble(c);
                 }else{
                     if(i instanceof LocalComercial){
@@ -542,7 +543,7 @@ public class EditarInmueble extends javax.swing.JFrame {
                         long id = Long.parseLong(jTextField13.getText());
                         l.setIdInmueble(id);
 
-                        control.desconectarBaseDatosInmueble();
+                        HibernateSession.desconectar();
                         control.ActualizarInmueble(l);
                     }
                 }
