@@ -5,6 +5,7 @@ import Clases.Locatario;
 import java.util.List;
 
 import Clases.Servicio;
+import Controlador.HibernateSession;
 import interDAO.serviciodao;
 import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
@@ -15,16 +16,15 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 
 public class mysqlserviciodao implements serviciodao{
-        private final SessionFactory sessionFactory;
         private Session session;
         
-        public mysqlserviciodao(SessionFactory sessionFactory) {
-        this.sessionFactory = (SessionFactory) sessionFactory;
+        public mysqlserviciodao() {
         }
 	
 	public void insertar(Servicio g) {
 		try {
-                session = sessionFactory.openSession();
+                session = null;
+                session= HibernateSession.getSession();
                 session.beginTransaction();
                 session.save(g);
                 session.getTransaction().commit();
@@ -41,7 +41,8 @@ public class mysqlserviciodao implements serviciodao{
 	@Override
 	public void modificar(Servicio g) {
 		try {
-                    session = sessionFactory.openSession();
+                    session = null;
+                    session= HibernateSession.getSession();
                     session.beginTransaction();
                     session.update(g);
                     session.getTransaction().commit();
@@ -58,7 +59,8 @@ public class mysqlserviciodao implements serviciodao{
 	@Override
 	public void eliminar(Servicio g) {
 		try {
-                    Session session = sessionFactory.openSession();
+                    session = null;
+                    session= HibernateSession.getSession();
                     session.beginTransaction();
                     session.delete(g);
                     session.getTransaction().commit();
@@ -77,7 +79,8 @@ public class mysqlserviciodao implements serviciodao{
                 Transaction tr= null;
 		List <Servicio> servicio = null;
                 try {
-                    session= sessionFactory.openSession();
+                    session = null;
+                    session= HibernateSession.getSession();
                     tr=session.beginTransaction();
                     tr.setTimeout(2);
                     servicio= session.createCriteria(Servicio.class).list();
@@ -91,7 +94,8 @@ public class mysqlserviciodao implements serviciodao{
 	public Servicio obtener(Long id) {
 		Servicio retorno = null;
                 try {
-                    session = sessionFactory.openSession();
+                    session = null;
+                    session= HibernateSession.getSession();
                     System.out.println("Exito");
                     retorno = (Servicio) session.get(Servicio.class, id);
                 } catch (HibernateException hibernateException) {

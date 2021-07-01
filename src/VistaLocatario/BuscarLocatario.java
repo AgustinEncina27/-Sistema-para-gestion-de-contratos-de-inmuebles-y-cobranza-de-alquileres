@@ -271,33 +271,35 @@ public class BuscarLocatario extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if(!jTextField12.getText().equals("")){
-            
-            long dnum = Long.parseLong(jTextField12.getText());
-            l=control.ObtenerLocatario(dnum);
-            jTextField1.setText(l.getUsuario());
-            jTextField2.setText(l.getContrasenia());
-            jTextField3.setText(l.getNombre());
-            jTextField4.setText(l.getApellido());
-            String s=String.valueOf(l.getDni());
-            jTextField5.setText(s);
-            jTextField6.setText(l.getEstadoCivil());
-            jTextField7.setText(l.getDomicilio());
-            jTextField8.setText(l.getTelefono());
-            jTextField9.setText(l.getCorreoElectronico());
-            jTextField10.setText(l.getActividadALaQueSeDedica());
-            if(l.isEstudiante()){
-                jTextField11.setText("SI");
-                jButton4.setVisible(false);
-                jButton5.setVisible(false);
-            }else{
-               jTextField11.setText("NO");
-               if(l.getDependencia()==null){
-                   jButton5.setVisible(true);
-               }else{
-                   jButton4.setVisible(true);
-               }
+            try{
+                long dnum = Long.parseLong(jTextField12.getText());
+                l=control.ObtenerLocatario(dnum);
+                jTextField1.setText(l.getUsuario());
+                jTextField2.setText(l.getContrasenia());
+                jTextField3.setText(l.getNombre());
+                jTextField4.setText(l.getApellido());
+                String s=String.valueOf(l.getDni());
+                jTextField5.setText(s);
+                jTextField6.setText(l.getEstadoCivil());
+                jTextField7.setText(l.getDomicilio());
+                jTextField8.setText(l.getTelefono());
+                jTextField9.setText(l.getCorreoElectronico());
+                jTextField10.setText(l.getActividadALaQueSeDedica()); 
+                if(l.isEstudiante()){
+                    jTextField11.setText("SI");
+                    jButton4.setVisible(false);
+                    jButton5.setVisible(false);
+                }else{
+                   jTextField11.setText("NO");
+                   if(l.getDependencia()==null){
+                       jButton5.setVisible(true);
+                   }else{
+                       jButton4.setVisible(true);
+                   }
+                }
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
             }
-        
         }else {
             JOptionPane.showMessageDialog(null,"Por favor Ingrese un DNI");
         }

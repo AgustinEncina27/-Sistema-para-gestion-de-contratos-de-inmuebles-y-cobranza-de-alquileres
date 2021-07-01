@@ -3,6 +3,7 @@ package ClasesDAO;
 import java.util.List;
 
 import Clases.Garante;
+import Controlador.HibernateSession;
 import interDAO.garantedao;
 import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
@@ -10,17 +11,16 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 public class mysqlgarantedao implements garantedao {
-    private final SessionFactory sessionFactory;
     private Session session;
     
-    public mysqlgarantedao(SessionFactory sessionFactory) {
-        this.sessionFactory = (SessionFactory) sessionFactory;
+    public mysqlgarantedao() {
     }
     
 	@Override
 	public void insertar(Garante g) {
 	try {
-            session = sessionFactory.openSession();
+            session = null;
+            session= HibernateSession.getSession();
             session.beginTransaction();
             session.save(g);
             session.getTransaction().commit();
@@ -36,7 +36,8 @@ public class mysqlgarantedao implements garantedao {
 	@Override
 	public void modificar(Garante g) {
 	try {
-            session = sessionFactory.openSession();
+            session = null;
+            session= HibernateSession.getSession();
             session.beginTransaction();
             session.update(g);
             session.getTransaction().commit();
@@ -52,7 +53,8 @@ public class mysqlgarantedao implements garantedao {
 	@Override
 	public void eliminar(Garante g) {
 	try {
-            session = sessionFactory.openSession();
+            session = null;
+            session= HibernateSession.getSession();
             session.beginTransaction();
             session.delete(g);
             session.getTransaction().commit();
@@ -75,7 +77,8 @@ public class mysqlgarantedao implements garantedao {
 	public Garante obtener(Long id) {
 	Garante retorno = null;
             try {
-                session = sessionFactory.openSession();
+                session = null;
+                session= HibernateSession.getSession();
                 System.out.println("Exito");
                 retorno = (Garante) session.get(Garante.class, id);
             } catch (HibernateException hibernateException) {

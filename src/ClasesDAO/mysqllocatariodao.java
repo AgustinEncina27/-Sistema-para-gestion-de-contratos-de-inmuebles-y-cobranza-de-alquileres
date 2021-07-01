@@ -3,23 +3,24 @@ package ClasesDAO;
 import java.util.List;
 
 import Clases.Locatario;
+import Controlador.HibernateSession;
 import interDAO.locatariodao;
+import javax.persistence.PersistenceException;
 import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 public class mysqllocatariodao implements locatariodao {
-        private final SessionFactory sessionFactory;
         private Session session;
 
-    public mysqllocatariodao(SessionFactory sessionFactory) {
-        this.sessionFactory = (SessionFactory) sessionFactory;
+    public mysqllocatariodao() {  
     }
 	
-	public void insertar(Locatario g) {
+	public void insertar(Locatario g) { 
             try {
-                session = sessionFactory.openSession();
+                session = null;
+                session= HibernateSession.getSession();
                 session.beginTransaction();
                 session.save(g);
                 session.getTransaction().commit();
@@ -29,13 +30,16 @@ public class mysqllocatariodao implements locatariodao {
             } catch (HibernateException hibernateException) {
                 System.out.println(hibernateException);
                 System.out.println("Fallo");
+            }catch (PersistenceException e) {
+                JOptionPane.showMessageDialog(null,"EL DNI INGRESADO YA EXISTE");
             }	
 	}
 
 	
 	public void modificar(Locatario g) {
 	try {
-            session = sessionFactory.openSession();
+            session = null;
+            session= HibernateSession.getSession();
             session.beginTransaction();
             session.update(g);
             session.getTransaction().commit();
@@ -51,7 +55,8 @@ public class mysqllocatariodao implements locatariodao {
 	
 	public void eliminar(Locatario g) {
             try {
-                Session session = sessionFactory.openSession();
+                session = null;
+                session= HibernateSession.getSession();
                 session.beginTransaction();
                 session.delete(g);
                 session.getTransaction().commit();
@@ -73,13 +78,12 @@ public class mysqllocatariodao implements locatariodao {
 	
 	public Locatario obtener(Long id) {
 	Locatario retorno = null;
-            try {
-                session = sessionFactory.openSession();
-                System.out.println("Exito");
+            try {     
+                session = null;
+                session= HibernateSession.getSession();
                 retorno = (Locatario) session.get(Locatario.class, id);
-            } catch (HibernateException hibernateException) {
-                System.out.println(hibernateException);
-                System.out.println("Fallo");
+            } catch (NullPointerException e){
+                JOptionPane.showMessageDialog(null,"EL DNI INGRESADO NO EXISTE");
             }
             return retorno;
 	}

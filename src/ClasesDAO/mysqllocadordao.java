@@ -3,23 +3,25 @@ package ClasesDAO;
 import java.util.List;
 
 import Clases.Locador;
+import Controlador.HibernateSession;
 import interDAO.locadordao;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.engine.jdbc.spi.SqlExceptionHelper;
 
 public class mysqllocadordao implements locadordao{
-	private final SessionFactory sessionFactory;
-
-    public mysqllocadordao(SessionFactory sessionFactory) {
-        this.sessionFactory = (SessionFactory) sessionFactory;
+    private Session session;
+    
+    public mysqllocadordao() {  
     }
 	
 	@Override
 	public void insertar(Locador a) {
 	try {
-            Session session = sessionFactory.openSession();
+            session = null;
+            session= HibernateSession.getSession();
             session.beginTransaction();
+            
             session.save(a);
             session.getTransaction().commit();
             session.close();
@@ -33,7 +35,8 @@ public class mysqllocadordao implements locadordao{
 	@Override
 	public void modificar(Locador a) {
 	try {
-            Session session = sessionFactory.openSession();
+            session = null;
+            session= HibernateSession.getSession();
             session.beginTransaction();
             session.update(a);
             session.getTransaction().commit();
@@ -48,7 +51,8 @@ public class mysqllocadordao implements locadordao{
 	@Override
 	public void eliminar(Locador a) {
         try {
-            Session session = sessionFactory.openSession();
+            session = null;
+            session= HibernateSession.getSession();
             session.beginTransaction();
             session.delete(a);
             session.getTransaction().commit();
@@ -71,7 +75,8 @@ public class mysqllocadordao implements locadordao{
     public Locador obtener(Long id) {
         Locador retorno = null;
             try {
-                Session session = sessionFactory.openSession();
+                session = null;
+                session= HibernateSession.getSession();
                 System.out.println("Exito");
                 retorno = (Locador) session.get(Locador.class, id);
                 session.close();
@@ -87,7 +92,8 @@ public class mysqllocadordao implements locadordao{
         Locador retorno = null;
         String consulta="SELECT * From locatorio L where L.dni=:dni";
             try {
-                Session session = sessionFactory.openSession();
+                session = null;
+                session= HibernateSession.getSession();
                 System.out.println("Exito");
                 retorno = (Locador) session.get(Locador.class, consulta);
                 

@@ -325,6 +325,7 @@ public class CrearLocatario extends javax.swing.JFrame {
        if(!jTextField1.getText().equals("")&&!jTextField2.getText().equals("")&&!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")&&!jTextField9.getText().equals("")&&!jTextField10.getText().equals("")) {
             loca.setNombre(jTextField3.getText());
             loca.setApellido(jTextField4.getText());
+            try{
             long dnum = Long.parseLong(jTextField5.getText());
             loca.setDni(dnum);
             loca.setEstadoCivil(jTextField6.getText());
@@ -340,7 +341,6 @@ public class CrearLocatario extends javax.swing.JFrame {
             loca.setUsuario(jTextField1.getText());
             loca.setContrasenia(jTextField2.getText());
             control.InsertarLocatoria(loca);
-            
             jTextField1.setText("");
             jTextField2.setText("");
             jTextField3.setText("");
@@ -351,6 +351,10 @@ public class CrearLocatario extends javax.swing.JFrame {
             jTextField8.setText("");
             jTextField9.setText("");
             jTextField10.setText("");
+            } catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
+            }
+                
             
         }else {
             JOptionPane.showMessageDialog(null,"Por favor,Ingrese todos los campos");

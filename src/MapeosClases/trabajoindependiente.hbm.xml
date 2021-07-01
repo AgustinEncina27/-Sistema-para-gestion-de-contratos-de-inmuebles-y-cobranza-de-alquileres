@@ -40,7 +40,7 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-mapping>
-  <class name="Clases.TrabajoIndependiente" table="TrabajoIndependiente">
+  <class name="Clases.TrabajoIndependiente" table="TrabajoIndependiente" >
           <id name="idTrabajoIndependiente" type="long">
             <column name="IDTRABAJOINDEPENDIENTE" />
             <generator class="native" />

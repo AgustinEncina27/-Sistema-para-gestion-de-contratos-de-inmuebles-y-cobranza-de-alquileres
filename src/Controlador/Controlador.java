@@ -19,22 +19,15 @@ public class Controlador {
    FileInputStream entrada;
    FileOutputStream salida;
    File archivo;
-   private final locadordao locadordao;
-   private final inmuebledao inmuebledao;
-   private final locatariodao locatariodao;
-   private final garantedao garantedao;
-   private final serviciodao serviciodao;
-   private final contratodao contratodao;
-   private final cronogramadao cronogramadao;
+   private final mysqllocadordao locadordao = new mysqllocadordao();
+   private final mysqlinmuebledao inmuebledao = new mysqlinmuebledao();
+   private final mysqllocatariodao locatariodao= new mysqllocatariodao();
+   private final mysqlgarantedao garantedao= new mysqlgarantedao();
+   private final mysqlserviciodao serviciodao= new mysqlserviciodao();
+   private final mysqlcontratodao contratodao= new mysqlcontratodao();
+   private final mysqlcronogramadao cronogramadao= new mysqlcronogramadao();
 
-    public Controlador(org.hibernate.SessionFactory sessionFactory) {
-        this.locadordao = new mysqllocadordao(sessionFactory);
-        this.inmuebledao = new mysqlinmuebledao(sessionFactory);
-        this.garantedao= new mysqlgarantedao(sessionFactory);
-        this.locatariodao= new mysqllocatariodao(sessionFactory);
-        this.serviciodao= new mysqlserviciodao(sessionFactory);
-        this.contratodao= new mysqlcontratodao(sessionFactory);
-        this.cronogramadao= new mysqlcronogramadao(sessionFactory);
+    public Controlador() {
     }
 
     public byte[]AbrirAImagen(File archivo ){

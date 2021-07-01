@@ -3,6 +3,7 @@ package ClasesDAO;
 import java.util.List;
 
 import Clases.Inmueble;
+import Controlador.HibernateSession;
 import interDAO.inmuebledao;
 import org.hibernate.HibernateException;
 
@@ -13,18 +14,17 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 
 public class mysqlinmuebledao implements inmuebledao{
-    private final SessionFactory sessionFactory;
     private Session session;
     
     
-    public mysqlinmuebledao(SessionFactory sessionFactory) {
-        this.sessionFactory = (SessionFactory) sessionFactory;
+    public mysqlinmuebledao() {   
     }
 
 	@Override
 	public void insertar(Inmueble g) {
 	try {
-            Session session = sessionFactory.openSession();
+            session = null;
+            session= HibernateSession.getSession();
             session.beginTransaction();
             session.save(g);
             session.getTransaction().commit();
@@ -40,7 +40,8 @@ public class mysqlinmuebledao implements inmuebledao{
 	@Override
 	public void modificar(Inmueble g) {
 	try {
-            Session session = sessionFactory.openSession();
+            session = null;
+            session= HibernateSession.getSession();
             session.beginTransaction();
             session.update(g);
             session.getTransaction().commit();
@@ -56,7 +57,8 @@ public class mysqlinmuebledao implements inmuebledao{
 	@Override
 	public void eliminar(Inmueble g) {
 	try {
-            Session session = sessionFactory.openSession();
+            session = null;
+            session= HibernateSession.getSession();
             session.beginTransaction();
             session.delete(g);
             session.getTransaction().commit();
@@ -72,7 +74,8 @@ public class mysqlinmuebledao implements inmuebledao{
 	public List<Inmueble> obtenerTodos() {
                 List <Inmueble> inmuebles = null;
                 try {
-                    Session session = sessionFactory.openSession();
+                    session = null;
+            session= HibernateSession.getSession();
                     Query  q = session.createQuery(" FROM INMUEBLE ");
                     inmuebles= q.list();
                 } catch (Exception e) {
@@ -87,7 +90,8 @@ public class mysqlinmuebledao implements inmuebledao{
                 Transaction tr= null;
                 List<Inmueble> inmuebles= null;
                 try {
-                    session= sessionFactory.openSession();
+                    session = null;
+                    session= HibernateSession.getSession();
                     tr=session.beginTransaction();
                     tr.setTimeout(2);
                     inmuebles= session.createCriteria(Inmueble.class).add(Restrictions.like("localidad", a+"%")).list();
@@ -117,7 +121,8 @@ public class mysqlinmuebledao implements inmuebledao{
     public Inmueble obtener(Long id) {
         Inmueble retorno = null;
             try {
-                session = sessionFactory.openSession();
+                session = null;
+                session= HibernateSession.getSession();
                 System.out.println("Exito");
                 retorno = (Inmueble) session.get(Inmueble.class, id);
             } catch (HibernateException hibernateException) {

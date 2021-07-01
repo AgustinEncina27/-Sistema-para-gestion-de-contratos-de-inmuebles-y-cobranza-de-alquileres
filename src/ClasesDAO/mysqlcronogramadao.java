@@ -3,6 +3,7 @@ package ClasesDAO;
 import java.util.List;
 
 import Clases.Cronograma;
+import Controlador.HibernateSession;
 import interDAO.cronogramadao;
 import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
@@ -10,17 +11,16 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 public class mysqlcronogramadao implements cronogramadao {
-    private final SessionFactory sessionFactory;
     private Session session;
     
-    public mysqlcronogramadao(SessionFactory sessionFactory) {
-        this.sessionFactory = (SessionFactory) sessionFactory;
+    public mysqlcronogramadao() {
     }
     
 	@Override
 	public void insertar(Cronograma g) {
 		try {
-            session = sessionFactory.openSession();
+            session = null;
+            session= HibernateSession.getSession();
             session.beginTransaction();
             session.save(g);
             session.getTransaction().commit();

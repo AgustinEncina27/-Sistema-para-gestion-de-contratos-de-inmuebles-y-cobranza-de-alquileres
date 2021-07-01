@@ -104,7 +104,7 @@ Contributor(s):
       <many-to-one name="dependencia" cascade="all" class="Clases.RelacionDeDependencia">
           <column name="RELACIONDEDEPENDENCIA"/>
       </many-to-one>
-      <list name="trabajoIndependiente" cascade="all-delete-orphan">   
+      <list name="trabajoIndependiente" cascade="all">   
             <key column="DNILOCATARIO" />
             <index column="ORDEN" />
           <one-to-many class="Clases.TrabajoIndependiente" />

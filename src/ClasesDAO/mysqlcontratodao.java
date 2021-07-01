@@ -4,6 +4,7 @@ import java.util.List;
 
 import Clases.Contrato;
 import Clases.Servicio;
+import Controlador.HibernateSession;
 import interDAO.contratodao;
 import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
@@ -11,17 +12,16 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 public class mysqlcontratodao implements contratodao{
-        private final SessionFactory sessionFactory;
         private Session session;
         
-        public mysqlcontratodao(SessionFactory sessionFactory) {
-        this.sessionFactory = (SessionFactory) sessionFactory;
+        public mysqlcontratodao() {
         }
         
 	@Override
 	public void insertar(Contrato g) {
 		try {
-                session = sessionFactory.openSession();
+                session = null;
+                session= HibernateSession.getSession();
                 session.beginTransaction();
                 session.save(g);
                 session.getTransaction().commit();
@@ -37,7 +37,8 @@ public class mysqlcontratodao implements contratodao{
 	@Override
 	public void modificar(Contrato g) {
 		try {
-                    session = sessionFactory.openSession();
+                    session = null;
+                    session= HibernateSession.getSession();
                     session.beginTransaction();
                     session.update(g);
                     session.getTransaction().commit();
@@ -53,7 +54,8 @@ public class mysqlcontratodao implements contratodao{
 	@Override
 	public void eliminar(Contrato g) {
 		try {
-                    Session session = sessionFactory.openSession();
+                    session = null;
+                    session= HibernateSession.getSession();
                     session.beginTransaction();
                     session.delete(g);
                     session.getTransaction().commit();
@@ -76,7 +78,8 @@ public class mysqlcontratodao implements contratodao{
 	public Contrato obtener(Long id) {
 		Contrato retorno = null;
                 try {
-                    session = sessionFactory.openSession();
+                    session = null;
+                    session= HibernateSession.getSession();
                     System.out.println("Exito");
                     retorno = (Contrato) session.get(Contrato.class, id);
                 } catch (HibernateException hibernateException) {

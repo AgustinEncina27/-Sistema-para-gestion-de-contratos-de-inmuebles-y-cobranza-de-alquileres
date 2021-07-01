@@ -284,7 +284,7 @@ public class EliminarLocatario extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if(!jTextField12.getText().equals("")){
-            
+            try{
             long dnum = Long.parseLong(jTextField12.getText());
             l=control.ObtenerLocatario(dnum);
             jTextField1.setText(l.getUsuario());
@@ -310,7 +310,9 @@ public class EliminarLocatario extends javax.swing.JFrame {
                    jButton4.setVisible(true);
                }
             }
-        
+            } catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
+            }
         }else {
             JOptionPane.showMessageDialog(null,"Por favor Ingrese un DNI");
         }
