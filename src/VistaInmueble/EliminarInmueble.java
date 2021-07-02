@@ -365,6 +365,7 @@ public class EliminarInmueble extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        HibernateSession.desconectar();
         lista= new DefaultListModel<Inmueble>();
         inmue= control.ObtenerInmueble(jTextField1.getText());
         Iterator <Inmueble> iterador = this.inmue.iterator();

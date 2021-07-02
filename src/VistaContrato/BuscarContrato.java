@@ -239,6 +239,8 @@ public class BuscarContrato extends javax.swing.JFrame {
 
         jLabel29.setText("CRONOGRAMA");
 
+        jTextField8.setEditable(false);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(

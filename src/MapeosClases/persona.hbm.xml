@@ -67,7 +67,6 @@ Contributor(s):
     
     <joined-subclass name="Clases.Locador" table="Locador">
       <key column="DNI"/>
-      
     </joined-subclass>
     
     
@@ -79,11 +78,11 @@ Contributor(s):
       <many-to-one name="dependencia"  cascade="all"  class="Clases.RelacionDeDependencia">
           <column name="RELACIONDEDEPENDENCIA"/>
        </many-to-one>
-         <list name="trabajoIndependiente" cascade="all-delete-orphan">   
+         <list name="trabajoIndependiente" cascade="all">   
             <key column="DNIGARANTE" />
             <index column="ORDEN" />
           <one-to-many class="Clases.TrabajoIndependiente" />
-        </list >
+        </list>
     </joined-subclass>
     
     

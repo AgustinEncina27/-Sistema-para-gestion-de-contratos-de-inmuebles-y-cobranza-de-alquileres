@@ -301,109 +301,126 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        HibernateSession.desconectar();
         EditarLocatario l= new EditarLocatario(control);
         l.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        HibernateSession.desconectar();
         EliminarLocador l= new EliminarLocador(control);
         l.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        HibernateSession.desconectar();
         BuscarGarante g= new BuscarGarante(control);
         g.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
+        HibernateSession.desconectar();
         EditarInmueble g= new EditarInmueble(control);
         g.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
     private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
+        HibernateSession.desconectar();
         EliminarContrato l= new EliminarContrato(control);
         l.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem20ActionPerformed
 
     private void jMenuCrearLocatarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCrearLocatarioActionPerformed
+        HibernateSession.desconectar();
         CrearLocatario l= new CrearLocatario(control);
         l.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuCrearLocatarioActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        HibernateSession.desconectar();
         CrearGarante g= new CrearGarante(control);
         g.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenubuscarLocatarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenubuscarLocatarioActionPerformed
+        HibernateSession.desconectar();
         BuscarLocatario l= new BuscarLocatario(control);
         l.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenubuscarLocatarioActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        HibernateSession.desconectar();
         EliminarLocatario l= new EliminarLocatario(control);
         l.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        HibernateSession.desconectar();
         EditarGarante g= new EditarGarante(control);
         g.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        HibernateSession.desconectar();
         EliminarGarante g= new EliminarGarante(control);
         g.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        HibernateSession.desconectar();
         CrearLocador g= new CrearLocador(control);
         g.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        HibernateSession.desconectar();
         BuscarLocador g= new BuscarLocador(control);
         g.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        HibernateSession.desconectar();
         EditarLocador g= new EditarLocador(control);
         g.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        
+        HibernateSession.desconectar();
         CrearInmueble g= new CrearInmueble(control);
         g.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
     private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+        HibernateSession.desconectar();
         BuscarInmueble g= new BuscarInmueble(control);
         g.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem14ActionPerformed
 
     private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+        HibernateSession.desconectar();
         EliminarInmueble g= new EliminarInmueble(control);
         g.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem16ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        HibernateSession.desconectar();
         AdministrarServicios g= new AdministrarServicios(control);
         g.setVisible(true);
         this.setVisible(false);
@@ -417,6 +434,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem17ActionPerformed
 
     private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem18ActionPerformed
+        HibernateSession.desconectar();
         BuscarContrato g= new BuscarContrato(control);
         g.setVisible(true);
         this.setVisible(false);

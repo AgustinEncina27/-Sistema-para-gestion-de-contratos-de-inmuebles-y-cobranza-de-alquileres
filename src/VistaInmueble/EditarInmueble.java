@@ -126,6 +126,7 @@ public class EditarInmueble extends javax.swing.JFrame {
         jLabel2.setText("Nombre:");
         jPanel2.add(jLabel2);
 
+        jTextField2.setEditable(false);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -135,26 +136,38 @@ public class EditarInmueble extends javax.swing.JFrame {
 
         jLabel3.setText("Apellido:");
         jPanel2.add(jLabel3);
+
+        jTextField3.setEditable(false);
         jPanel2.add(jTextField3);
 
         jLabel4.setText("DNI:");
         jPanel2.add(jLabel4);
+
+        jTextField4.setEditable(false);
         jPanel2.add(jTextField4);
 
         jLabel5.setText("Estado Civil:");
         jPanel2.add(jLabel5);
+
+        jTextField5.setEditable(false);
         jPanel2.add(jTextField5);
 
         jLabel6.setText("Domicilio:");
         jPanel2.add(jLabel6);
+
+        jTextField6.setEditable(false);
         jPanel2.add(jTextField6);
 
         jLabel7.setText("Telefono:");
         jPanel2.add(jLabel7);
+
+        jTextField7.setEditable(false);
         jPanel2.add(jTextField7);
 
         jLabel8.setText("Correo Electronico:");
         jPanel2.add(jLabel8);
+
+        jTextField8.setEditable(false);
         jPanel2.add(jTextField8);
 
         jPanel3.setLayout(new java.awt.GridLayout(12, 2));
@@ -507,44 +520,56 @@ public class EditarInmueble extends javax.swing.JFrame {
             control.ActualizarInmueble(t);    
         }else{
             if(jTextField12.getText().equals("Departamento")){
-                expensa= Double.parseDouble(jTextField15.getText());
-                bani= Integer.parseInt(jTextField16.getText());
-                habitacione= Integer.parseInt(jTextField17.getText());
-                cocin= Integer.parseInt(jTextField18.getText());
-                livin= Integer.parseInt(jTextField19.getText());
-                garag= Integer.parseInt(jTextField20.getText());
-                Departamento d= new Departamento(bani, habitacione, cocin, livin, garag, jTextField14.getText(), expensa, jTextField9.getText(), jTextField10.getText(), jTextField11.getText(), null);
-                d.agregar(lo);
-                long id = Long.parseLong(jTextField13.getText());
-                d.setIdInmueble(id);
-
-                HibernateSession.desconectar();
-                control.ActualizarInmueble(d);
-            }else{
-                if(jTextField12.getText().equals("Casa")){
+                try{    
                     expensa= Double.parseDouble(jTextField15.getText());
                     bani= Integer.parseInt(jTextField16.getText());
                     habitacione= Integer.parseInt(jTextField17.getText());
                     cocin= Integer.parseInt(jTextField18.getText());
                     livin= Integer.parseInt(jTextField19.getText());
                     garag= Integer.parseInt(jTextField20.getText());
-                    Casa c= new Casa(bani, habitacione, cocin, livin, garag, jTextField14.getText(), expensa,jTextField9.getText(), jTextField10.getText(), jTextField11.getText(), null);
-                    c.agregar(lo);
+                    Departamento d= new Departamento(bani, habitacione, cocin, livin, garag, jTextField14.getText(), expensa, jTextField9.getText(), jTextField10.getText(), jTextField11.getText(), null);
+                    d.agregar(lo);
                     long id = Long.parseLong(jTextField13.getText());
-                    c.setIdInmueble(id);
+                    d.setIdInmueble(id);
 
                     HibernateSession.desconectar();
-                    control.ActualizarInmueble(c);
-                }else{
-                    if(i instanceof LocalComercial){
+                    control.ActualizarInmueble(d);
+                } catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(null,"EL COSTO DE LAS EXPENSAS,BAÑO,HABITACION,COCINA,LIVING Y GARAGE TIENE QUE SER NUMÉRICO");
+                }
+            }else{
+                if(jTextField12.getText().equals("Casa")){
+                    try{    
                         expensa= Double.parseDouble(jTextField15.getText());
-                        LocalComercial l=new LocalComercial(expensas, expensa,jTextField9.getText(), jTextField10.getText(), jTextField11.getText(), null);
-                        l.agregar(lo);
+                        bani= Integer.parseInt(jTextField16.getText());
+                        habitacione= Integer.parseInt(jTextField17.getText());
+                        cocin= Integer.parseInt(jTextField18.getText());
+                        livin= Integer.parseInt(jTextField19.getText());
+                        garag= Integer.parseInt(jTextField20.getText());
+                        Casa c= new Casa(bani, habitacione, cocin, livin, garag, jTextField14.getText(), expensa,jTextField9.getText(), jTextField10.getText(), jTextField11.getText(), null);
+                        c.agregar(lo);
                         long id = Long.parseLong(jTextField13.getText());
-                        l.setIdInmueble(id);
+                        c.setIdInmueble(id);
 
                         HibernateSession.desconectar();
-                        control.ActualizarInmueble(l);
+                        control.ActualizarInmueble(c);
+                    } catch(NumberFormatException e){
+                        JOptionPane.showMessageDialog(null,"EL COSTO DE LAS EXPENSAS,BAÑO,HABITACION,COCINA,LIVING Y GARAGE TIENE QUE SER NUMÉRICO");
+                    }
+                }else{
+                    if(i instanceof LocalComercial){
+                        try{
+                            expensa= Double.parseDouble(jTextField15.getText());
+                            LocalComercial l=new LocalComercial(expensas, expensa,jTextField9.getText(), jTextField10.getText(), jTextField11.getText(), null);
+                            l.agregar(lo);
+                            long id = Long.parseLong(jTextField13.getText());
+                            l.setIdInmueble(id);
+
+                            HibernateSession.desconectar();
+                            control.ActualizarInmueble(l);
+                        } catch(NumberFormatException e){
+                            JOptionPane.showMessageDialog(null,"EL COSTO DE LAS EXPENSAS TIENE QUE SER NUMÉRICO");
+                        }
                     }
                 }
             }

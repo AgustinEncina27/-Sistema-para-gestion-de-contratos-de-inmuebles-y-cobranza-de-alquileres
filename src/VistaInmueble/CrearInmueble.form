@@ -266,7 +266,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel15">
               <Properties>
-                <Property name="text" type="java.lang.String" value="CostoExpensas:"/>
+                <Property name="text" type="java.lang.String" value="Costo Expensas:"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jLabel15.setVisible(false);"/>

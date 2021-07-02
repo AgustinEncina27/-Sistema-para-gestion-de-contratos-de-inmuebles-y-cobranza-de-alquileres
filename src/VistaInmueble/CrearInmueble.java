@@ -178,7 +178,7 @@ public class CrearInmueble extends javax.swing.JFrame {
         jTextField12.setVisible(false);
         jPanel3.add(jTextField12);
 
-        jLabel15.setText("CostoExpensas:");
+        jLabel15.setText("Costo Expensas:");
         jLabel15.setVisible(false);
         jPanel3.add(jLabel15);
 
@@ -449,8 +449,9 @@ public class CrearInmueble extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(!jTextField1.getText().equals("")){
-            Locador locador = null;
-            long dni = Long.parseLong(jTextField1.getText());
+            try{  
+                Locador locador = null;
+                long dni = Long.parseLong(jTextField1.getText());
             
                 locador=control.ObtenerLocador(dni);
                 jTextField2.setText(locador.getNombre());
@@ -468,6 +469,9 @@ public class CrearInmueble extends javax.swing.JFrame {
                 jTextField11.setEnabled(true);
                 jTextField1.setText("");
                 JOptionPane.showMessageDialog(null, "Se encontro correctamente");
+            } catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
  
@@ -508,6 +512,7 @@ public class CrearInmueble extends javax.swing.JFrame {
             }
 
             if(jRadioButton2.isSelected()== true){
+                try{
                     co= new LocalComercial();
                     loca2 = new Locador();
 
@@ -545,11 +550,14 @@ public class CrearInmueble extends javax.swing.JFrame {
                     jTextField13.setText("");
                 
                     JOptionPane.showMessageDialog(null,"Se creo correctamente");
+                } catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(null,"EL COSTO DE LAS EXPENSAS TIENE QUE SER NUMÉRICO");
+                }
             }
             if(jRadioButton3.isSelected()== true){
+                try{    
                     dep= new Departamento();
                     loca2 = new Locador();
-
                     loca2.setNombre(jTextField2.getText());
                     loca2.setApellido(jTextField3.getText());
                     long dnum = Long.parseLong(jTextField4.getText());
@@ -600,63 +608,68 @@ public class CrearInmueble extends javax.swing.JFrame {
                     jTextField18.setText("");
                 
                     JOptionPane.showMessageDialog(null,"Se creo correctamente");
+                } catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(null,"EL COSTO DE LAS EXPENSAS,BAÑO,HABITACION,COCINA,LIVING Y GARAGE TIENEN QUE SER NUMÉRICO");
+                }
             } 
             if(jRadioButton4.isSelected()== true){
-                    
+                    try{
+                        ca= new Casa();
+                        loca2 = new Locador();
 
-                    ca= new Casa();
-                    loca2 = new Locador();
+                        loca2.setNombre(jTextField2.getText());
+                        loca2.setApellido(jTextField3.getText());
+                        long dnum = Long.parseLong(jTextField4.getText());
+                        loca2.setDni(dnum);
+                        loca2.setEstadoCivil(jTextField5.getText());
+                        loca2.setDomicilio(jTextField6.getText());
+                        loca2.setTelefono(jTextField7.getText());
+                        loca2.setCorreoElectronico(jTextField8.getText());
 
-                    loca2.setNombre(jTextField2.getText());
-                    loca2.setApellido(jTextField3.getText());
-                    long dnum = Long.parseLong(jTextField4.getText());
-                    loca2.setDni(dnum);
-                    loca2.setEstadoCivil(jTextField5.getText());
-                    loca2.setDomicilio(jTextField6.getText());
-                    loca2.setTelefono(jTextField7.getText());
-                    loca2.setCorreoElectronico(jTextField8.getText());
+                        ca.setLocalidad(jTextField9.getText());
+                        ca.setDireccion(jTextField10.getText());
+                        ca.setTamanio(jTextField11.getText());
+                        ca.setExpensas(jTextField12.getText());
+                        Double cexp = Double.parseDouble(jTextField13.getText());
+                        ca.setCostoExpensas(cexp);
+                        int ban = Integer.parseInt(jTextField14.getText());
+                        ca.setBanio(ban);
+                        int hab= Integer.parseInt(jTextField15.getText());
+                        ca.setHabitaciones(hab); 
+                        int coc= Integer.parseInt(jTextField16.getText());
+                        ca.setCocina(coc); 
+                        int liv= Integer.parseInt(jTextField17.getText());
+                        ca.setLiving(liv);                   
+                        int gar= Integer.parseInt(jTextField18.getText());
+                        ca.setGarage(gar);
 
-                    ca.setLocalidad(jTextField9.getText());
-                    ca.setDireccion(jTextField10.getText());
-                    ca.setTamanio(jTextField11.getText());
-                    ca.setExpensas(jTextField12.getText());
-                    Double cexp = Double.parseDouble(jTextField13.getText());
-                    ca.setCostoExpensas(cexp);
-                    int ban = Integer.parseInt(jTextField14.getText());
-                    ca.setBanio(ban);
-                    int hab= Integer.parseInt(jTextField15.getText());
-                    ca.setHabitaciones(hab); 
-                    int coc= Integer.parseInt(jTextField16.getText());
-                    ca.setCocina(coc); 
-                    int liv= Integer.parseInt(jTextField17.getText());
-                    ca.setLiving(liv);                   
-                    int gar= Integer.parseInt(jTextField18.getText());
-                    ca.setGarage(gar);
-                    
-                    ca.agregar(loca2);
+                        ca.agregar(loca2);
 
-                   
-                    control.InsertarInmueble(ca);
-                   
-                    jTextField2.setText("");
-                    jTextField3.setText("");
-                    jTextField4.setText("");
-                    jTextField5.setText("");
-                    jTextField6.setText("");
-                    jTextField7.setText("");
-                    jTextField8.setText("");
-                    jTextField9.setText("");
-                    jTextField10.setText("");
-                    jTextField11.setText("");
-                    jTextField12.setText("");
-                    jTextField13.setText("");
-                    jTextField14.setText("");
-                    jTextField15.setText("");
-                    jTextField16.setText("");
-                    jTextField17.setText("");
-                    jTextField18.setText("");
-                
-                    JOptionPane.showMessageDialog(null,"Se creo correctamente");
+
+                        control.InsertarInmueble(ca);
+
+                        jTextField2.setText("");
+                        jTextField3.setText("");
+                        jTextField4.setText("");
+                        jTextField5.setText("");
+                        jTextField6.setText("");
+                        jTextField7.setText("");
+                        jTextField8.setText("");
+                        jTextField9.setText("");
+                        jTextField10.setText("");
+                        jTextField11.setText("");
+                        jTextField12.setText("");
+                        jTextField13.setText("");
+                        jTextField14.setText("");
+                        jTextField15.setText("");
+                        jTextField16.setText("");
+                        jTextField17.setText("");
+                        jTextField18.setText("");
+
+                        JOptionPane.showMessageDialog(null,"Se creo correctamente");
+                    } catch(NumberFormatException e){
+                        JOptionPane.showMessageDialog(null,"EL COSTO DE LAS EXPENSAS,BAÑO,HABITACION,COCINA,LIVING Y GARAGE TIENE QUE SER NUMÉRICO");
+                    }
             } 
            
         }

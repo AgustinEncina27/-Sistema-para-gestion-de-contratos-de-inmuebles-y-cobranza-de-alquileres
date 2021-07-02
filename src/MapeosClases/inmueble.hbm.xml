@@ -54,8 +54,8 @@ Contributor(s):
         <property name="tamanio" type="java.lang.String">
             <column name="TAMANIO"/>
         </property>
-        <list name="locador" table="inmueble_locador" cascade="none" >
-            <key column="IDINMUEBLE" />
+        <list name="locador" table="inmueble_locador"  cascade="none">
+            <key column="IDINMUEBLE" on-delete="cascade"/>
             <index column="ORDEN" />
           <many-to-many  class="Clases.Locador" />
         </list >

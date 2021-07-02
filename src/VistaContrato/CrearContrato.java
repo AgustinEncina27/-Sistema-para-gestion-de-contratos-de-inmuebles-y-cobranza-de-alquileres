@@ -58,7 +58,7 @@ public class CrearContrato extends javax.swing.JFrame {
         control= control2;
         cuot = new Cuota();
         
-        this.setExtendedState(MAXIMIZED_BOTH);
+        
         
         initComponents();
         this.setLocationRelativeTo(null);
@@ -425,6 +425,12 @@ public class CrearContrato extends javax.swing.JFrame {
 
         jLabel30.setText("NROCUOTA:");
         jPanel6.add(jLabel30);
+
+        jTextField32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField32ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jTextField32);
 
         jLabel28.setText("COSTO CUOTA:");
@@ -711,7 +717,7 @@ public class CrearContrato extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(!jTextField31.getText().equals("")){
-
+            try{
             long dnum = Long.parseLong(jTextField31.getText());
             l=control.ObtenerLocatario(dnum);
             //jTextField1.setText(l.getUsuario());
@@ -733,6 +739,9 @@ public class CrearContrato extends javax.swing.JFrame {
 
             }
             HibernateSession.desconectar();
+            } catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
+            }
         }else {
             JOptionPane.showMessageDialog(null,"Por favor Ingrese un DNI");
         }
@@ -740,21 +749,24 @@ public class CrearContrato extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(!jTextField13.getText().equals("")){
-            long dnum = Long.parseLong(jTextField13.getText());
-            inmu=control.ObtenerInmuebleID(dnum);
-            jTextField1.setText(inmu.getLocador().get(0).getNombre());
-            jTextField2.setText(inmu.getLocador().get(0).getApellido());
-            String s=String.valueOf(inmu.getLocador().get(0).getDni());
-            jTextField3.setText(s);
-            jTextField4.setText(inmu.getLocador().get(0).getEstadoCivil());
-            jTextField5.setText(inmu.getLocador().get(0).getDomicilio());
-            jTextField6.setText(inmu.getLocador().get(0).getTelefono());
-            jTextField7.setText(inmu.getLocador().get(0).getCorreoElectronico());
+            try{
+                long dnum = Long.parseLong(jTextField13.getText());
+                inmu=control.ObtenerInmuebleID(dnum);
+                jTextField1.setText(inmu.getLocador().get(0).getNombre());
+                jTextField2.setText(inmu.getLocador().get(0).getApellido());
+                String s=String.valueOf(inmu.getLocador().get(0).getDni());
+                jTextField3.setText(s);
+                jTextField4.setText(inmu.getLocador().get(0).getEstadoCivil());
+                jTextField5.setText(inmu.getLocador().get(0).getDomicilio());
+                jTextField6.setText(inmu.getLocador().get(0).getTelefono());
+                jTextField7.setText(inmu.getLocador().get(0).getCorreoElectronico());
 
-            jTextField10.setText(inmu.getLocalidad());
-            jTextField11.setText(inmu.getDireccion());
-            jTextField12.setText(inmu.getTamanio());
-
+                jTextField10.setText(inmu.getLocalidad());
+                jTextField11.setText(inmu.getDireccion());
+                jTextField12.setText(inmu.getTamanio());
+            } catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"EL ID DEL INMUEBLE TIENE QUE SER NUMÉRICO");
+            }        
         }else {
             JOptionPane.showMessageDialog(null,"Por favor Ingrese un DNI");
         }
@@ -797,6 +809,11 @@ public class CrearContrato extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         if(!jTextField13.getText().equals("")){
+            if(jRadioButton2.isSelected()== true  || jRadioButton1.isSelected()== true){
+            
+            int recargofijo = 0;
+            int valorbase = 0;
+            try{
             int dnum = Integer.parseInt(jTextField32.getText());
             contcu=1;
             boolean b= false;
@@ -847,21 +864,17 @@ public class CrearContrato extends javax.swing.JFrame {
                 calendar.add(Calendar.DAY_OF_YEAR, 30);// numero de días a añadir, o restar en caso de días<0
                 date1 = calendar.getTime();// Devuelve el objeto Date con los nuevos días añadidos
                 cro.cargarlista(0, mta, sqlDate, sqlDate2,sqlDate3, b); 
-            }
+            } 
             control.InsertarCronograma(cro);
             
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-            SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM/yyyy");
-                    
-            int recargofijo = Integer. parseInt (jTextField24.getText());
-            int valorbase = Integer. parseInt (jTextField25.getText());
-            try {
+            SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM/yyyy");       
+                recargofijo = Integer. parseInt (jTextField24.getText());
+                valorbase = Integer. parseInt (jTextField25.getText());
+            
                 fechaini = formato.parse(jTextField37.getText()+"/"+jTextField38.getText()+"/"+jTextField36.getText());
                 fechafin = formato2.parse(jTextField9.getText()+"/"+jTextField39.getText()+"/"+jTextField8.getText());
-            } 
-            catch (ParseException ex) {
-                System.out.println(ex);
-            }
+             
             java.sql.Date sqlfechaini = new java.sql.Date(fechaini.getTime());
             java.sql.Date sqlfechafin = new java.sql.Date(fechafin.getTime());
             List <Locatario> loca = new ArrayList<Locatario>();
@@ -887,6 +900,20 @@ public class CrearContrato extends javax.swing.JFrame {
                     control.InsertarContrato(v);
                  }
             }
+            HibernateSession.desconectar();
+            CrearContrato g= new CrearContrato(control);
+            g.setVisible(true);
+            this.setVisible(false);
+            
+            } 
+            catch (ParseException ex) {
+                System.out.println(ex);
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"EL NROCUOTA, COSTO CUOTA, LAS FECHAS,RECARGO FIJO Y EL VALRO BASE TIENEN QUE SER NUMÉRICOS");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"Por favor ingrese el tipo de contrato"); 
+        }
         }else{
            JOptionPane.showMessageDialog(null,"Por favor Ingrese todos los datos"); 
         }   
@@ -897,18 +924,21 @@ public class CrearContrato extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField35ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-      if(!jTextField35.getText().equals("")){   
-            long dnum = Long.parseLong(jTextField35.getText());
-            gt=control.ObtenerGarante(dnum);
-            jTextField34.setText(gt.getNombre());
-            jTextField27.setText(gt.getApellido());
-            String s=String.valueOf(gt.getDni());
-            jTextField26.setText(s);
-            jTextField28.setText(gt.getEstadoCivil());
-            jTextField29.setText(gt.getDomicilio());
-            jTextField30.setText(gt.getTelefono());
-            jTextField33.setText(gt.getCorreoElectronico());
-          
+        if(!jTextField35.getText().equals("")){   
+            try{
+                long dnum = Long.parseLong(jTextField35.getText());
+                gt=control.ObtenerGarante(dnum);
+                jTextField34.setText(gt.getNombre());
+                jTextField27.setText(gt.getApellido());
+                String s=String.valueOf(gt.getDni());
+                jTextField26.setText(s);
+                jTextField28.setText(gt.getEstadoCivil());
+                jTextField29.setText(gt.getDomicilio());
+                jTextField30.setText(gt.getTelefono());
+                jTextField33.setText(gt.getCorreoElectronico());
+            } catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
+            }
         }else {
             JOptionPane.showMessageDialog(null,"Por favor Ingrese un DNI");
         }
@@ -945,6 +975,10 @@ public class CrearContrato extends javax.swing.JFrame {
     private void jTextField39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField39ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField39ActionPerformed
+
+    private void jTextField32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField32ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField32ActionPerformed
 
     public void Agregar(){
         servicios = control.obtenerTodosLosServicios();

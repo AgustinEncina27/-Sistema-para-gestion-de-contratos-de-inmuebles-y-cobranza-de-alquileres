@@ -467,6 +467,27 @@ public class EliminarContrato extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         HibernateSession.desconectar();
         control.EliminarContrato(contra);
+        jTextField1.setText("");
+            jTextField2.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
+            jTextField5.setText("");
+            jTextField6.setText("");
+            jTextField7.setText("");
+            jTextField8.setText("");
+            jTextField10.setText("");
+            jTextField11.setText("");
+            jTextField12.setText("");
+            jTextField14.setText("");
+            jTextField15.setText("");
+            jTextField16.setText("");
+            jTextField17.setText("");
+            jTextField18.setText("");
+            jTextField19.setText("");
+            jTextField20.setText("");
+            jTextField21.setText("");
+            jTextField22.setText("");
+            
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public void AgregarTabla(List <Servicio> ser){
