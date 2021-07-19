@@ -19,6 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.xml.bind.JAXB;
 
 /**
@@ -343,6 +344,7 @@ public class BuscarInmueble extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+        try{
         Inmueble i = jList1.getSelectedValue();
         jTextField2.setVisible(true);
         jTextField3.setVisible(true);
@@ -485,6 +487,9 @@ public class BuscarInmueble extends javax.swing.JFrame {
                 }
             }
         }
+      }catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null,"NO SE ENCONTRO EL GARANTE");
+      }
     }//GEN-LAST:event_jList1MouseClicked
 
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed

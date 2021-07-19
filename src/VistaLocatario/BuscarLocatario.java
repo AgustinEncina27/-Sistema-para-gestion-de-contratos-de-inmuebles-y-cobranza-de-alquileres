@@ -299,6 +299,8 @@ public class BuscarLocatario extends javax.swing.JFrame {
                 }
             }catch(NumberFormatException e){
                 JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
+            }catch(NullPointerException e){
+                JOptionPane.showMessageDialog(null,"NO SE ENCONTRO EL LOCATARIO");
             }
         }else {
             JOptionPane.showMessageDialog(null,"Por favor Ingrese un DNI");

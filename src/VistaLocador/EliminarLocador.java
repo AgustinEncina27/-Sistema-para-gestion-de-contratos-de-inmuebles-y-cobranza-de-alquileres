@@ -197,6 +197,8 @@ public class EliminarLocador extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Se encontro correctamente");
             }catch(NumberFormatException e){
                 JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
+            }catch(NullPointerException e){
+                JOptionPane.showMessageDialog(null,"NO SE ENCONTRO EL LOCADOR");
             }
         }else {
             JOptionPane.showMessageDialog(null,"Por favor Ingrese un DNI");

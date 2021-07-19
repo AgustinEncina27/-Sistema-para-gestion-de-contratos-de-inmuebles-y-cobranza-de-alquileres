@@ -214,6 +214,8 @@ public class EditarLocador extends javax.swing.JFrame {
                 jTextField8.setEnabled(true);
             } catch(NumberFormatException e){
                 JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
+            }catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null,"NO SE ENCONTRO EL LOCADOR");
             }
                 
         }else {

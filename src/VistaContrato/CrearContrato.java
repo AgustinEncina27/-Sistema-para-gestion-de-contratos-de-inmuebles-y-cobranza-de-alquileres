@@ -741,9 +741,11 @@ public class CrearContrato extends javax.swing.JFrame {
             HibernateSession.desconectar();
             } catch(NumberFormatException e){
                 JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
-            }
+            }catch(NullPointerException e){
+                JOptionPane.showMessageDialog(null,"NO SE ENCONTRO NINGUN LOCATARIO");
+            } 
         }else {
-            JOptionPane.showMessageDialog(null,"Por favor Ingrese un DNI");
+            JOptionPane.showMessageDialog(null,"POR FAVOR INGRESE UN  DNI PARA BUSCAR EL LOCATARIO");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -766,9 +768,11 @@ public class CrearContrato extends javax.swing.JFrame {
                 jTextField12.setText(inmu.getTamanio());
             } catch(NumberFormatException e){
                 JOptionPane.showMessageDialog(null,"EL ID DEL INMUEBLE TIENE QUE SER NUMÉRICO");
-            }        
+            } catch(NullPointerException e){
+                JOptionPane.showMessageDialog(null,"NO SE ENCONTRO NINGUN INMUEBLE");
+            }       
         }else {
-            JOptionPane.showMessageDialog(null,"Por favor Ingrese un DNI");
+            JOptionPane.showMessageDialog(null,"POR FAVOR INGRESE UN DNI PARA BUSCAR UN LOCADOR");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -909,13 +913,13 @@ public class CrearContrato extends javax.swing.JFrame {
             catch (ParseException ex) {
                 System.out.println(ex);
             }catch(NumberFormatException e){
-                JOptionPane.showMessageDialog(null,"EL NROCUOTA, COSTO CUOTA, LAS FECHAS,RECARGO FIJO Y EL VALRO BASE TIENEN QUE SER NUMÉRICOS");
+                JOptionPane.showMessageDialog(null,"POR FAVOR COMPLETO TODO LOS CAMPOS 0 \n EL NROCUOTA, COSTO CUOTA, LAS FECHAS,RECARGO FIJO Y EL VALOR BASE TIENEN QUE SER NUMÉRICOS");
             }
         }else{
-            JOptionPane.showMessageDialog(null,"Por favor ingrese el tipo de contrato"); 
+            JOptionPane.showMessageDialog(null,"POR FAVOR INGRESE EL TIPO DE CONTRATO"); 
         }
         }else{
-           JOptionPane.showMessageDialog(null,"Por favor Ingrese todos los datos"); 
+           JOptionPane.showMessageDialog(null,"POR FAVOR INGRESE TODOS LOS CAMPOS"); 
         }   
     }//GEN-LAST:event_jButton8ActionPerformed
 
@@ -938,9 +942,11 @@ public class CrearContrato extends javax.swing.JFrame {
                 jTextField33.setText(gt.getCorreoElectronico());
             } catch(NumberFormatException e){
                 JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
-            }
+            }catch(NullPointerException e){
+                JOptionPane.showMessageDialog(null,"NO SE ENCONTRO NINGUN GARANTE");
+            } 
         }else {
-            JOptionPane.showMessageDialog(null,"Por favor Ingrese un DNI");
+            JOptionPane.showMessageDialog(null,"POR FAVOR INGRESE UN DNI PARA BUSCAR UN GARANTE");
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 

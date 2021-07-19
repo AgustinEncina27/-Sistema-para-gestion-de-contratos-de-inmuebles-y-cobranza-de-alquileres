@@ -15,5 +15,6 @@ public class Main {
        Controlador controlador=new Controlador();
        VistaPrincipal v= new VistaPrincipal(controlador);
        v.setVisible(true);
+       
     }
 }

@@ -435,13 +435,14 @@ public class BuscarContrato extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          if(!txtbuscarcontra.getText().equals("")){
+        try{
         long a=Long.parseLong(txtbuscarcontra.getText());
         contra= control.ObtenerContrato(a);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         String fechaini = sdf.format(contra.getFechaDeInicioDelContrato());
         txtfechaini.setText(fechaini);
         SimpleDateFormat sd = new SimpleDateFormat("yyyy/MM/dd");
-        String fechafin = sd.format(contra.getFechaDeInicioDelContrato());
+        String fechafin = sd.format(contra.getFechaDeFinalDelContrato());
         txtfechafin.setText(fechafin);
         txtrecargofijo.setText(Integer.toString(contra.getRecargoFijo()));
         txtvalorbase.setText(Integer.toString(contra.getValorBaseDelRecargoProporcional()));
@@ -449,8 +450,11 @@ public class BuscarContrato extends javax.swing.JFrame {
         AgregarDatosInmueble(contra.getInmueble());
         AgregarDatosLocatario( contra.getLocatario());
         jTextField8.setText(String.valueOf(contra.getCronograma().getIdCronograma()));
+        }catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null,"NO SE ENCONTRO EL CONTRATO");
+        }
          }else{
-             JOptionPane.showMessageDialog(null,"Por favor Ingrese el ID del contrato"); 
+             JOptionPane.showMessageDialog(null,"POR FAVOR INGRESE EL ID DEL CONTRATO"); 
          }
     }//GEN-LAST:event_jButton1ActionPerformed
 

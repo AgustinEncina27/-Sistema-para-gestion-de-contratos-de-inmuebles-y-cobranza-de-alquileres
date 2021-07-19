@@ -192,9 +192,11 @@ public class BuscarLocador extends javax.swing.JFrame {
                 jTextField7.setText(locador.getTelefono());
                 jTextField8.setText(locador.getCorreoElectronico());
                 jTextField1.setText("");
-                JOptionPane.showMessageDialog(null, "Se encontro correctamente");
+                JOptionPane.showMessageDialog(null, "SE ENCONTRO CORRECTAMENTE");
             }catch(NumberFormatException e){
                 JOptionPane.showMessageDialog(null,"EL DNI TIENE QUE SER NUMÉRICO");
+            }catch(NullPointerException e){
+                JOptionPane.showMessageDialog(null,"NO SE ENCONTRO EL LOCADOR");
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
