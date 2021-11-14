@@ -214,9 +214,9 @@ public class AdministrarServicios extends javax.swing.JFrame {
     }//GEN-LAST:event_txtcostoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //EDITA EL SERVICIO
         try{
             Servicio ser= new Servicio(Long.parseLong(txtid.getText()),txtnombre.getText(),Double.parseDouble(txtcosto.getText()));
-            HibernateSession.desconectar();
             control.ActualizarServicio(ser);
             Limpiar();
             Agregar();
@@ -226,9 +226,9 @@ public class AdministrarServicios extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        //ELEMINAR EL SERVICIO
         try{    
             Servicio ser= new Servicio(Long.parseLong(txtid.getText()),txtnombre.getText(),Double.parseDouble(txtcosto.getText()));
-            HibernateSession.desconectar();
             control.EliminarServicio(ser);
             Limpiar();
             Agregar();
@@ -238,12 +238,12 @@ public class AdministrarServicios extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        //INSERTA EL SERVICIO A LA TABLA Y A LA BASE DE DATOS
         try{
             String nombre;
             nombre= txtnombre.getText();
             double costo= Double.parseDouble(txtcosto.getText());
             Servicio ser= new Servicio(nombre,costo);
-            HibernateSession.desconectar();
             control.InsertarServicio(ser);
             Limpiar();
             Agregar();
@@ -253,12 +253,14 @@ public class AdministrarServicios extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        //VOLVER A LA PANTALLA PRINCIPAL
         VistaPrincipal l= new VistaPrincipal(control);
         l.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
+        //SELECCIONA EL SERVICIO DE LA TABLA
         Servicio ser;
         int c;
         c= tabla.getSelectedRow();
@@ -269,12 +271,11 @@ public class AdministrarServicios extends javax.swing.JFrame {
     }//GEN-LAST:event_tablaMouseClicked
 
     private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
-        txtcosto.setText("");
-        txtid.setText("");
-        txtnombre.setText("");
+        Limpiar();
     }//GEN-LAST:event_btnlimpiarActionPerformed
 
     public void Limpiar(){
+        //LIMPIA LOS TEXTFIELD
         txtcosto.setText("");
         txtid.setText("");
         txtnombre.setText("");
@@ -282,6 +283,7 @@ public class AdministrarServicios extends javax.swing.JFrame {
     }
     
     public void Agregar(){
+        //AGREGA LOS SERVIOCIOS A LA TABLA
         servicios = control.obtenerTodosLosServicios();
         String mat[][]= new String [servicios.size()][3];
         Servicio aux;

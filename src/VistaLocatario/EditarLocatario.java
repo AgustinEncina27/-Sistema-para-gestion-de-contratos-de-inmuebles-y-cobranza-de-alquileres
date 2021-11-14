@@ -280,6 +280,7 @@ public class EditarLocatario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField9ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    //AGREGA TODOS LOS DATOS DEL TEXTFLIED Y GUARDA EL LOCATARIO EDITADO EN LA BASE DE DATOS
         l.setNombre(jTextField3.getText());
         l.setApellido(jTextField4.getText());
         l.setEstadoCivil(jTextField6.getText());
@@ -303,19 +304,20 @@ public class EditarLocatario extends javax.swing.JFrame {
             if(l.getDependencia()==null && l.getTrabajoIndependiente()==null){
                 JOptionPane.showMessageDialog(null,"INGRESE UN RECIBO DE SUELDO O LOS COMPROBANTES PARA PODER CONTINUAR");
             }else{
-                HibernateSession.desconectar();
                 control.ActualizarLocatoria(l);
             }
         }        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        //VUELVE A LA INTERFAZ PRINCIPAL
         VistaPrincipal l= new VistaPrincipal(control);
         l.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //BUSCA POR DNI Y AGREGA LOS DATOS A LOS TEXTFLIED
         if(!jTextField12.getText().equals("")){
             try{
                 jTextField1.setEnabled(true);
@@ -364,6 +366,7 @@ public class EditarLocatario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        //ABRE LA INTERFAZ DE EDITARCOMPROBANTE
         l.setEstudiante(false);
         l.setDependencia(null);
         System.out.println("hola");
@@ -373,6 +376,7 @@ public class EditarLocatario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        //ABRE LA INTERFAZ DE EDITARRECIBO
         l.setEstudiante(false);
         l.setTrabajoIndependiente(null);
         EditarRecibo r= new EditarRecibo(control,l );
@@ -381,6 +385,7 @@ public class EditarLocatario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        //DEPENDIENDO DE SI ES VERDADERO MUESTRA UNOS BOTONES O NO
         if(jComboBox1.getSelectedItem()=="Verdadero"){
             jButton6.setVisible(false);
             jButton5.setVisible(false);

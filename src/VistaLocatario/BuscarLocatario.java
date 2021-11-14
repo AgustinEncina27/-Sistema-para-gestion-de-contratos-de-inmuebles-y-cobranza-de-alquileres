@@ -248,28 +248,30 @@ public class BuscarLocatario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jTextField9ActionPerformed
 
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jTextField11ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //VUELVE A LA INTERFAZ PRINCIPAL
         VistaPrincipal l= new VistaPrincipal(control);
         l.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       //BUSCA LOS DATOS A TRAVES DEL DNI QUE INGRESA EN EL TEXTFIELD 
         if(!jTextField12.getText().equals("")){
             try{
                 long dnum = Long.parseLong(jTextField12.getText());
@@ -308,12 +310,14 @@ public class BuscarLocatario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        //ABRE LA INTERFAZ VISTAPREVIARECIBO
         VistaPreviaRecibo c= new VistaPreviaRecibo(control,l.getDependencia());
         c.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        //ABRE LA INTERFAZ VISTAPREVIACOMPROBANTE
         try {
             VistaPreviaComprobantes c= new VistaPreviaComprobantes(control,l.getTrabajoIndependiente());
             c.setVisible(true);

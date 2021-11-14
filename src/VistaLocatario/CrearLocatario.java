@@ -246,7 +246,8 @@ public class CrearLocatario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField7ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       if(!jTextField1.getText().equals("")&&!jTextField2.getText().equals("")&&!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")&&!jTextField9.getText().equals("")&&!jTextField10.getText().equals("")) {
+        //BUSCA TODOS LOS DATOS DEL LOCATARIO Y LOS ENVIA A LA INTERFAZ DE VISTATRABAJOINDEPENDIENTE
+        if(!jTextField1.getText().equals("")&&!jTextField2.getText().equals("")&&!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")&&!jTextField9.getText().equals("")&&!jTextField10.getText().equals("")) {
             loca.setNombre(jTextField3.getText());
             loca.setApellido(jTextField4.getText());
             long dnum = Long.parseLong(jTextField5.getText());
@@ -278,6 +279,7 @@ public class CrearLocatario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void comboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxActionPerformed
+        //SI ES FALSO MUESTRA LOS BOTONES PARA AGREGAR LOS COMPROBANTES, DE LO CONTRARIO LOS SACA
         if("Falso".equals(comboBox.getSelectedItem())) {
 					jButton2.setVisible(true);
 					jButton1.setVisible(true);
@@ -290,12 +292,14 @@ public class CrearLocatario extends javax.swing.JFrame {
     }//GEN-LAST:event_comboBoxActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //VUELVE A LA INTERFAZ PRINCIPAL
         VistaPrincipal l= new VistaPrincipal(control);
         l.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //BUSCA TODOS LOS DATOS DEL LOCATARIO Y LOS ENVIA A LA INTERFAZ DE VISTARELACIONDEDEPENDENCIA
         if(!jTextField1.getText().equals("")&&!jTextField2.getText().equals("")&&!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")&&!jTextField9.getText().equals("")&&!jTextField10.getText().equals("")) {
             loca.setNombre(jTextField3.getText());
             loca.setApellido(jTextField4.getText());
@@ -322,7 +326,8 @@ public class CrearLocatario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       if(!jTextField1.getText().equals("")&&!jTextField2.getText().equals("")&&!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")&&!jTextField9.getText().equals("")&&!jTextField10.getText().equals("")) {
+        //AGREGA AL LOCATARIO
+        if(!jTextField1.getText().equals("")&&!jTextField2.getText().equals("")&&!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")&&!jTextField9.getText().equals("")&&!jTextField10.getText().equals("")) {
             loca.setNombre(jTextField3.getText());
             loca.setApellido(jTextField4.getText());
             try{

@@ -19,6 +19,7 @@ public class mysqllocatariodao implements locatariodao {
 	
 	public void insertar(Locatario g) { 
             try {
+                HibernateSession.desconectar();
                 session = null;
                 session= HibernateSession.getSession();
                 session.beginTransaction();
@@ -38,6 +39,7 @@ public class mysqllocatariodao implements locatariodao {
 	
 	public void modificar(Locatario g) {
 	try {
+            HibernateSession.desconectar();
             session = null;
             session= HibernateSession.getSession();
             session.beginTransaction();
@@ -55,6 +57,7 @@ public class mysqllocatariodao implements locatariodao {
 	
 	public void eliminar(Locatario g) {
             try {
+                HibernateSession.desconectar();
                 session = null;
                 session= HibernateSession.getSession();
                 session.beginTransaction();
@@ -78,7 +81,8 @@ public class mysqllocatariodao implements locatariodao {
 	
 	public Locatario obtener(Long id) {
 	Locatario retorno = null;
-            try {     
+            try {  
+                HibernateSession.desconectar();
                 session = null;
                 session= HibernateSession.getSession();
                 retorno = (Locatario) session.get(Locatario.class, id);
@@ -87,22 +91,10 @@ public class mysqllocatariodao implements locatariodao {
             }
             return retorno;
 	}
-        
-    public void desconectar() {
-        try {
-			if (this.session != null) {
-				if (this.session.isConnected()) {
-					this.session.disconnect();
-				}
 
-				if (this.session.isOpen()) {
-					this.session.close();
-				}
-			}
-		} catch (HibernateException e) {
-			System.out.println(e);
-                         System.out.println("Fallo");
-		}
+    @Override
+    public void desconectar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
         
 

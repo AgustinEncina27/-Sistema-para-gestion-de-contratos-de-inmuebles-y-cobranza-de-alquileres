@@ -22,6 +22,7 @@ public class mysqlserviciodao implements serviciodao{
         }
 	
 	public void insertar(Servicio g) {
+            HibernateSession.desconectar();
 		try {
                 session = null;
                 session= HibernateSession.getSession();
@@ -40,6 +41,7 @@ public class mysqlserviciodao implements serviciodao{
 
 	@Override
 	public void modificar(Servicio g) {
+            HibernateSession.desconectar();
 		try {
                     session = null;
                     session= HibernateSession.getSession();
@@ -58,6 +60,7 @@ public class mysqlserviciodao implements serviciodao{
 
 	@Override
 	public void eliminar(Servicio g) {
+            HibernateSession.desconectar();
 		try {
                     session = null;
                     session= HibernateSession.getSession();
@@ -75,6 +78,7 @@ public class mysqlserviciodao implements serviciodao{
 
 	@Override
 	public List<Servicio> obtenerTodos() {
+            HibernateSession.desconectar();
                 Session session = null;
                 Transaction tr= null;
 		List <Servicio> servicio = null;
@@ -92,6 +96,7 @@ public class mysqlserviciodao implements serviciodao{
 
 	@Override
 	public Servicio obtener(Long id) {
+            HibernateSession.desconectar();
 		Servicio retorno = null;
                 try {
                     session = null;

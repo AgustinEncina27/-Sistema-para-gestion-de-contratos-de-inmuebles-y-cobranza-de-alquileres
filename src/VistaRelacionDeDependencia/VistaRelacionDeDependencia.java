@@ -132,6 +132,7 @@ public class VistaRelacionDeDependencia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //AGREGA EL COMPROBANTE A EL LOCATARIO O EL GARANTE DEPENDIENDO QUE LE PASA POR PARAMETRO A LA INTERFAZ
         if(objeto instanceof Locatario) {
             ((Locatario) objeto).setDependencia(compro1);
             control.InsertarLocatoria(((Locatario) objeto));
@@ -146,12 +147,14 @@ public class VistaRelacionDeDependencia extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //VUELVE A LA INTERFAZ PRINCIPAL
         VistaPrincipal l= new VistaPrincipal(control);
         l.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //BUSCA EL COMPROBANTE
         if(seleccionado.showDialog(null, "ABRIR ARCHIVO")== JFileChooser.APPROVE_OPTION ) {
 					archivo= seleccionado.getSelectedFile();
 					if(archivo.canRead()) {
