@@ -506,6 +506,12 @@ public class CrearContrato extends javax.swing.JFrame {
 
         jLabel31.setText("RECARGO FIJO");
         jPanel5.add(jLabel31);
+
+        jTextField24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField24ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jTextField24);
 
         jLabel32.setText("VALOR BASE");
@@ -824,7 +830,7 @@ public class CrearContrato extends javax.swing.JFrame {
             for (int cont = 0; cont < dnum; ++cont) {
                 
                 cuot.setNumeroCuota(contcu);
-                cuot.setMontoDeRecargo(0);    
+                cuot.setMontoDeRecargo(Integer.parseInt(jTextField24.getText()));    
                 int mta = Integer.parseInt(jTextField23.getText());
                 cuot.setMontoTotalAPagar(mta);
                 
@@ -867,7 +873,7 @@ public class CrearContrato extends javax.swing.JFrame {
                 calendar.setTime(date1);// Configuramos la fecha que se recibe
                 calendar.add(Calendar.DAY_OF_YEAR, 30);// numero de días a añadir, o restar en caso de días<0
                 date1 = calendar.getTime();// Devuelve el objeto Date con los nuevos días añadidos
-                cro.cargarlista(0, mta, sqlDate, sqlDate2,sqlDate3, b); 
+                cro.cargarlista(Integer.parseInt(jTextField24.getText()), mta, sqlDate, sqlDate2,sqlDate3, b); 
             } 
             control.InsertarCronograma(cro);
             
@@ -985,6 +991,10 @@ public class CrearContrato extends javax.swing.JFrame {
     private void jTextField32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField32ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField32ActionPerformed
+
+    private void jTextField24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField24ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField24ActionPerformed
 
     public void Agregar(){
         servicios = control.obtenerTodosLosServicios();

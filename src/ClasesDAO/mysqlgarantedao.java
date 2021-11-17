@@ -84,7 +84,7 @@ public class mysqlgarantedao implements garantedao {
                 session= HibernateSession.getSession();
                 System.out.println("Exito");
                 retorno = (Garante) session.get(Garante.class, id);
-                session.getTransaction().commit();
+
             } catch (HibernateException hibernateException) {
                 System.out.println(hibernateException);
                 System.out.println("Fallo");
