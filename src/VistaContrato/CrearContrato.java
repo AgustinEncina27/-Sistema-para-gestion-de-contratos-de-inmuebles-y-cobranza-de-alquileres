@@ -57,9 +57,6 @@ public class CrearContrato extends javax.swing.JFrame {
     public CrearContrato(Controlador control2) {
         control= control2;
         cuot = new Cuota();
-        
-        
-        
         initComponents();
         this.setLocationRelativeTo(null);
         jPanel7.setVisible(false);
@@ -726,8 +723,6 @@ public class CrearContrato extends javax.swing.JFrame {
             try{
             long dnum = Long.parseLong(jTextField31.getText());
             l=control.ObtenerLocatario(dnum);
-            //jTextField1.setText(l.getUsuario());
-            //jTextField2.setText(l.getContrasenia());
             jTextField14.setText(l.getNombre());
             jTextField15.setText(l.getApellido());
             String s=String.valueOf(l.getDni());
@@ -824,66 +819,16 @@ public class CrearContrato extends javax.swing.JFrame {
             int recargofijo = 0;
             int valorbase = 0;
             try{
-            int dnum = Integer.parseInt(jTextField32.getText());
-            contcu=1;
-            boolean b= false;
-            for (int cont = 0; cont < dnum; ++cont) {
-                
-                cuot.setNumeroCuota(contcu);
-                cuot.setMontoDeRecargo(Integer.parseInt(jTextField24.getText()));    
-                int mta = Integer.parseInt(jTextField23.getText());
-                cuot.setMontoTotalAPagar(mta);
-                
-                if(cont==0){
-                    stringFecha = jTextField37.getText()+"/"+jTextField38.getText()+"/"+jTextField36.getText() ;
-
-                    DateFormat fecha = new SimpleDateFormat("dd/MM/yyyy");
-                    try {
-                        date1 = fecha.parse(stringFecha);   
-                    } catch (ParseException ex) {
-                     Logger.getLogger(CrearContrato.class.getName()).log(Level.SEVERE, null, ex);
-                    }   
-                }
-                
-		
-                java.sql.Date sqlDate = new java.sql.Date(date1.getTime());
-                
-                cuot.setPrimerFechaDePago(sqlDate);
-                
-                date2 =  new java.util.Date();
-                date2 = date1;
-                
-                Calendar calendar = Calendar.getInstance();
-                calendar.setTime(date2);// Configuramos la fecha que se recibe
-                calendar.add(Calendar.DAY_OF_YEAR, 10);// numero de días a añadir, o restar en caso de días<0
-                date2=calendar.getTime();// Devuelve el objeto Date con los nuevos días añadidos
-               
-                java.sql.Date sqlDate2 = new java.sql.Date(date2.getTime());
-
-                DateFormat fecha1 = new SimpleDateFormat("dd/MM/yyyy");
-                    try {
-                        date3 = fecha1.parse("0/0/0000");   
-                    } catch (ParseException ex) {
-                     Logger.getLogger(CrearContrato.class.getName()).log(Level.SEVERE, null, ex);
-                    } 
-                java.sql.Date sqlDate3 = new java.sql.Date(date3.getTime());
-
-
-                Calendar calendar1 = Calendar.getInstance();
-                calendar.setTime(date1);// Configuramos la fecha que se recibe
-                calendar.add(Calendar.DAY_OF_YEAR, 30);// numero de días a añadir, o restar en caso de días<0
-                date1 = calendar.getTime();// Devuelve el objeto Date con los nuevos días añadidos
-                cro.cargarlista(Integer.parseInt(jTextField24.getText()), mta, sqlDate, sqlDate2,sqlDate3, b); 
-            } 
+            cro=control.CalculoDeCuota(Integer.parseInt(jTextField32.getText()),jTextField24.getText(),jTextField23.getText(),jTextField37.getText(),jTextField38.getText(),jTextField36.getText());
             control.InsertarCronograma(cro);
             
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
             SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM/yyyy");       
-                recargofijo = Integer. parseInt (jTextField24.getText());
-                valorbase = Integer. parseInt (jTextField25.getText());
+            recargofijo = Integer. parseInt (jTextField24.getText());
+            valorbase = Integer. parseInt (jTextField25.getText());
             
-                fechaini = formato.parse(jTextField37.getText()+"/"+jTextField38.getText()+"/"+jTextField36.getText());
-                fechafin = formato2.parse(jTextField9.getText()+"/"+jTextField39.getText()+"/"+jTextField8.getText());
+            fechaini = formato.parse(jTextField37.getText()+"/"+jTextField38.getText()+"/"+jTextField36.getText());
+            fechafin = formato2.parse(jTextField9.getText()+"/"+jTextField39.getText()+"/"+jTextField8.getText());
              
             java.sql.Date sqlfechaini = new java.sql.Date(fechaini.getTime());
             java.sql.Date sqlfechafin = new java.sql.Date(fechafin.getTime());
@@ -910,7 +855,7 @@ public class CrearContrato extends javax.swing.JFrame {
                     control.InsertarContrato(v);
                  }
             }
-            HibernateSession.desconectar();
+            
             CrearContrato g= new CrearContrato(control);
             g.setVisible(true);
             this.setVisible(false);

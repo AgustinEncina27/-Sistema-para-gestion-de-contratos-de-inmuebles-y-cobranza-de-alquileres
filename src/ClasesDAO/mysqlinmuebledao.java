@@ -75,7 +75,7 @@ public class mysqlinmuebledao implements inmuebledao{
                 List <Inmueble> inmuebles = null;
                 try {
                     session = null;
-            session= HibernateSession.getSession();
+                    session= HibernateSession.getSession();
                     Query  q = session.createQuery(" FROM INMUEBLE ");
                     inmuebles= q.list();
                 } catch (Exception e) {

@@ -20,6 +20,7 @@ public class mysqlcontratodao implements contratodao{
 	@Override
 	public void insertar(Contrato g) {
 		try {
+                HibernateSession.desconectar();
                 session = null;
                 session= HibernateSession.getSession();
                 session.beginTransaction();
