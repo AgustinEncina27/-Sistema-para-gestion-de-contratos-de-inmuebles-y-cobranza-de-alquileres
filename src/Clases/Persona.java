@@ -92,6 +92,10 @@ public abstract class Persona {
 
     public Persona() {
     }
+
+    public String toString() {
+        return "Persona{" + "dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", estadoCivil=" + estadoCivil + ", domicilio=" + domicilio + ", telefono=" + telefono + ", correoElectronico=" + correoElectronico + '}';
+    }
         
         
 }
